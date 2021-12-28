@@ -1,0 +1,36 @@
+$double-space: 1rem;
+$space: 0.5rem;
+
+@mixin buttons {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 105%;
+  // transform: translateY(-300%);
+}
+
+@mixin buttonLeft {
+  background-color: white;
+  font-size: 3rem;
+  border-radius: 3rem;
+}
+
+@mixin buttonRight {
+  background-color: white;
+  font-size: 3rem;
+  border-radius: 3rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+
+
+
+
+
