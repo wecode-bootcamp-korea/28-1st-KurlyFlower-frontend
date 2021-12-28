@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import './Banner.scss';
@@ -7,14 +7,20 @@ function Banner() {
   const SLIDE_WIDTH = '1440';
   const slideRef = useRef();
 
-  function slideToLeft() {
-    console.log('left');
-    slideRef.current.style.transform = `translateX(${SLIDE_WIDTH}px)`;
+  let [slideNum, setSlideNum] = useState(0);
+
+  useEffect(() => {
+    slideRef.current.style.transform = `translateX(-${
+      SLIDE_WIDTH * slideNum
+    }px)`;
+  }, [slideNum]);
+
+  function onClickLeft() {
+    setSlideNum(slideNum => slideNum - 1);
   }
 
-  function slideToRight() {
-    console.log('right');
-    slideRef.current.style.transform = `translateX(-${SLIDE_WIDTH}px)`;
+  function onClickRight() {
+    setSlideNum(slideNum => slideNum + 1);
   }
 
   return (
@@ -35,10 +41,10 @@ function Banner() {
         </div>
         <div className="buttons">
           <button>
-            <MdKeyboardArrowLeft className="left" onClick={slideToLeft} />
+            <MdKeyboardArrowLeft className="left" onClick={onClickLeft} />
           </button>
           <button />
-          <MdKeyboardArrowRight className="right" onClick={slideToRight} />
+          <MdKeyboardArrowRight className="right" onClick={onClickRight} />
         </div>
       </div>
     </div>
