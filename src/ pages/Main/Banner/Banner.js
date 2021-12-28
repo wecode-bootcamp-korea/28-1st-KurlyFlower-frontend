@@ -31,6 +31,7 @@ function Banner() {
   let [slide, setSlide] = useState({
     number: START,
     memo: 0,
+    withMotion: true,
   });
 
   useEffect(() => {
@@ -38,35 +39,65 @@ function Banner() {
     slideRef.current.style.transform = `translateX(-${
       SLIDE_WIDTH * (slide.number - 1)
     }px)`;
+    slideRef.current.style.transition = slide.withMotion
+      ? 'all 0.5s ease-in'
+      : '';
     console.log(NEXT_START === slide.number);
   }, [slide]);
+
+  function slideAfterMoveLeft() {
+    setSlide({
+      number: END - 1,
+      memo: slide.number - 1,
+      withMotion: true,
+    });
+  }
+
+  function slideAfterMoveRight() {
+    setSlide({
+      number: START + 1,
+      memo: slide.number + 1,
+      withMotion: true,
+    });
+  }
 
   function onClickLeft() {
     if (slide.number === PREV_END && slide.memo === PREV_END + 1) {
       setSlide({
         number: END,
         memo: END - 1,
+        withMotion: false,
       });
+      setTimeout(() => {
+        slideAfterMoveLeft();
+      }, 50);
+
       console.log('time to move next');
     } else {
       setSlide({
         number: slide.number - 1,
         memo: slide.number,
+        withMotion: true,
       });
     }
   }
-
   function onClickRight() {
     if (slide.number === NEXT_START && slide.memo === NEXT_START - 1) {
       setSlide({
         number: START,
         memo: START + 1,
+        withMotion: false,
       });
+      setTimeout(() => {
+        slideAfterMoveRight();
+      }, 50);
+
       console.log('time to move next');
     } else {
       setSlide({
         number: slide.number + 1,
         memo: slide.number,
+        withMotion: true,
       });
     }
   }

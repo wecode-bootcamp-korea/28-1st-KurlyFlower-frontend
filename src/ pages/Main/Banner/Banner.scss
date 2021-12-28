@@ -20,12 +20,8 @@
 
     .list {
       display: flex;
-      transition: all 1s ease-in;
 
       .item {
-      //   img:hover > .buttons {
-      //     color: blue;
-      // }
         img:hover > .left{
           opacity: 0.5;
         }
