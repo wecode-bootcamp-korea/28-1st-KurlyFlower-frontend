@@ -21,12 +21,10 @@ function Banner() {
 
   const BANNERS_COUNT = bannerContents.length;
   const TOTAL_BANNERS_COUNT = BANNERS_COUNT * 3;
-  const START = (TOTAL_BANNERS_COUNT * 1) / 3 + 1; //4
+  const START = (TOTAL_BANNERS_COUNT * 1) / 3 + 1;
   const END = (TOTAL_BANNERS_COUNT * 2) / 3;
-  // const PREV_START = 1;
-  const PREV_END = (TOTAL_BANNERS_COUNT * 1) / 3; //3
-  const NEXT_START = (TOTAL_BANNERS_COUNT * 2) / 3 + 1; //7
-  // const NEXT_END = TOTAL_BANNERS_COUNT; //9
+  const PREV_END = (TOTAL_BANNERS_COUNT * 1) / 3;
+  const NEXT_START = (TOTAL_BANNERS_COUNT * 2) / 3 + 1;
 
   let [slide, setSlide] = useState({
     number: START,

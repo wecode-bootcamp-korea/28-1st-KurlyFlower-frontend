@@ -31,12 +31,12 @@
 
     .list {
       display: flex;
-      transform: translateX(-9px);
+      transition: all 0.5s ease-in;
 
       .item {
         display: flex;
         flex-direction: column;
-        padding: 9px;
+        padding: 9px 18px 0 0;
 
         img {
           width: 249px;
@@ -56,6 +56,30 @@
           font-weight: 700;
         }
       }
+
+        .more {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-left: 5rem;
+
+          .moreButton {
+            font-size: 6rem;
+            color: $main-purple;
+            border: 1px solid $light-grey-border;
+            border-radius: 3rem;
+          }
+
+          .moreButton:hover {
+            background-color: $light-grey-border;
+          }
+
+          .moreText {
+            margin-top: 1rem;
+            font-size: $font-size-M;
+          }
+        }
     }
   }
 }
@@ -72,6 +96,10 @@
       @include buttonRight;
 
     }
+  }
+
+  .hide {
+    visibility: hidden;
   }
 
 }

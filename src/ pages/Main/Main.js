@@ -1,13 +1,13 @@
 import React from 'react';
 import './Main.scss';
-import Products from './Products/Products';
+import MainProducts from './MainProducts/MainProducts';
 import Banner from './Banner/Banner';
 
 function Main() {
   return (
     <div className="main">
       <Banner />
-      <Products />
+      <MainProducts />
     </div>
   );
 }
