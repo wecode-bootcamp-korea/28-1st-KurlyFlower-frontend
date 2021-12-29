@@ -1,0 +1,87 @@
+@import '../styles/variables.scss';
+.leftInfo {
+  border: 1px solid #ccc;
+  border-radius: 21px;
+  margin-top: -83px;
+  width: 140px;
+  text-align: center;
+  font-size: 14px;
+  .Info {
+    color: $main-purple;
+  }
+}
+.rightMenu {
+  float: right;
+  margin-top: -17px;
+  margin-right: 70px;
+  font-weight: bold;
+  list-style-type: none;
+  text-align: none;
+
+  #rightList {
+    list-style-type: none;
+    text-align: right;
+    float: right;
+    font-size: 13px;
+    padding: 0px 17px 10px;
+  }
+}
+.show-menu {
+  width: 100px;
+  height: 30px;
+  margin: 4px 10px 30px 10px;
+  transition: 4s;
+}
+.hide-menu {
+  width: 100px;
+  height: 30px;
+  transition: 1s;
+  opacity: 0;
+}
+ul {
+  .listTest {
+    font-size: 12px;
+    margin: 0px -10px 5px;
+    padding: 3px 1px 5px;
+  }
+}
+a {
+  color: black;
+}
+.categoriesGroup {
+  text-align: left;
+  margin-top: 80px;
+  font-weight: bold;
+  font-size: 23px;
+}
+#categorieAll {
+  margin-left: 20px;
+}
+.categorieMenuV {
+  margin-left: 55px;
+}
+.categorieMenuF {
+  margin-left: 60px;
+}
+.categorieMenuM {
+  margin-left: 65px;
+}
+.categorieMenuFi {
+  margin-left: 70px;
+}
+.imgCate {
+  margin-left: 40px;
+}
+.imgSearch {
+  margin-top: 10px;
+}
+.searchField {
+  width: 300px;
+  height: 34px;
+  background-color: #efefef;
+  border-radius: 95px;
+  margin-left: 70px;
+  &::placeholder {
+    text-align: center;
+  }
+}

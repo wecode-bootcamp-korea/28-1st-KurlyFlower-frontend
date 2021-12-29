@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+.logoText {
+  white-space: pre-wrap;
+  font-weight: bold;
+  text-align: center;
+  color: $main-purple;
+  font-size: 31px;
+  padding-top: 20px;
+}
