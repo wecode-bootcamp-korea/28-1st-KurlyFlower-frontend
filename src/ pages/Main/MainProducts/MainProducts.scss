@@ -2,9 +2,7 @@
 @import '../Main.scss';
 
 .mainProducts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include center;
   justify-content: center;
   padding: 32px 0 40px 0;
 
@@ -57,21 +55,32 @@
           }
 
           .cartContainer {
+            position: absolute;
+            transform: translate(11rem,15.5rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: $main-light-purple;
+            opacity: 0.7;
+            border-radius: 3rem;
+            cursor: pointer;
+
             .cart {
-              position: absolute;
-              background-color: $main-purple;
-              border-radius: 3rem;
               color: white;
-              font-size: 3rem;
+              font-size: 2.2rem;
             }
+          }
+
+          .clicked {
+            color: $main-purple;
           }
         }
 
         .more {
-          display: flex;
-          flex-direction: column;
+          @include center;
           justify-content: center;
-          align-items: center;
           margin-left: 5rem;
 
           .moreButton {
@@ -97,11 +106,11 @@
       @include buttons;
       transform: translateY(350%);
 
-      .left {
+      .prev {
         @include buttonLeft;
       }
 
-      .right {
+      .next {
         @include buttonRight;
       }
     }

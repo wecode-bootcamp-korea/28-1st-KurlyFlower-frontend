@@ -1,12 +1,13 @@
 $double-space: 1rem;
 $space: 0.5rem;
+$main-purple: rgb(75,0,109);
+$main-light-purple: rgb(127, 73, 151);
 
 @mixin buttons {
   position: absolute;
   display: flex;
   justify-content: space-between;
   width: 105%;
-  // transform: translateY(-300%);
 }
 
 @mixin buttonLeft {
@@ -21,17 +22,8 @@ $space: 0.5rem;
   border-radius: 3rem;
 }
 
-
-.main {
+@mixin center {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
-
-
-
-
-
-
-

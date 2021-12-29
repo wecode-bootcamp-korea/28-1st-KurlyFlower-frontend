@@ -4,36 +4,12 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useEffect } from 'react/cjs/react.development';
 import { BsCart2 } from 'react-icons/bs';
-
-function Products() {
+function Products({ products }) {
   const itemListRef = useRef();
   const [items, setItems] = useState(0);
   const ITEM_WIDTH = 249;
   const PADDING = 18;
   const SLIDE_WIDTH = 4 * (ITEM_WIDTH + PADDING);
-
-  const productsArray = [
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-    '/images/main/carrot.jpg',
-  ];
 
   useEffect(() => {
     if (items < 5) {
@@ -57,19 +33,23 @@ function Products() {
     }
   }
 
+  // function clickCart() {
+
+  // }
+
   return (
     <div className="mainProducts">
-      <h1 className="title">인기 신상품 랭킹</h1>
-      <h3 className="subtitle">가장 먼저 만나보는 인기 신상품</h3>
+      <h1 className="title">{products.title}</h1>
+      <h3 className="subtitle">{products.subtitle}</h3>
       <div className="wrap">
         <div className="container">
           <div className="list" ref={itemListRef}>
-            {productsArray.map(product => (
-              <span className="item">
-                <img src={product} alt="" />
-                <p className="name">[셰프키친] 신선한 당근 2kg</p>
-                <p className="price">9,900원</p>
-                <div className="cart">
+            {products.products.map((product, idx) => (
+              <span key={idx} className="item">
+                <img src={product.img} alt="" />
+                <p className="name">{product.name}</p>
+                <p className="price">{product.price}</p>
+                <div className="cartContainer">
                   <BsCart2 className="cart" />
                 </div>
               </span>
@@ -83,14 +63,14 @@ function Products() {
         <div className="buttons">
           <button>
             {items > 0 ? (
-              <MdKeyboardArrowLeft className="left" onClick={onLeftClick} />
+              <MdKeyboardArrowLeft className="prev" onClick={onLeftClick} />
             ) : (
               ''
             )}
           </button>
           <button />
           {items < 5 ? (
-            <MdKeyboardArrowRight className="right" onClick={onRightClick} />
+            <MdKeyboardArrowRight className="next" onClick={onRightClick} />
           ) : (
             ''
           )}
