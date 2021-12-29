@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../Main.scss';
 
-.main-products {
+.mainProducts {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,43 +19,53 @@
     color: $dark-grey-text;
   }
 
-.wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-
-  .container {
+  .wrap {
     position: relative;
-    width: 1050px;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
 
-    .list {
-      display: flex;
-      transition: all 0.5s ease-in;
+    .container {
+      position: relative;
+      width: 1050px;
+      overflow: hidden;
 
-      .item {
+      .list {
         display: flex;
-        flex-direction: column;
-        padding: 9px 18px 0 0;
+        transition: all 0.5s ease-in;
 
-        img {
-          width: 249px;
-          height: 320px;
-          margin-bottom: $double-space;
-        }
+        .item {
+          display: flex;
+          flex-direction: column;
+          padding: 9px 18px 0 0;
 
-        p {
-          font-size: $font-size-M;
-        }
+          img {
+            width: 249px;
+            height: 320px;
+            margin-bottom: $double-space;
+          }
 
-        .name {
-          margin-bottom: $space;
-        }
+          p {
+            font-size: $font-size-M;
+          }
 
-        .price {
-          font-weight: 700;
+          .name {
+            margin-bottom: $space;
+          }
+
+          .price {
+            font-weight: 700;
+          }
+
+          .cartContainer {
+            .cart {
+              position: absolute;
+              background-color: $main-purple;
+              border-radius: 3rem;
+              color: white;
+              font-size: 3rem;
+            }
+          }
         }
-      }
 
         .more {
           display: flex;
@@ -80,26 +90,20 @@
             font-size: $font-size-M;
           }
         }
-    }
-  }
-}
-
-  .buttons {
-    @include buttons;
-    transform: translateY(350%);
-
-    .left {
-      @include buttonLeft;
+      }
     }
 
-    .right {
-      @include buttonRight;
+    .buttons {
+      @include buttons;
+      transform: translateY(350%);
 
+      .left {
+        @include buttonLeft;
+      }
+
+      .right {
+        @include buttonRight;
+      }
     }
   }
-
-  .hide {
-    visibility: hidden;
-  }
-
 }

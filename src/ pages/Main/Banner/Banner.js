@@ -97,12 +97,12 @@ function Banner() {
 
   return (
     <div className="banner">
-      <div className="banner-wrap">
-        <div className="banner-container">
+      <div className="bannerWrap">
+        <div className="bannerContainer">
           <div className="list" ref={slideRef}>
             {ThreeTimesBannerContents.map(banner => (
               <article className="item">
-                <img className="item-img" src={banner} alt="" />
+                <img className="itemImg" src={banner} alt="" />
               </article>
             ))}
           </div>

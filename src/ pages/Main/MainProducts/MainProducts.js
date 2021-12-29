@@ -3,13 +3,14 @@ import './MainProducts.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useEffect } from 'react/cjs/react.development';
+import { BsCart2 } from 'react-icons/bs';
 
 function Products() {
   const itemListRef = useRef();
   const [items, setItems] = useState(0);
   const ITEM_WIDTH = 249;
   const PADDING = 18;
-  const slideWidth = 4 * (ITEM_WIDTH + PADDING);
+  const SLIDE_WIDTH = 4 * (ITEM_WIDTH + PADDING);
 
   const productsArray = [
     '/images/main/carrot.jpg',
@@ -37,11 +38,11 @@ function Products() {
   useEffect(() => {
     if (items < 5) {
       itemListRef.current.style.transform = `translateX(-${
-        items * slideWidth
+        items * SLIDE_WIDTH
       }px)`;
     } else {
       itemListRef.current.style.transform = `translateX(-${
-        items * slideWidth - 3 * (ITEM_WIDTH + PADDING)
+        items * SLIDE_WIDTH - 3 * (ITEM_WIDTH + PADDING)
       }px)`;
     }
   }, [items]);
@@ -57,7 +58,7 @@ function Products() {
   }
 
   return (
-    <div className="main-products">
+    <div className="mainProducts">
       <h1 className="title">인기 신상품 랭킹</h1>
       <h3 className="subtitle">가장 먼저 만나보는 인기 신상품</h3>
       <div className="wrap">
@@ -68,6 +69,9 @@ function Products() {
                 <img src={product} alt="" />
                 <p className="name">[셰프키친] 신선한 당근 2kg</p>
                 <p className="price">9,900원</p>
+                <div className="cart">
+                  <BsCart2 className="cart" />
+                </div>
               </span>
             ))}
             <span className="more">

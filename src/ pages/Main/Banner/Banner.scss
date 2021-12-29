@@ -6,14 +6,14 @@
   flex-direction: column;
   align-items: center;
 
-.banner-wrap {
+.bannerWrap {
   position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 5rem;
   background-color: cadetblue;
 
-  .banner-container {
+  .bannerContainer {
     width: 1425px;
     height: 370px;
     overflow: hidden;
@@ -21,12 +21,9 @@
     .list {
       display: flex;
 
-      .item {
-        img:hover > .left{
+        .itemImg:hover > .left{
           opacity: 0.5;
         }
-
-      }
     }
   }
 
