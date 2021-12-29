@@ -1,0 +1,19 @@
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1px;
+  padding: 25px;
+  cursor: pointer;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  img {
+    width: 242px;
+    height: 242px;
+  }
+
+  .menuInfo {
+    margin-top: 15px;
+  }
+}
