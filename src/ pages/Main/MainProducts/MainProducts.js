@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './MainProducts.scss';
-import { MdKeyboardArrowLeft, MdSettingsInputAntenna } from 'react-icons/md';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useEffect } from 'react/cjs/react.development';
 
@@ -44,7 +44,6 @@ function Products() {
         items * slideWidth - 3 * (ITEM_WIDTH + PADDING)
       }px)`;
     }
-    console.log(items);
   }, [items]);
 
   function onRightClick() {

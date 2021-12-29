@@ -33,14 +33,12 @@ function Banner() {
   });
 
   useEffect(() => {
-    console.log(slide.number);
     slideRef.current.style.transform = `translateX(-${
       SLIDE_WIDTH * (slide.number - 1)
     }px)`;
     slideRef.current.style.transition = slide.withMotion
       ? 'all 0.5s ease-in'
       : '';
-    console.log(NEXT_START === slide.number);
   }, [slide]);
 
   function slideAfterMoveLeft() {
@@ -69,8 +67,6 @@ function Banner() {
       setTimeout(() => {
         slideAfterMoveLeft();
       }, 50);
-
-      console.log('time to move next');
     } else {
       setSlide({
         number: slide.number - 1,
@@ -79,6 +75,7 @@ function Banner() {
       });
     }
   }
+
   function onClickRight() {
     if (slide.number === NEXT_START && slide.memo === NEXT_START - 1) {
       setSlide({
@@ -89,8 +86,6 @@ function Banner() {
       setTimeout(() => {
         slideAfterMoveRight();
       }, 50);
-
-      console.log('time to move next');
     } else {
       setSlide({
         number: slide.number + 1,
