@@ -4,26 +4,68 @@
     "subtitle": "최저가 할인",
     "products":[
       {
+        "id": 0,
+        "img": "/images/main/carrot.jpg",
+        "name": "1namename",
+        "price": "9900원"
+      },{
+        "id": 1,
+        "img": "/images/main/carrot.jpg",
+        "name": "2namename",
+        "price": "9900원"
+      },{
+        "id": 2,
+        "img": "/images/main/carrot.jpg",
+        "name": "3namename",
+        "price": "9900원"
+      },{
+        "id": 3,
+        "img": "/images/main/carrot.jpg",
+        "name": "4namename",
+        "price": "9900원"
+      },{
+        "id": 4,
+        "img": "/images/main/carrot.jpg",
+        "name": "5namename",
+        "price": "9900원"
+      },{
+        "id": 5,
+        "img": "/images/main/carrot.jpg",
+        "name": "6namename",
+        "price": "9900원"
+      }
+    ]
+  },{
+    "title": "놓칠 수 없는 최저가",
+    "subtitle": "최저가 할인",
+    "products":[
+      {
+        "id": 6,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 7,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 8,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 9,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 10,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 11,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
@@ -34,26 +76,32 @@
     "subtitle": "최저가 할인",
     "products":[
       {
+        "id": 12,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 13,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 14,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 15,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 16,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 17,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
@@ -64,56 +112,32 @@
     "subtitle": "최저가 할인",
     "products":[
       {
+        "id": 18,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 19,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 20,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 21,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
+        "id": 22,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"
       },{
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      }
-    ]
-  },{
-    "title": "놓칠 수 없는 최저가",
-    "subtitle": "최저가 할인",
-    "products":[
-      {
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      },{
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      },{
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      },{
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      },{
-        "img": "/images/main/carrot.jpg",
-        "name": "namename",
-        "price": "9900원"
-      },{
+        "id": 23,
         "img": "/images/main/carrot.jpg",
         "name": "namename",
         "price": "9900원"

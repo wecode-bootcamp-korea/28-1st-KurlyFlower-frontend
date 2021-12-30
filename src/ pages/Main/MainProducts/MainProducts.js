@@ -4,7 +4,8 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useEffect } from 'react/cjs/react.development';
 import { BsCart2 } from 'react-icons/bs';
-function Products({ products }) {
+
+function Products({ products, addCart, cartList }) {
   const itemListRef = useRef();
   const [items, setItems] = useState(0);
   const ITEM_WIDTH = 249;
@@ -33,9 +34,9 @@ function Products({ products }) {
     }
   }
 
-  // function clickCart() {
-
-  // }
+  function onClickCart(product) {
+    addCart(product);
+  }
 
   return (
     <div className="mainProducts">
@@ -46,11 +47,22 @@ function Products({ products }) {
           <div className="list" ref={itemListRef}>
             {products.products.map((product, idx) => (
               <span key={idx} className="item">
-                <img src={product.img} alt="" />
+                <div className="imgContainer">
+                  <img src={product.img} alt="" />
+                </div>
                 <p className="name">{product.name}</p>
                 <p className="price">{product.price}</p>
-                <div className="cartContainer">
-                  <BsCart2 className="cart" />
+                <div
+                  className={`cartContainer ${
+                    cartList.includes(product.id) ? 'clickedContainer' : ''
+                  }`}
+                >
+                  <BsCart2
+                    className={`cart ${
+                      cartList.includes(product.id) ? 'clickedCart' : ''
+                    }`}
+                    onClick={() => onClickCart(product)}
+                  />
                 </div>
               </span>
             ))}

@@ -100,8 +100,8 @@ function Banner() {
         <div className="bannerContainer">
           <div className="list" ref={slideRef}>
             {banners &&
-              banners.map(banner => (
-                <article className="item">
+              banners.map((banner, idx) => (
+                <article key={idx} className="item">
                   <img className="itemImg" src={banner} alt="" />
                 </article>
               ))}
