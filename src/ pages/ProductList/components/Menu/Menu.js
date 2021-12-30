@@ -11,7 +11,7 @@ function Menu({ id, name, price }) {
           src="https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
           alt="vegetable"
         />
-        <CartBtn />
+        {/* <CartBtn /> */}
       </div>
 
       <div className="menuInfo">

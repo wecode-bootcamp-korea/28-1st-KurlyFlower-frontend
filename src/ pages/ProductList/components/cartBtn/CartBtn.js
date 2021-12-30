@@ -4,7 +4,7 @@ import React from 'react';
 function CartBtn() {
   return (
     <div className="cartBtn">
-      <button class="btn1">버튼1</button>
+      <button className="btn1">버튼1</button>
     </div>
   );
 }
