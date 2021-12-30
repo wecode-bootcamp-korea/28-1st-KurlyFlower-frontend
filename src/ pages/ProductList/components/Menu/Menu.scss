@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  cursor: pointer;
+  height: 640px;
+
+  .imgBox {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        transform: scale(1.05, 1.05);
+        transition-duration: 0.9s;
+      }
+    }
+  }
+
+  .btn1 {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+
+    background: blueviolet;
+    border: 1px solid black;
+    z-index: 1;
+  }
+
+  .menuInfo {
+    margin-top: 15px;
+    margin-bottom: 120px;
+  }
+}

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import MenuList from './component/MenuList/MenuList';
+import MenuList from './components/MenuList/MenuList';
+import SortMenu from './components/SortMenu/SortMenu';
+import Menu from './components/Menu/Menu';
 import './ProductList.scss';
 
 function ProductList() {
   const [productList, setProductList] = useState([]);
-  const price = productList.price;
-  console.log(price);
+
+  const onClick = () => {
+    setProductList(
+      productList.sort((a, b) => {
+        return a.price - b.price;
+      })
+    );
+  };
 
   useEffect(() => {
     fetch('http://localhost:3000/data/productData.json', {
@@ -15,7 +23,6 @@ function ProductList() {
       // .then((result) => console.log(result)); //console로 데이터 10개 들어 온거 확인
       .then(data => setProductList(data));
   }, []); //  useEffect 에서 한 번만 랜더링함
-
   return (
     <>
       <div className="productTitle">
@@ -26,14 +33,7 @@ function ProductList() {
           <li>선택2</li>
         </ul>
       </div>
-      <div className="soltMenu">
-        <ul>
-          <li>추천순</li>
-          <li>판매량순</li>
-          <li>낮은가격순</li>
-          <li>높은가격순</li>
-        </ul>
-      </div>
+      <SortMenu productList={productList} />
       <MenuList productList={productList} />
     </>
   );

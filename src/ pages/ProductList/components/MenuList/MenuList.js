@@ -1,9 +1,10 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
-import '../MenuList.scss';
+import './MenuList.scss';
 
 function MenuList({ productList }) {
   //props >> productList(구조분해할당)
+
   return (
     <div className="menuList">
       {productList.map(menu => {
