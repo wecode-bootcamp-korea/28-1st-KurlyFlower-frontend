@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+#checkBtns {
+  border: 1px solid $main-purple;
+  color: $main-purple;
+  width: 120px;
+  height: 44px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  outline: none;
+  position: absolute;
+}
+.checkBtn {
+  top: 10px;
+  right: 320px;
+}
+.checkBtnName {
+  top: 267px;
+  right: 320px;
+}

@@ -1,3 +1,125 @@
+@import '../../styles/variables.scss';
 div {
   font-size: 1rem;
+}
+h2 {
+  font-weight: bold;
+  font-size: 28px;
+  color: #333;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 23px;
+}
+.pageSub {
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 11px;
+  color: #666;
+  padding-right: 420px;
+  padding-top: 45px;
+}
+.icons {
+  padding-right: 2px;
+  color: #ee6a7b;
+}
+.tableBar {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  width: 650px;
+  position: absolute;
+  left: 320px;
+  margin-top: 10px;
+  padding-bottom: 35px;
+}
+.mapList {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.mapOne {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+.tableMap {
+  width: 159px;
+  padding: 40px 0 0 20px;
+  font-weight: bold;
+  color: #333;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+td {
+  margin-left: 40px;
+  padding: 9px;
+  border-top: 0;
+  text-align: left;
+}
+
+.inputTests {
+  height: 44px;
+  width: 43%;
+  padding: 0 11px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 10px;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+  vertical-align: top;
+}
+.tableBars {
+  // input map 관련
+  width: 790px;
+  position: absolute;
+  left: 490px;
+  margin-top: 26px;
+}
+.alpha {
+  // input map 관련
+  display: table-row;
+}
+.userAgreePart {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+
+  .agreePart {
+    margin-top: 25px;
+    text-align: left;
+    position: absolute;
+    left: -150px;
+  }
+}
+input[type='checkbox'] {
+  //기본 체크박스 속성관련
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 4px;
+}
+.partMap {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 21px;
+  margin-left: 30px;
+  height: 32px;
+  display: table;
+}
+.memberJoin {
+  position: absolute;
+  border: 1px solid $main-purple;
+  background-color: $main-purple;
+  color: #fff;
+  bottom: -60px;
+  left: 130px;
+  width: 240px;
+  height: 56px;
+  font-size: 21px;
 }
