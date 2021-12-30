@@ -15,7 +15,7 @@ function Banner() {
     fetchBannersData();
   }, []);
 
-  const SLIDE_WIDTH = '1440';
+  const SLIDE_WIDTH = 1440;
   const slideRef = useRef();
 
   const BANNERS_COUNT = banners.length;
@@ -27,7 +27,6 @@ function Banner() {
 
   const [slide, setSlide] = useState({
     number: START,
-    memo: 0,
     withMotion: true,
   });
 
@@ -43,7 +42,6 @@ function Banner() {
   function slideAfterMoveLeft() {
     setSlide({
       number: END - 1,
-      memo: slide.number - 1,
       withMotion: true,
     });
   }
@@ -51,16 +49,14 @@ function Banner() {
   function slideAfterMoveRight() {
     setSlide({
       number: START + 1,
-      memo: slide.number + 1,
       withMotion: true,
     });
   }
 
   function onClickPrev() {
-    if (slide.number === PREV_END && slide.memo === PREV_END + 1) {
+    if (slide.number === PREV_END) {
       setSlide({
         number: END,
-        memo: END - 1,
         withMotion: false,
       });
       setTimeout(() => {
@@ -69,17 +65,15 @@ function Banner() {
     } else {
       setSlide({
         number: slide.number - 1,
-        memo: slide.number,
         withMotion: true,
       });
     }
   }
 
   function onClickNext() {
-    if (slide.number === NEXT_START && slide.memo === NEXT_START - 1) {
+    if (slide.number === NEXT_START) {
       setSlide({
         number: START,
-        memo: START + 1,
         withMotion: false,
       });
       setTimeout(() => {
@@ -88,7 +82,6 @@ function Banner() {
     } else {
       setSlide({
         number: slide.number + 1,
-        memo: slide.number,
         withMotion: true,
       });
     }
