@@ -4,15 +4,15 @@ import Nav from '../../components/Nav';
 import './Login.scss';
 
 function Login() {
-  const [inputId, setinputId] = useState('');
-  const [inputPw, setinputPw] = useState('');
-  const [loginBtnActive, setloginBtnActive] = useState(false);
-  const inputIdEvent = e => setinputId(e.target.value);
-  const inputPwEvent = e => setinputPw(e.target.value);
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
+  const [loginBtnActive, setLoginBtnActive] = useState(false);
+
+  const inputIdEvent = e => setInputId(e.target.value);
+  const inputPwEvent = e => setInputPw(e.target.value);
+
   const btnActive = () => {
-    setloginBtnActive(
-      inputId.includes('') && inputPw.length > 3 ? true : false
-    );
+    setLoginBtnActive(inputId.includes('') && inputPw.length > 3);
   };
 
   return (
@@ -48,15 +48,14 @@ function Login() {
         <Link to="/main">
           <button
             type="button"
-            id="loginPage"
-            className="btnLogin"
-            disabled={loginBtnActive ? false : 'disabled'}
+            className="classSelectorTwo btnLogin"
+            disabled={!loginBtnActive}
           >
             로그인
           </button>
         </Link>
         <Link to="/signup">
-          <button type="button" id="loginPage" className="btnSignUp">
+          <button type="button" className="classSelectorTwo btnSignUp">
             회원가입
           </button>
         </Link>

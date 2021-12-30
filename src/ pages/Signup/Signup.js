@@ -9,7 +9,7 @@ import './Signup.scss';
 
 function Signup() {
   return (
-    <div>
+    <div className="signUps">
       <Nav />
       <h2 className="signUpTitles">회원가입</h2>
       <p className="pageSub">
@@ -46,7 +46,7 @@ function Signup() {
             );
           })}
 
-          <BtnComponent />
+          {/* <BtnComponent />  기존 중복확인 버튼 컴포넌트, 백엔드 회원가입 관련 담당자와 협의후에 제거하기로 처리됨 */}
           <tr className="userAgreePart">
             <th className="agreePart">
               이용약관동의

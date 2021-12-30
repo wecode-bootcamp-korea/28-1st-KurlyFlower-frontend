@@ -1,5 +1,5 @@
 @import '../../styles/variables.scss';
-#checkBtns {
+.classSelectorOne {
   border: 1px solid $main-purple;
   color: $main-purple;
   width: 120px;
@@ -10,12 +10,13 @@
   text-align: center;
   outline: none;
   position: absolute;
-}
-.checkBtn {
-  top: 10px;
-  right: 320px;
-}
-.checkBtnName {
-  top: 267px;
-  right: 320px;
+
+  .checkBtn {
+    top: 10px;
+    right: 320px;
+    .checkBtnName {
+      top: 267px;
+      right: 320px;
+    }
+  }
 }

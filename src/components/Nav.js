@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavLogo from '../ pages/Login/Navlogo';
 import { CSCENTERLIST } from './CSCENTERLIST';
@@ -9,6 +9,12 @@ const Nav = () => {
   const listToggleMenu = () => {
     setlistOpen(listOpen => !listOpen);
   };
+  const [purpleSmallUis, setpurpleSmallUis] = useState(true);
+  useEffect(() => {
+    const purpleSmallUiCount = setTimeout(() => {
+      setpurpleSmallUis(false);
+    }, 20000);
+  }, []);
   return (
     <div className="navLocation">
       <NavLogo />
@@ -50,7 +56,6 @@ const Nav = () => {
         <span className="categorieMenuF">과일</span>
         <span className="categorieMenuM">정육</span>
         <span className="categorieMenuFi">수산</span>
-
         <input
           type="text"
           placeholder="검색어를 입력해주세요"
@@ -61,6 +66,27 @@ const Nav = () => {
           className="imgSearch"
           alt="searchBtn"
         />
+
+        <img
+          src="https://img.icons8.com/ios/50/000000/marker--v1.png"
+          className="imgLocation"
+          alt="btnLocation"
+        />
+        <img
+          src="https://img.icons8.com/ios-glyphs/30/000000/like--v2.png"
+          className="imgHeart"
+          alt="btnHeart"
+        />
+        <img
+          src="https://img.icons8.com/ios/50/000000/shopping-cart.png"
+          className="imgCart"
+          alt="btnCart"
+        />
+        {purpleSmallUis === true ? (
+          <div className="purpleSmallUi">
+            <p>지금 가입하고 인기상품을 100원에 받아가세요</p>
+          </div>
+        ) : null}
       </div>
     </div>
   );
