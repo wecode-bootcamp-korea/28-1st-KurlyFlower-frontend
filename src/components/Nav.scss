@@ -1,9 +1,9 @@
 @import '../styles/variables.scss';
 .navLocation {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $light-grey-border;
 }
 .leftInfo {
-  border: 1px solid #ccc;
+  border: 1px solid $light-grey-border;
   border-radius: 21px;
   margin-top: -83px;
   width: 140px;
@@ -19,9 +19,9 @@
   margin-right: 70px;
   font-weight: bold;
   list-style-type: none;
-  text-align: none;
+  text-align: right;
 
-  #rightList {
+  .rightMenuli {
     list-style-type: none;
     text-align: right;
     float: right;
@@ -42,14 +42,14 @@
   opacity: 0;
 }
 ul {
-  .listTest {
+  .cscenterList {
     font-size: 12px;
     margin: 0px -10px 5px;
-    padding: 3px 1px 5px;
+    padding: 3px 1px 3px;
   }
 }
 a {
-  color: black;
+  color: $black;
 }
 .categoriesGroup {
   text-align: left;
@@ -81,7 +81,7 @@ a {
 .searchField {
   width: 300px;
   height: 34px;
-  background-color: #efefef;
+  background-color: $light-grey;
   border-radius: 95px;
   margin-left: 70px;
   &::placeholder {

@@ -5,7 +5,7 @@ div {
 h2 {
   font-weight: bold;
   font-size: 28px;
-  color: #333;
+  color: $black;
   line-height: 35px;
   text-align: center;
   letter-spacing: 1px;
@@ -16,7 +16,7 @@ h2 {
   font-size: 12px;
   font-weight: bold;
   line-height: 11px;
-  color: #666;
+  color: $dark-grey-text;
   padding-right: 420px;
   padding-top: 45px;
 }
@@ -25,8 +25,8 @@ h2 {
   color: #ee6a7b;
 }
 .tableBar {
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
   width: 650px;
   position: absolute;
   left: 320px;
@@ -47,7 +47,7 @@ h2 {
   width: 159px;
   padding: 40px 0 0 20px;
   font-weight: bold;
-  color: #333;
+  color: $black;
   line-height: 20px;
   text-align: left;
   vertical-align: top;
@@ -64,12 +64,12 @@ td {
   height: 44px;
   width: 43%;
   padding: 0 11px;
-  border: 1px solid #ccc;
+  border: 1px solid $light-grey-border;
   font-size: 14px;
-  color: #ccc;
+  color: $light-grey;
   line-height: 10px;
   border-radius: 4px;
-  background: #fff;
+  background: $light-grey;
   outline: none;
   vertical-align: top;
 }
@@ -80,10 +80,7 @@ td {
   left: 490px;
   margin-top: 26px;
 }
-.alpha {
-  // input map 관련
-  display: table-row;
-}
+
 .userAgreePart {
   display: table-row-group;
   vertical-align: middle;
@@ -116,7 +113,7 @@ input[type='checkbox'] {
   position: absolute;
   border: 1px solid $main-purple;
   background-color: $main-purple;
-  color: #fff;
+  color: $light-grey;
   bottom: -60px;
   left: 130px;
   width: 240px;

@@ -9,7 +9,7 @@ const NavLogo = () => {
     const interval = setInterval(() => {
       settext(text + logoText[count]); //이전에 set으로 받아온것 + 다음에 받아올것
       setcount(count + 1); // 글자가 1글자씩 나오게 함.
-    }, 200); // 2초의 간격으로 setInterval 내부의 코드를 1글자씩 출력함.
+    }, 200); // x초의 간격으로 setInterval 내부의 코드를 1글자씩 출력함.
     if (count === logoText.length) {
       // count와 txt.length가 일치할경우 interval 해제
       clearInterval(interval);

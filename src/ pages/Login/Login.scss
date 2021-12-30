@@ -23,13 +23,13 @@
 .loginUser {
   width: 100%;
   align-content: center;
-  border: 1px solid #ccc;
+  border: 1px solid $light-grey-border;
   font-size: 14px;
   border-radius: 3px;
   padding: 0px 23px;
   line-height: 45px;
   &::placeholder {
-    border: 1px #8a8a8a;
+    border: 1px $light-grey;
   }
 }
 #loginPage {
@@ -46,16 +46,15 @@
 .btnLogin {
   border: 1px solid $main-purple;
   background-color: $main-purple;
-  color: white;
+  color: $light-grey;
 }
 .btnSignUp {
   border: 1px solid $main-purple;
-  background-color: #fff;
+  background-color: $light-grey;
 }
 
-.loginNo {
+.loginFind {
   float: right;
-
   padding: 13px 0px 9px 0px;
   text-align: center;
   font-size: 13px;
@@ -64,7 +63,7 @@
     width: 1px;
     height: 11px;
     margin: 2px 1px 0 -2px;
-    background-color: #333;
+    background-color: $black;
     position: fixed;
   }
 }

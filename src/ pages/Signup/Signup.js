@@ -20,7 +20,7 @@ function Signup() {
         <tbody className="mapList">
           {TABLETH.map(TABLETH => {
             return (
-              <tr className="mapOne">
+              <tr className="mapOne" key={TABLETH.key}>
                 <th className="tableMap">
                   {TABLETH.content}
                   <span className="icons">*</span>
@@ -34,10 +34,9 @@ function Signup() {
         <tbody>
           {INPUTMAP.map(INPUTMAP => {
             return (
-              <tr className="mapTwo">
+              <tr className="mapTwo" key={INPUTMAP.id}>
                 <td className="mapThree">
                   <input
-                    key={INPUTMAP.id}
                     type={INPUTMAP.type}
                     placeholder={INPUTMAP.text}
                     className="inputTests"
@@ -46,7 +45,7 @@ function Signup() {
               </tr>
             );
           })}
-          {/* 버튼 대략 투입 지점 */}
+
           <BtnComponent />
           <tr className="userAgreePart">
             <th className="agreePart">
@@ -56,7 +55,7 @@ function Signup() {
             <div className="agreePartMap">
               {SIGNUPAGREES.map(SIGNUPAGREES => {
                 return (
-                  <span className="partMap">
+                  <span className="partMap" key={SIGNUPAGREES.id}>
                     {SIGNUPAGREES.content}
                     <input type="checkbox" />
                   </span>
