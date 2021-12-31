@@ -39,28 +39,31 @@ function Banner() {
       : '';
   }, [slide, SLIDE_WIDTH]);
 
-  function slideAfterMoveLeft() {
+  function slideAfterMoveToTheEnd() {
     setSlide({
       number: END - 1,
       withMotion: true,
     });
   }
 
-  function slideAfterMoveRight() {
+  function slideAfterMoveToTheStart() {
     setSlide({
       number: START + 1,
       withMotion: true,
     });
   }
 
+  const passTheFirstSlide = slide.number === PREV_END;
+  const passTheLastSlide = slide.number === NEXT_START;
+
   function onClickPrev() {
-    if (slide.number === PREV_END) {
+    if (passTheFirstSlide) {
       setSlide({
         number: END,
         withMotion: false,
       });
       setTimeout(() => {
-        slideAfterMoveLeft();
+        slideAfterMoveToTheEnd();
       }, 50);
     } else {
       setSlide({
@@ -71,13 +74,13 @@ function Banner() {
   }
 
   function onClickNext() {
-    if (slide.number === NEXT_START) {
+    if (passTheLastSlide) {
       setSlide({
         number: START,
         withMotion: false,
       });
       setTimeout(() => {
-        slideAfterMoveRight();
+        slideAfterMoveToTheStart();
       }, 50);
     } else {
       setSlide({

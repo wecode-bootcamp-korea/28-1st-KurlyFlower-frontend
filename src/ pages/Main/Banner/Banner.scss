@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 5rem;
-    background-color: cadetblue;
 
     .bannerContainer {
       width: 1425px;
@@ -17,10 +16,6 @@
 
       .list {
         display: flex;
-
-        .itemImg:hover > .left{
-          opacity: 0.5;
-        }
       }
     }
 
@@ -28,6 +23,8 @@
       @include buttons;
       width: 80%;
       transform: translateY(300%);
+      opacity: 0;
+      transition: all 0.3s ease-in;
 
       .prev {
         @include buttonLeft;
@@ -41,5 +38,9 @@
         background-color: black;
       }
     }
+  }
+
+  .bannerWrap:hover > .buttons{
+    opacity: 0.5;
   }
 }
