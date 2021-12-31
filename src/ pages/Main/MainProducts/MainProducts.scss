@@ -4,6 +4,7 @@
 .mainProducts {
   @include center;
   justify-content: center;
+  margin-bottom: 5rem;
   padding: 32px 0 40px 0;
 
   .title {
