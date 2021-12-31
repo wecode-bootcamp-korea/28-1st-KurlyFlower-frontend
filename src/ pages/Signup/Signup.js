@@ -4,7 +4,7 @@ import { TABLETH } from './TABLETH.js';
 import { INPUTMAP } from './INPUTMAP.js';
 import { SIGNUPAGREES } from './SIGNUPAGREE';
 import BtnModal from './BtnModal.js';
-import BtnComponent from './BtnComponent.js';
+
 import './Signup.scss';
 
 function Signup() {
@@ -46,7 +46,6 @@ function Signup() {
             );
           })}
 
-          {/* <BtnComponent />  기존 중복확인 버튼 컴포넌트, 백엔드 회원가입 관련 담당자와 협의후에 제거하기로 처리됨 */}
           <tr className="userAgreePart">
             <th className="agreePart">
               이용약관동의

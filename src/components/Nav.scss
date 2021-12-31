@@ -1,111 +1,113 @@
 @import '../styles/variables.scss';
 .navLocation {
   border-bottom: 1px solid $light-grey-border;
-}
-.leftInfo {
-  border: 1px solid $light-grey-border;
-  border-radius: 21px;
-  margin-top: -80px;
-  width: 140px;
-  text-align: center;
-  font-size: 14px;
-  .Info {
-    color: $main-purple;
-  }
-}
-.rightMenu {
-  float: right;
-  margin-top: -17px;
-  margin-right: 70px;
-  font-weight: bold;
-  list-style-type: none;
-  text-align: right;
 
-  .rightMenuli {
+  .leftInfo {
+    border: 1px solid $light-grey-border;
+    border-radius: 21px;
+    margin-top: -85px;
+    width: 140px;
+    text-align: center;
+    font-size: 14px;
+    .Info {
+      color: $main-purple;
+    }
+  }
+  .rightMenu {
+    float: right;
+    margin-top: -21px;
+    margin-right: 70px;
+    font-weight: bold;
     list-style-type: none;
     text-align: right;
-    float: right;
-    font-size: 13px;
-    padding: 0px 17px 10px;
+
+    .rightMenuli {
+      list-style-type: none;
+      text-align: right;
+      float: right;
+      font-size: 13px;
+      padding: 0px 17px 10px;
+    }
   }
-}
-.show-menu {
-  width: 100px;
-  height: 30px;
-  margin: 4px 10px 30px 10px;
-  transition: 4s;
-}
-.hide-menu {
-  width: 100px;
-  height: 30px;
-  transition: 1s;
-  opacity: 0;
-}
-ul {
-  .cscenterList {
-    font-size: 12px;
-    margin: 0px -10px 5px;
-    padding: 3px 1px 3px;
+  .show-menu {
+    width: 100px;
+    height: 30px;
+    margin: 4px 10px 30px 10px;
+    transition: 4s;
   }
-}
-a {
-  color: $black;
-}
-.categoriesGroup {
-  text-align: center;
-  margin-top: 80px;
-  font-weight: 400;
-  font-size: 21px;
-}
-#categorieAll {
-  margin-left: 20px;
-}
-.categorieMenuV {
-  margin-left: 55px;
-}
-.categorieMenuF {
-  margin-left: 60px;
-}
-.categorieMenuM {
-  margin-left: 65px;
-}
-.categorieMenuFi {
-  margin-left: 70px;
-}
-.imgCate {
-  margin-left: 40px;
-}
-.imgSearch {
-  position: absolute;
-  transform: translate(-130%, 70%);
-}
-.imgLocation {
-  position: absolute;
-  transform: translate(110%, 30%);
-  width: 30px;
-  height: 28px;
-}
-.imgHeart {
-  transform: translate(290%, 20%);
-}
-.imgCart {
-  transform: translate(340%, 10%);
-  width: 30px;
-}
-.searchField {
-  width: 240px;
-  height: 31px;
-  background-color: $light-grey;
-  border-radius: 95px;
-  margin-left: 70px;
-  &::placeholder {
+  .hide-menu {
+    width: 100px;
+    height: 30px;
+    transition: 1s;
+    opacity: 0;
+  }
+  ul {
+    .cscenterList {
+      font-size: 12px;
+      margin: 0px -10px 5px;
+      padding: 3px 1px 3px;
+    }
+  }
+  a {
+    color: $black;
+  }
+  .categoriesGroup {
     text-align: center;
+    margin-top: 80px;
+    font-weight: 400;
+    font-size: 21px;
   }
-}
-.purpleSmallUi {
-  text-align: center;
-  line-height: 39px;
-  color: #fff;
-  background-color: $main-purple;
-  height: 43px;
+  #categorieAll {
+    margin-left: 20px;
+  }
+  .categorieMenuV {
+    margin-left: 55px;
+  }
+  .categorieMenuF {
+    margin-left: 60px;
+  }
+  .categorieMenuM {
+    margin-left: 65px;
+  }
+  .categorieMenuFi {
+    margin-left: 70px;
+  }
+  .imgCate {
+    margin-left: 40px;
+  }
+  .imgSearch {
+    position: absolute;
+    transform: translate(-130%, 40%);
+  }
+  .imgLocation {
+    position: absolute;
+    transform: translate(110%, 30%);
+    width: 30px;
+    height: 28px;
+  }
+  .imgHeart {
+    transform: translate(290%, 25%);
+  }
+  .imgCart {
+    transform: translate(340%, 19%);
+    width: 30px;
+  }
+  .searchField {
+    width: 240px;
+    height: 31px;
+    background-color: $light-grey;
+    border-radius: 95px;
+    margin-left: 70px;
+    transform: translate(0, -15%);
+    &::placeholder {
+      text-align: center;
+    }
+  }
+  .purpleSmallUi {
+    text-align: center;
+    line-height: 39px;
+    color: #fff;
+    background-color: $main-purple;
+    height: 43px;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import NavLogo from '../ pages/Login/Navlogo';
+import NavLogo from './Navlogo';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import './Nav.scss';
 
@@ -11,7 +11,7 @@ const Nav = () => {
   };
   const [purpleSmallUis, setpurpleSmallUis] = useState(true);
   useEffect(() => {
-    const purpleSmallUiCount = setTimeout(() => {
+    setTimeout(() => {
       setpurpleSmallUis(false);
     }, 20000);
   }, []);
@@ -61,12 +61,13 @@ const Nav = () => {
           placeholder="검색어를 입력해주세요"
           className="searchField"
         />
-        <img
-          src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"
-          className="imgSearch"
-          alt="searchBtn"
-        />
-
+        <button className="imgSearch">
+          <img
+            src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"
+            className="imgSearch"
+            alt="searchBtn"
+          />
+        </button>
         <img
           src="https://img.icons8.com/ios/50/000000/marker--v1.png"
           className="imgLocation"
@@ -77,11 +78,13 @@ const Nav = () => {
           className="imgHeart"
           alt="btnHeart"
         />
-        <img
-          src="https://img.icons8.com/ios/50/000000/shopping-cart.png"
-          className="imgCart"
-          alt="btnCart"
-        />
+        <button className="imgCarts">
+          <img
+            src="https://img.icons8.com/ios/50/000000/shopping-cart.png"
+            className="imgCart"
+            alt="btnCart"
+          />
+        </button>
         {purpleSmallUis === true ? (
           <div className="purpleSmallUi">
             <p>지금 가입하고 인기상품을 100원에 받아가세요</p>
