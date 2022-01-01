@@ -1,28 +1,34 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import './LoadMoreProducts.scss';
 
 function LoadMoreProducts({ setPage }) {
   const feedEndRef = useRef();
 
-  useEffect(() => {
-    const observer = () =>
-      new IntersectionObserver(entry => {
-        if (entry[0].isIntersecting) {
-          setPage(page => page + 1);
-        }
-      });
-    let observerRefValue = null;
+  const callback = useCallback(
+    entry => {
+      if (entry[0].isIntersecting) {
+        setPage(page => page + 1);
+      }
+    },
+    [setPage]
+  );
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(callback);
+
+    let observerRefValue = null;
     if (feedEndRef.current) {
       observer.observe(feedEndRef.current);
       observerRefValue = feedEndRef.current;
     }
     return () => {
-      if (observerRefValue) observer.unobserve(observerRefValue);
+      if (observerRefValue) {
+        observer.unobserve(observerRefValue);
+      }
     };
-  }, []);
+  }, [callback]);
 
-  return <div className="loadMoreProducts" ref={feedEndRef} />;
+  return <section className="loadMoreProducts" ref={feedEndRef} />;
 }
 export default LoadMoreProducts;

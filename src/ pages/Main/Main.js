@@ -4,7 +4,7 @@ import MainProducts from './MainProducts/MainProducts';
 import Banner from './Banner/Banner';
 import Nav from './Nav/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
-// import Skeleton from './Skeleton/Skeleton';
+import Skeleton from './Skeleton/Skeleton';
 
 function Main() {
   const [productsList, setProductsList] = useState([]);
@@ -29,7 +29,7 @@ function Main() {
     };
     loadFirstTime();
     return () => setIsLoading(false);
-  }, [page, productsList]);
+  }, [page]);
 
   function fetchTimeDelay(time) {
     new Promise(resolve => setTimeout(resolve, time));
@@ -44,7 +44,7 @@ function Main() {
       <div className="main">
         <Nav cartCount={cartList.length} />
         {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
-        {/* <Skeleton /> */}
+        <Skeleton />
         <Banner />
         {productsList.map((products, idx) => (
           <MainProducts
