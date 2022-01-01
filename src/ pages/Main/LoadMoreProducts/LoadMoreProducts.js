@@ -4,20 +4,24 @@ import './LoadMoreProducts.scss';
 
 function LoadMoreProducts({ setPage }) {
   const feedEndRef = useRef();
-  const observer = new IntersectionObserver(entry => {
-    // console.log(entry[0].intersectionRatio);
-    if (entry[0].isIntersecting) {
-      setPage(page => page + 1);
-      // console.log('dd');
-    }
-  });
 
   useEffect(() => {
-    observer.observe(feedEndRef.current);
+    const observer = () =>
+      new IntersectionObserver(entry => {
+        if (entry[0].isIntersecting) {
+          setPage(page => page + 1);
+        }
+      });
+    let observerRefValue = null;
+
+    if (feedEndRef.current) {
+      observer.observe(feedEndRef.current);
+      observerRefValue = feedEndRef.current;
+    }
     return () => {
-      observer.unobserve(feedEndRef.current);
+      if (observerRefValue) observer.unobserve(observerRefValue);
     };
-  }, [observer]);
+  }, []);
 
   return <div className="loadMoreProducts" ref={feedEndRef} />;
 }
