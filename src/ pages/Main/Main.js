@@ -5,6 +5,7 @@ import Banner from './Banner/Banner';
 import Nav from './Nav/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
+import FilterProduct from './FilterProduct/FilterProduct';
 
 function Main() {
   const [productsList, setProductsList] = useState([]);
@@ -26,9 +27,9 @@ function Main() {
       await setIsLoading(true);
       await fetchTimeDelay(1000);
       await fetchProductsData(page);
+      await setIsLoading(false);
     };
     loadFirstTime();
-    return () => setIsLoading(false);
   }, [page]);
 
   function fetchTimeDelay(time) {
@@ -44,7 +45,7 @@ function Main() {
       <div className="main">
         <Nav cartCount={cartList.length} />
         {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
-        <Skeleton />
+        {isLoading && <Skeleton />}
         <Banner />
         {productsList.map((products, idx) => (
           <MainProducts
@@ -55,7 +56,8 @@ function Main() {
           />
         ))}
       </div>
-      {!isLoading && <LoadMoreProducts setPage={setPage} />}
+      <FilterProduct addCart={addCart} cartList={cartList} />
+      {!isLoading && page < 5 ? <LoadMoreProducts setPage={setPage} /> : ''}
     </>
   );
 }

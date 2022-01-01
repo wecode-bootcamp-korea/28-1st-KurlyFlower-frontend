@@ -31,4 +31,5 @@ function LoadMoreProducts({ setPage }) {
 
   return <section className="loadMoreProducts" ref={feedEndRef} />;
 }
+
 export default LoadMoreProducts;
