@@ -1,0 +1,99 @@
+@import '../styles/variables.scss';
+
+footer {
+  // // wrapper 임.
+  // height: auto;
+  // min-height: 100%;
+  // padding-bottom: 60px;
+  position: relative;
+  width: 100%;
+
+  .header {
+    height: 60px;
+    padding: 1rem;
+    margin-left: 160px;
+    position: relative;
+    transform: translateY(999%);
+    align-items: center;
+    min-height: 11vh;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    .footerLefts {
+      float: left;
+      width: 534px;
+
+      .footerTitles {
+        float: left;
+        padding: 35px 0px 2px;
+        font-weight: bold;
+        margin-left: 210px;
+        font-size: 20px;
+        color: $black;
+        line-height: 24px;
+      }
+      .callNumber {
+        font-weight: bold;
+        font-size: 28px;
+        padding: 20px 0 0;
+        color: $black;
+        line-height: 33px;
+        height: 4px;
+        margin-top: 90px;
+        margin-left: 200px;
+      }
+      .leftCenter {
+        font-size: 14px;
+        line-height: 20px;
+        color: $black;
+        text-align: left;
+        margin-top: -10px;
+        margin-left: 380px;
+      }
+      .leftCenters {
+        margin-top: 20px;
+      }
+      .btns {
+        height: 40px;
+        padding-top: 7px;
+        margin-top: 17px;
+        border: 1px solid $light-grey-border;
+        border-radius: 4px;
+        font-weight: bold;
+        text-align: center;
+        color: $black;
+        line-height: 22px;
+        font-size: 14px;
+        float: left;
+        width: 140px;
+        margin-left: 200px;
+      }
+      .rightInfo {
+        padding-top: 29px;
+        transform: translate(110%, -200%);
+        font-size: 13px;
+
+        color: $black;
+        line-height: 15px;
+
+        .rightList {
+          overflow: hidden;
+          width: 100%;
+          padding-bottom: 29px;
+          font-weight: bold;
+          list-style-type: none;
+
+          li {
+            float: left;
+            padding-right: 17px;
+          }
+        }
+      }
+    }
+  }
+  .companyIntroduceTextGroup {
+    font-size: 12px;
+    color: $black;
+    line-height: 1.2;
+  }
+}

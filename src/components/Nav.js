@@ -15,6 +15,11 @@ const Nav = () => {
       setpurpleSmallUis(false);
     }, 20000);
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      <img src="https://unsplash.com/photos/nnzkZNYWHaU" alt="테스트" />;
+    }, 60000);
+  }, []);
   return (
     <div className="navLocation">
       <NavLogo />
