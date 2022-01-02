@@ -1,13 +1,12 @@
-import React, { useRef, useState } from 'react';
-import './MainProducts.scss';
+import React, { useEffect, useRef, useState } from 'react';
+import './Products.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
-import { useEffect } from 'react/cjs/react.development';
 import { BsCart2 } from 'react-icons/bs';
 
 function Products({ products, productsLength, addCart, cartList, showMore }) {
-  const itemListRef = useRef();
   const itemRef = useRef();
+  const itemListRef = useRef();
   const [page, setPage] = useState(0);
   const ITEM_WIDTH = 267;
   const SLIDE_WIDTH = 4 * ITEM_WIDTH;
@@ -47,13 +46,12 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
   }
 
   return (
-    <div className="mainProducts">
-      <h1 className="title">{products.title}</h1>
-      <h3 className="subtitle">{products.subtitle}</h3>
+    <div className="products">
+      <div>dd</div>
       <div className="wrap">
         <div className="container">
           <div className="list" ref={itemListRef}>
-            {products.products.map((product, idx) => (
+            {products.map((product, idx) => (
               <span key={idx} className="item" ref={itemRef}>
                 <div className="imgContainer">
                   <img src={product.img} alt="" />
@@ -85,7 +83,13 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
             <MdKeyboardArrowLeft className="prev" onClick={onLeftClick} />
           </button>
 
-          <button className={page <= SLIDE_COUNT ? '' : 'hide'}>
+          <button
+            className={
+              (!showMore && page === SLIDE_COUNT) || page > SLIDE_COUNT
+                ? 'hide'
+                : ''
+            }
+          >
             <MdKeyboardArrowRight className="next" onClick={onRightClick} />
           </button>
         </div>

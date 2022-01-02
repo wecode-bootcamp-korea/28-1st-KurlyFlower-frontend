@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Main.scss';
-import MainProducts from './MainProducts/MainProducts';
+import Collection from './Collection/Collection';
 import Banner from './Banner/Banner';
 import Nav from './Nav/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
@@ -48,15 +48,15 @@ function Main() {
         {isLoading && <Skeleton />}
         <Banner />
         {productsList.map((products, idx) => (
-          <MainProducts
+          <Collection
             key={idx}
             products={products}
-            productsLength={products.products.length}
             addCart={addCart}
             cartList={cartList}
             showMore={true}
           />
         ))}
+        {/* {productsList.map((products, idx) => collectionTitle(products))} */}
       </div>
       <FilterProduct addCart={addCart} cartList={cartList} />
       {!isLoading && page < 5 ? <LoadMoreProducts setPage={setPage} /> : ''}

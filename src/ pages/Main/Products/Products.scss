@@ -1,25 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../Main.scss';
 
-.mainProducts {
-  @include center;
-  justify-content: center;
-  margin-bottom: 5rem;
-  padding: 32px 0 40px 0;
-
-  .title {
-    font-size: $font-size-L;
-    margin-bottom: $space;
-    font-weight: 600;
-  }
-
-  .subtitle {
-    margin-bottom: $double-space;
-    font-size: $font-size-S;
-    font-weight: 400;
-    color: $dark-grey-text;
-  }
-
+.products {
   .wrap {
     position: relative;
     display: flex;
@@ -28,7 +10,7 @@
     .container {
       position: relative;
       width: 1050px;
-      // overflow: hidden;
+      overflow: hidden;
 
       .list {
         display: flex;
@@ -124,8 +106,7 @@
 
     .buttons {
       @include buttons;
-      // transform: translateY(350%);
-      background-color: aqua;
+      transform: translateY(300%);
 
       .prev {
         @include buttonLeft;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './FilterProduct.scss';
-import MainProducts from '../MainProducts/MainProducts';
+// import MainProducts from '../MainProducts/MainProducts';
 
 function FilterProduct({ addCart, cartList }) {
   const [products, setProducts] = useState();
@@ -54,7 +54,12 @@ function FilterProduct({ addCart, cartList }) {
           수산
         </button>
       </section>
-      {/* <MainProducts products={products} addCart={addCart} cartList={cartList} /> */}
+      {/* <MainProducts
+        products={products}
+        productsLength={products.length}
+        addCart={addCart}
+        cartList={cartList}
+      /> */}
     </div>
   );
 }
