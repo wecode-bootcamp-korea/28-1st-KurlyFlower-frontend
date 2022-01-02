@@ -14,12 +14,10 @@ function FilterProduct({ addCart, cartList }) {
 
   useEffect(() => {
     loadFilteredProducts(1);
-    console.log(clickedCategory);
   }, [clickedCategory]);
 
   function onClickCategory(e) {
     const clickedCategoryId = e.target.dataset.category;
-    console.log(e.target.dataset.category);
     setClickedCategory(clickedCategoryId);
   }
 
@@ -56,7 +54,7 @@ function FilterProduct({ addCart, cartList }) {
           수산
         </button>
       </section>
-      {/* <MainProducts addCart={addCart} cartList={cartList} /> */}
+      {/* <MainProducts products={products} addCart={addCart} cartList={cartList} /> */}
     </div>
   );
 }

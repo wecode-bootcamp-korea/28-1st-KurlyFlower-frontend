@@ -28,11 +28,11 @@
     .container {
       position: relative;
       width: 1050px;
-      overflow: hidden;
+      // overflow: hidden;
 
       .list {
         display: flex;
-        transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in-out;
 
         .item {
           display: flex;
@@ -124,7 +124,8 @@
 
     .buttons {
       @include buttons;
-      transform: translateY(350%);
+      // transform: translateY(350%);
+      background-color: aqua;
 
       .prev {
         @include buttonLeft;
@@ -134,5 +135,9 @@
         @include buttonRight;
       }
     }
+  }
+
+  .hide {
+    visibility: hidden;
   }
 }

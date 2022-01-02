@@ -5,32 +5,40 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { useEffect } from 'react/cjs/react.development';
 import { BsCart2 } from 'react-icons/bs';
 
-function Products({ products, addCart, cartList }) {
+function Products({ products, productsLength, addCart, cartList, showMore }) {
   const itemListRef = useRef();
-  const [items, setItems] = useState(0);
-  const ITEM_WIDTH = 249;
-  const PADDING = 18;
-  const SLIDE_WIDTH = 4 * (ITEM_WIDTH + PADDING);
+  const itemRef = useRef();
+  const [page, setPage] = useState(0);
+  const ITEM_WIDTH = 267;
+  const SLIDE_WIDTH = 4 * ITEM_WIDTH;
+  const LIST_WIDTH = ITEM_WIDTH * productsLength;
+  const SLIDE_COUNT = Math.floor(LIST_WIDTH / SLIDE_WIDTH);
+  const LAST_SLIDE_WIDTH = LIST_WIDTH - SLIDE_COUNT * SLIDE_WIDTH;
 
   useEffect(() => {
-    if (items < 5) {
+    if (page < SLIDE_COUNT) {
       itemListRef.current.style.transform = `translateX(-${
-        items * SLIDE_WIDTH
+        page * SLIDE_WIDTH
+      }px)`;
+    } else if (page === SLIDE_COUNT) {
+      itemListRef.current.style.transform = `translateX(-${
+        page * LAST_SLIDE_WIDTH
       }px)`;
     } else {
-      itemListRef.current.style.transform = `translateX(-${
-        items * SLIDE_WIDTH - 3 * (ITEM_WIDTH + PADDING)
-      }px)`;
+      if (showMore)
+        itemListRef.current.style.transform = `translateX(-${
+          page * 1.5 * ITEM_WIDTH
+        }px)`;
     }
-  }, [items]);
+  }, [page]);
 
   function onRightClick() {
-    setItems(items => items + 1);
+    setPage(page => page + 1);
   }
 
   function onLeftClick() {
-    if (items > 0) {
-      setItems(items => items - 1);
+    if (page > 0) {
+      setPage(page => page - 1);
     }
   }
 
@@ -46,7 +54,7 @@ function Products({ products, addCart, cartList }) {
         <div className="container">
           <div className="list" ref={itemListRef}>
             {products.products.map((product, idx) => (
-              <span key={idx} className="item">
+              <span key={idx} className="item" ref={itemRef}>
                 <div className="imgContainer">
                   <img src={product.img} alt="" />
                 </div>
@@ -73,19 +81,13 @@ function Products({ products, addCart, cartList }) {
           </div>
         </div>
         <div className="buttons">
-          <button>
-            {items > 0 ? (
-              <MdKeyboardArrowLeft className="prev" onClick={onLeftClick} />
-            ) : (
-              ''
-            )}
+          <button className={page > 0 ? '' : 'hide'}>
+            <MdKeyboardArrowLeft className="prev" onClick={onLeftClick} />
           </button>
-          <button />
-          {items < 5 ? (
+
+          <button className={page <= SLIDE_COUNT ? '' : 'hide'}>
             <MdKeyboardArrowRight className="next" onClick={onRightClick} />
-          ) : (
-            ''
-          )}
+          </button>
         </div>
       </div>
     </div>

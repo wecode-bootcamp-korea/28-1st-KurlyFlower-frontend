@@ -51,8 +51,10 @@ function Main() {
           <MainProducts
             key={idx}
             products={products}
+            productsLength={products.products.length}
             addCart={addCart}
             cartList={cartList}
+            showMore={true}
           />
         ))}
       </div>
