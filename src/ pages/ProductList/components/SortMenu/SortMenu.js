@@ -7,7 +7,7 @@ function SortMenu(priceDown) {
       <ul>
         <li>추천순</li>
         <li>판매량순</li>
-        <li onClick={priceDown}>낮은가격순</li>
+        <li>낮은가격순</li>
         <li>높은가격순</li>
       </ul>
     </div>

@@ -1,52 +1,72 @@
 [
   {
     "id": 1,
+    "type": "vegetable",
+    "subType": "normal",
     "name": "product1",
-    "price": "1000"
+    "number": "1000"
   },
   {
     "id": 2,
+    "type": "vegetable",
+    "subType": "normal",
     "name": "product2",
-    "price": "1200"
+    "number": "1200"
   },
   {
     "id": 3,
+    "type": "vegetable",
+    "subType": "normal",
     "name": "product3",
-    "price": "2400"
+    "number": "2400"
   },
   {
     "id": 4,
+    "type": "vegetable",
+    "subType": "normal",
     "name": "product4",
-    "price": "1500"
+    "number": "1500"
   },
   {
     "id": 5,
+    "type": "vegetable",
+    "subType": "normal",
     "name": "product5",
-    "price": "5000"
+    "number": "5000"
   },
   {
     "id": 6,
+    "type": "vegetable",
+    "subType": "special",
     "name": "product6",
-    "price": "1000"
+    "number": "1000"
   },
   {
     "id": 7,
+    "type": "vegetable",
+    "subType": "special",
     "name": "product7",
-    "price": "1100"
+    "number": "1100"
   },
   {
     "id": 8,
+    "type": "vegetable",
+    "subType": "special",
     "name": "product8",
-    "price": "3700"
+    "number": "3700"
   },
   {
     "id": 9,
+    "type": "vegetable",
+    "subType": "special",
     "name": "product9",
-    "price": "4300"
+    "number": "4300"
   },
   {
     "id": 10,
+    "type": "vegetable",
+    "subType": "special",
     "name": "product10",
-    "price": "2000"
+    "number": "2000"
   }
 ]

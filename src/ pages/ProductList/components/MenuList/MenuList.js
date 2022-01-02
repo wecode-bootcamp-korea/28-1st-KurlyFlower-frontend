@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
+// import CartBtn from '../cartBtn/CartBtn';
 import './MenuList.scss';
 
 function MenuList({ productList }) {
@@ -12,8 +13,10 @@ function MenuList({ productList }) {
           <Menu
             key={menu.id}
             id={menu.id} //id값이 고유 값이니까 반드시 key값 적어주기
+            type={menu.type}
+            subType={menu.subType}
             name={menu.name}
-            price={menu.price}
+            number={menu.number}
           />
         );
       })}

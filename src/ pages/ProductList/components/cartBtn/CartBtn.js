@@ -1,12 +1,20 @@
 import React from 'react';
-// import './cartBtn.scss';
+import './CartBtn.scss';
 
-function CartBtn() {
+// function CartBtn() {
+//   return (
+//     <div className="cartBtn">
+//       <button className="btn1">버튼1</button>
+//     </div>
+//   );
+// }
+
+const CartBtn = () => {
   return (
     <div className="cartBtn">
       <button className="btn1">버튼1</button>
     </div>
   );
-}
+};
 
 export default CartBtn;
