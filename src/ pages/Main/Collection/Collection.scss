@@ -8,9 +8,7 @@
   padding: 32px 0 40px 0;
 
   .title {
-    font-size: $font-size-L;
-    margin-bottom: $space;
-    font-weight: 600;
+    @include title;
   }
 
   .subtitle {

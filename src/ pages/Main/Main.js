@@ -56,9 +56,8 @@ function Main() {
             showMore={true}
           />
         ))}
-        {/* {productsList.map((products, idx) => collectionTitle(products))} */}
       </div>
-      <FilterProduct addCart={addCart} cartList={cartList} />
+      <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />
       {!isLoading && page < 5 ? <LoadMoreProducts setPage={setPage} /> : ''}
     </>
   );

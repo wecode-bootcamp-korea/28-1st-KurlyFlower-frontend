@@ -47,7 +47,6 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
 
   return (
     <div className="products">
-      <div>dd</div>
       <div className="wrap">
         <div className="container">
           <div className="list" ref={itemListRef}>

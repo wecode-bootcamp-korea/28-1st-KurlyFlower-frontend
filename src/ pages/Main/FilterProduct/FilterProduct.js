@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import Products from '../Products/Products';
 import './FilterProduct.scss';
-// import MainProducts from '../MainProducts/MainProducts';
 
-function FilterProduct({ addCart, cartList }) {
+function FilterProduct({ addCart, cartList, showMore }) {
   const [products, setProducts] = useState();
-  const [clickedCategory, setClickedCategory] = useState(0);
+  const [clickedCategory, setClickedCategory] = useState('1');
 
   async function loadFilteredProducts(categoryId) {
     const response = await fetch(`/data/main/filter${categoryId}.json`);
     const data = await response.json();
-    setProducts(data);
+    setProducts(products => (products = data));
   }
 
   useEffect(() => {
-    loadFilteredProducts(1);
+    loadFilteredProducts(clickedCategory);
   }, [clickedCategory]);
 
   function onClickCategory(e) {
@@ -23,7 +23,7 @@ function FilterProduct({ addCart, cartList }) {
 
   return (
     <div className="filterProduct">
-      filter product
+      <h1>MD의 추천</h1>
       <section className="categories">
         <button
           className={clickedCategory === '1' ? 'clickedCategory' : 'category'}
@@ -37,14 +37,14 @@ function FilterProduct({ addCart, cartList }) {
           data-category="2"
           onClick={onClickCategory}
         >
-          정육
+          과일
         </button>
         <button
           className={clickedCategory === '3' ? 'clickedCategory' : 'category'}
           data-category="3"
           onClick={onClickCategory}
         >
-          과일
+          정육
         </button>
         <button
           className={clickedCategory === '4' ? 'clickedCategory' : 'category'}
@@ -54,12 +54,15 @@ function FilterProduct({ addCart, cartList }) {
           수산
         </button>
       </section>
-      {/* <MainProducts
-        products={products}
-        productsLength={products.length}
-        addCart={addCart}
-        cartList={cartList}
-      /> */}
+      {products && (
+        <Products
+          products={products}
+          productsLength={products.length}
+          addCart={addCart}
+          cartList={cartList}
+          showMore={showMore}
+        />
+      )}
     </div>
   );
 }

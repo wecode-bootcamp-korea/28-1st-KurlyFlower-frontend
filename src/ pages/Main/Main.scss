@@ -30,3 +30,9 @@ $main-light-purple: rgb(92, 54, 109);
   flex-direction: column;
   align-items: center;
 }
+
+@mixin title {
+  font-size: $font-size-L;
+  margin-bottom: $space;
+  font-weight: 600;
+}

@@ -2,23 +2,35 @@
 @import '../Main.scss';
 
 .filterProduct {
-  .category {
-    margin: 0 0.5rem 0 0.5rem;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    background-color: $light-grey;
-    border-radius: 1rem;
+  @include center;
+
+  h1 {
+    @include title;
   }
 
-  .category:hover {
-    background-color: rgb(244, 232, 255);
-    color: $main-purple;
-  }
+  .categories {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 1rem 0;
 
-  .clickedCategory {
-    margin: 0 0.5rem 0 0.5rem;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    border-radius: 1rem;
-    background-color: $main-purple;
-    color: white;
+    .category {
+      margin: 0 0.5rem 0 0.5rem;
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      background-color: $light-grey;
+      border-radius: 1rem;
+    }
+
+    .category:hover {
+      background-color: rgb(244, 232, 255);
+      color: $main-purple;
+    }
+
+    .clickedCategory {
+      margin: 0 0.5rem 0 0.5rem;
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      border-radius: 1rem;
+      background-color: $main-purple;
+      color: white;
+    }
   }
 }
