@@ -1,20 +1,16 @@
-import React, { useCallback, useRef } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import React, { useRef } from 'react';
+import { useEffect } from 'react';
 import './LoadMoreProducts.scss';
 
 function LoadMoreProducts({ setPage }) {
   const feedEndRef = useRef();
-
-  const callback = useCallback(
-    entry => {
+  useEffect(() => {
+    const callback = entry => {
       if (entry[0].isIntersecting) {
         setPage(page => page + 1);
       }
-    },
-    [setPage]
-  );
+    };
 
-  useEffect(() => {
     const observer = new IntersectionObserver(callback);
 
     let observerRefValue = null;
@@ -27,7 +23,7 @@ function LoadMoreProducts({ setPage }) {
         observer.unobserve(observerRefValue);
       }
     };
-  }, [callback, setPage]);
+  }, [setPage]);
 
   return <section className="loadMoreProducts" ref={feedEndRef} />;
 }

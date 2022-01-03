@@ -54,7 +54,7 @@ function FilterProduct({ addCart, cartList, showMore }) {
           수산
         </button>
       </section>
-      {products && (
+      {products.length && (
         <Products
           products={products}
           productsLength={products.length}

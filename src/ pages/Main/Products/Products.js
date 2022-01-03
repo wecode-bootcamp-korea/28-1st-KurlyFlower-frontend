@@ -31,11 +31,11 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
     }
   }, [page, SLIDE_COUNT, LAST_SLIDE_WIDTH, showMore, SLIDE_WIDTH, ITEM_WIDTH]);
 
-  function onRightClick() {
+  function onNextClick() {
     setPage(page => page + 1);
   }
 
-  function onLeftClick() {
+  function onPrevClick() {
     if (page > 0) {
       setPage(page => page - 1);
     }
@@ -56,7 +56,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
                   <img src={product.img} alt="" />
                 </div>
                 <p className="name">{product.name}</p>
-                <p className="price">{product.price}</p>
+                <p className="price">{product.price}원</p>
                 <div
                   className={`cartContainer ${
                     cartList.includes(product.id) ? 'clickedContainer' : ''
@@ -78,8 +78,8 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
           </div>
         </div>
         <div className="buttons">
-          <button className={page > 0 ? '' : 'hide'}>
-            <MdKeyboardArrowLeft className="prev" onClick={onLeftClick} />
+          <button className={page > 0 ? 'hide' : ''}>
+            <MdKeyboardArrowLeft className="prev" onClick={onPrevClick} />
           </button>
 
           <button
@@ -89,7 +89,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
                 : ''
             }
           >
-            <MdKeyboardArrowRight className="next" onClick={onRightClick} />
+            <MdKeyboardArrowRight className="next" onClick={onNextClick} />
           </button>
         </div>
       </div>

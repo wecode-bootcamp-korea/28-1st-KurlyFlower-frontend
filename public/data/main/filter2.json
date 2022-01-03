@@ -3,32 +3,32 @@
     "id":"2a",
     "img": "https://images.unsplash.com/photo-1580636521086-7b0c742dd567?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     "name": "라즈베리",
-    "price": "3990원"
+    "price": 3990
   },
   {
     "id":"2b",
     "img": "https://images.unsplash.com/photo-1597975371283-5461cdf69d5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
     "name":"롱간",
-    "price": "4500원"
+    "price": 4500
   },{
     "id":"2c",
     "img":"https://images.unsplash.com/photo-1618020211082-59011bd6129e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=707&q=80",
     "name":"멜론",
-    "price": " 5500원"
+    "price": 5500
   },{
     "id":"2d",
     "img": "https://images.unsplash.com/photo-1604778234463-762cf933e155?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     "name": "파파야",
-    "price":"8900원"
+    "price":8900
   },{
     "id":"2e",
     "img":"https://images.unsplash.com/photo-1582979512210-99b6a53386f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     "name":"네이블 오렌지",
-    "price":"9980원"
+    "price":9980
   },{
     "id":"2f",
     "img" :"https://images.unsplash.com/photo-1627872201323-1066bdc43fa7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1933&q=80",
     "name":"람부탄",
-    "price":"15000원"
+    "price":15000
   }
 ]

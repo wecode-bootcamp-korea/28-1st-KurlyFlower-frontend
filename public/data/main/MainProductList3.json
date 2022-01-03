@@ -6,32 +6,32 @@
       "id": 12,
       "img": "https://images.unsplash.com/photo-1511993226957-cd166aba52d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=698&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     },{
       "id": 13,
       "img": "https://images.unsplash.com/photo-1578283326173-fbb0f83b59b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     },{
       "id": 14,
       "img": "https://images.unsplash.com/photo-1592756597377-8059ae89ed15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     },{
       "id": 15,
       "img": "https://images.unsplash.com/photo-1618020211082-59011bd6129e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=707&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     },{
       "id": 16,
       "img": "https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     },{
       "id": 17,
       "img": "https://images.unsplash.com/photo-1595356161904-6708c97be89c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
       "name": "namename",
-      "price": "9900원"
+      "price": 9900
     }
   ]
 }]

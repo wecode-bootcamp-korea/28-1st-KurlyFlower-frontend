@@ -95,12 +95,11 @@ function Banner() {
       <div className="bannerWrap">
         <div className="bannerContainer">
           <div className="list" ref={slideRef}>
-            {banners &&
-              banners.map((banner, idx) => (
-                <article key={idx} className="item">
-                  <img className="itemImg" src={banner} alt="" />
-                </article>
-              ))}
+            {banners.map((banner, idx) => (
+              <article key={idx} className="item">
+                <img className="itemImg" src={banner} alt="" />
+              </article>
+            ))}
           </div>
         </div>
         <div className="buttons">

@@ -55,7 +55,7 @@ function Main() {
       {page === 5 && (
         <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />
       )}
-      {!isLoading && page < 5 ? <LoadMoreProducts setPage={setPage} /> : ''}
+      {!isLoading && page < 5 && <LoadMoreProducts setPage={setPage} />}
     </>
   );
 }
