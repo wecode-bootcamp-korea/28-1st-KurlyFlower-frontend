@@ -20,7 +20,7 @@ function Main() {
           `/data/main/MainProductList${pageNum}.json`
         );
         const data = await response.json();
-        setProductsList([...productsList, ...data]);
+        setProductsList(productsList => [...productsList, ...data]);
       }
     };
     const loadFirstTime = async () => {
@@ -29,7 +29,7 @@ function Main() {
       await setIsLoading(false);
     };
     loadFirstTime();
-  }, [page, setProductsList]);
+  }, [page]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);

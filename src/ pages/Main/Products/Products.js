@@ -29,7 +29,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
           page * 1.5 * ITEM_WIDTH
         }px)`;
     }
-  }, [page]);
+  }, [page, SLIDE_COUNT, LAST_SLIDE_WIDTH, showMore, SLIDE_WIDTH, ITEM_WIDTH]);
 
   function onRightClick() {
     setPage(page => page + 1);
