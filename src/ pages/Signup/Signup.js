@@ -54,8 +54,7 @@ function Signup() {
     })
       .then(response => response.json())
       .then(res => {
-        if (res.message === 'SUCCESS') {
-          //메세지로 오는게 SUCCESS와 일치할경우 회원가입 환영하는 alert출력
+        if (res.message === 'CREATED') {
           alert('당신의 회원가입을 환영합니다!');
           console.log(res);
           navigate('/main');
