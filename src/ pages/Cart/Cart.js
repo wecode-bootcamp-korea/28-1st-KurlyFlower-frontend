@@ -2,6 +2,7 @@ import React from 'react';
 import './Cart.scss';
 import { BsCheckCircle } from 'react-icons/bs';
 import Category from './Category/Category';
+import CartInfo from './CartInfo/CartInfo';
 
 function Cart() {
   return (
@@ -29,7 +30,9 @@ function Cart() {
             <span className="selectToDelete">선택삭제</span>
           </section>
         </main>
-        <aside className="cartInfo">cartInfo</aside>
+        <aside>
+          <CartInfo />
+        </aside>
       </div>
     </div>
   );
