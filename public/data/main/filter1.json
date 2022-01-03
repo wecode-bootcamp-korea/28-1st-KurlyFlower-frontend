@@ -1,0 +1,34 @@
+[
+  {
+    "id":"1a",
+    "img": "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "name": "로메인",
+    "price": 3990
+  },
+  {
+    "id":"1b",
+    "img": "https://images.unsplash.com/photo-1578283326173-fbb0f83b59b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name":"청로메인",
+    "price": 4500
+  },{
+    "id":"1c",
+    "img":"https://images.unsplash.com/photo-1511993226957-cd166aba52d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=698&q=80",
+    "name":"치커리",
+    "price": 5500
+  },{
+    "id":"1d",
+    "img": "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+    "name": "적근대",
+    "price":8900
+  },{
+    "id":"1e",
+    "img":"https://images.unsplash.com/photo-1558234608-ae0b60563965?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name":"곱슬교자",
+    "price":9980
+  },{
+    "id":"1f",
+    "img" :"https://images.unsplash.com/photo-1601477572224-cb15a76f30f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name":"케일",
+    "price":15000
+  }
+]

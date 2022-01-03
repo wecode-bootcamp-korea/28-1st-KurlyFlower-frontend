@@ -1,0 +1,46 @@
+@import '../Main.scss';
+
+.banner {
+  @include center;
+
+  .bannerWrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    .bannerContainer {
+      width: 1425px;
+      height: 370px;
+      overflow: hidden;
+
+      .list {
+        display: flex;
+      }
+    }
+
+    .buttons {
+      @include buttons;
+      width: 80%;
+      transform: translateY(300%);
+      opacity: 0;
+      transition: all 0.3s ease-in;
+
+      .prev {
+        @include buttonLeft;
+        color: white;
+        background-color: black;
+      }
+
+      .next {
+        @include buttonRight;
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+
+  .bannerWrap:hover > .buttons{
+    opacity: 0.5;
+  }
+}
