@@ -41,7 +41,7 @@ function Signup() {
     ); // 백엔드로 부터 받은 별도의 조건 없음 : 백엔드와 협의된 목표는 최하단 가입하기 버튼을 클릭할경우 (이메일 중복+이메일 유효값+아이디 유효값+아이디 중복체크+패스워드 유효값) 모든조건을 동시 수행하도록 할것.
   const memberJoinCheck = usernameCheck && passwordCheck && emailCheck; // id+pw+email에 대한 체크 시작
   const signUpOk = memberJoinCheck => {
-    fetch('http://227d-118-32-35-58.ngrok.io/users/signup', {
+    fetch('http://206b-118-32-35-58.ngrok.io/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: username, //백엔드와의 명칭 통일
@@ -55,6 +55,8 @@ function Signup() {
       .then(response => response.json())
       .then(res => {
         if (res.message === 'CREATED') {
+          //백엔드 성공 메세지 CREATED
+          sessionStorage.setItem('token', res.token);
           alert('당신의 회원가입을 환영합니다!');
           console.log(res);
           navigate('/main');
