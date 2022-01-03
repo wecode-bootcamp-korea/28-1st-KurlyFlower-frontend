@@ -27,7 +27,7 @@ function LoadMoreProducts({ setPage }) {
         observer.unobserve(observerRefValue);
       }
     };
-  }, [callback]);
+  }, [callback, setPage]);
 
   return <section className="loadMoreProducts" ref={feedEndRef} />;
 }

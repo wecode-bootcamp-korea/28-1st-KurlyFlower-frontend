@@ -25,16 +25,11 @@ function Main() {
     };
     const loadFirstTime = async () => {
       await setIsLoading(true);
-      await fetchTimeDelay(1000);
       await fetchProductsData(page);
       await setIsLoading(false);
     };
     loadFirstTime();
-  }, [page]);
-
-  function fetchTimeDelay(time) {
-    new Promise(resolve => setTimeout(resolve, time));
-  }
+  }, [page, setProductsList]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);

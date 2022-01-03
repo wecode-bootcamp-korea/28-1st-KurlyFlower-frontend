@@ -3,13 +3,13 @@ import Products from '../Products/Products';
 import './FilterProduct.scss';
 
 function FilterProduct({ addCart, cartList, showMore }) {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [clickedCategory, setClickedCategory] = useState('1');
 
   async function loadFilteredProducts(categoryId) {
     const response = await fetch(`/data/main/filter${categoryId}.json`);
     const data = await response.json();
-    setProducts(products => (products = data));
+    setProducts(data);
   }
 
   useEffect(() => {
