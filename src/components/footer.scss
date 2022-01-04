@@ -1,99 +1,98 @@
 @import '../styles/variables.scss';
 
 footer {
-  // // wrapper 임.
-  // height: auto;
-  // min-height: 100%;
-  // padding-bottom: 60px;
-  position: relative;
-  width: 100%;
-
   .header {
+    position: relative;
+    transform: translateY(999%);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     height: 60px;
     padding: 1rem;
     margin-left: 160px;
-    position: relative;
-    transform: translateY(999%);
     align-items: center;
     min-height: 11vh;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
 
     .footerLefts {
-      float: left;
       width: 534px;
+      padding-bottom: 30px;
 
       .footerTitles {
-        float: left;
-        padding: 35px 0px 2px;
-        font-weight: bold;
-        margin-left: 210px;
-        font-size: 20px;
+        display: flex;
+        padding: 25px 0px 0px;
+        line-height: 3px;
+        margin-left: 200px;
+        margin-bottom: -25px;
         color: $black;
-        line-height: 24px;
+        font-weight: bold;
+        font-size: 30px;
       }
+
       .callNumber {
-        font-weight: bold;
-        font-size: 28px;
-        padding: 20px 0 0;
-        color: $black;
-        line-height: 33px;
+        padding: 20px 0 -10px;
+        line-height: 19px;
         height: 4px;
         margin-top: 90px;
         margin-left: 200px;
-      }
-      .leftCenter {
-        font-size: 14px;
-        line-height: 20px;
         color: $black;
-        text-align: left;
+        font-weight: bold;
+        font-size: 32px;
+      }
+
+      .leftCenter {
         margin-top: -10px;
         margin-left: 380px;
+        line-height: 20px;
+        color: $black;
+        font-size: 14px;
+        text-align: left;
       }
+
       .leftCenters {
-        margin-top: 20px;
+        margin-top: -40px;
       }
+
       .btns {
+        display: flow-root;
+        width: 140px;
         height: 40px;
-        padding-top: 7px;
-        margin-top: 17px;
+        padding-top: 8px;
+        margin-top: 30px;
+        margin-left: 200px;
         border: 1px solid $light-grey-border;
         border-radius: 4px;
+        line-height: 20px;
+        font-size: 14px;
+        color: $black;
         font-weight: bold;
         text-align: center;
-        color: $black;
-        line-height: 22px;
-        font-size: 14px;
-        float: left;
-        width: 140px;
-        margin-left: 200px;
       }
+
       .rightInfo {
         padding-top: 29px;
         transform: translate(110%, -200%);
+        line-height: 15px;
+        color: $black;
         font-size: 13px;
 
-        color: $black;
-        line-height: 15px;
-
         .rightList {
-          overflow: hidden;
           width: 100%;
           padding-bottom: 29px;
-          font-weight: bold;
           list-style-type: none;
+          font-weight: bold;
+          overflow: hidden;
 
           li {
-            float: left;
+            display: inline;
             padding-right: 17px;
           }
         }
       }
     }
   }
+
   .companyIntroduceTextGroup {
+    line-height: 1.2;
     font-size: 12px;
     color: $black;
-    line-height: 1.2;
   }
 }

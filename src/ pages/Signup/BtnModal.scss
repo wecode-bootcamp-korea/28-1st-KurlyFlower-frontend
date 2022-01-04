@@ -1,19 +1,10 @@
 @import '../../styles/variables.scss';
-#btnModals {
+.btnModal {
+  position: absolute;
+  padding-top: 1px;
+  line-height: 18px;
+  right: 350px;
   color: $main-purple;
   font-size: 15px;
   font-weight: bold;
-  line-height: 18px;
-  padding-top: 10px;
-  position: absolute;
-  right: 350px;
-}
-.btnModalOne {
-  bottom: 139px;
-}
-.btnModalTwo {
-  bottom: 75px;
-}
-.btnModalThree {
-  bottom: 16px;
 }

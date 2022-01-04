@@ -3,35 +3,38 @@ div {
   font-size: 1rem;
 
   h2 {
-    font-weight: bold;
-    font-size: 28px;
-    color: $black;
     line-height: 35px;
-    text-align: center;
     letter-spacing: 1px;
     margin-top: 23px;
+    color: $black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 28px;
   }
+
   .pageSub {
+    padding-right: 420px;
+    padding-top: 45px;
+    line-height: 11px;
+    color: $dark-grey-text;
     text-align: right;
     font-size: 12px;
     font-weight: bold;
-    line-height: 11px;
-    color: $dark-grey-text;
-    padding-right: 420px;
-    padding-top: 45px;
   }
+
   .icons {
     padding-right: 2px;
     color: #ee6a7b;
   }
+
   .tableBar {
-    border-top: 1px solid $black;
-    border-bottom: 1px solid $black;
-    width: 650px;
     position: absolute;
+    width: 650px;
     left: 320px;
     margin-top: 10px;
     padding-bottom: 35px;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
   }
   .mapList {
     display: table-row-group;
@@ -46,9 +49,9 @@ div {
   .tableMap {
     width: 159px;
     padding: 40px 0 0 20px;
-    font-weight: bold;
-    color: $black;
     line-height: 20px;
+    color: $black;
+    font-weight: bold;
     text-align: left;
     vertical-align: top;
   }
@@ -65,18 +68,17 @@ div {
     width: 43%;
     padding: 0 11px;
     border: 1px solid $light-grey-border;
-    font-size: 14px;
-    color: $black;
     line-height: 10px;
     border-radius: 4px;
-    background: $light-grey;
     outline: none;
     vertical-align: top;
+    color: $black;
+    background: $light-grey;
+    font-size: 14px;
   }
   .tableBars {
-    // input map 관련
-    width: 790px;
     position: absolute;
+    width: 790px;
     left: 490px;
     margin-top: 26px;
   }
@@ -87,41 +89,56 @@ div {
     border-color: inherit;
 
     .agreePart {
-      margin-top: 25px;
-      text-align: left;
       position: absolute;
+      margin-top: 35px;
       left: -150px;
+      text-align: left;
     }
   }
+
   input[type='checkbox'] {
-    //기본 체크박스 속성관련
+    position: absolute;
     width: 20px;
     height: 20px;
-    position: absolute;
     left: 4px;
   }
 
+  .inputBackContent {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    height: 33px;
+    margin: 12px;
+    margin-left: -23px;
+    width: 60%;
+    border-radius: 4px;
+    border: 1px solid $light-grey-border;
+    text-align: left;
+  }
+
   .checkboxAll {
+    margin-left: 29px;
+    margin-top: 33px;
     font-size: 28px;
     font-weight: bold;
     text-align: left;
-    margin-left: 29px;
-    margin-top: 23px;
   }
+
   .checkboxAllSubText {
     font-size: 11px;
     font-weight: 400;
   }
 
   .partMap {
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
+    display: table;
     margin-top: 31px;
     margin-left: 30px;
     height: 30px;
-    display: table;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
   }
+
   .partMap1 {
     margin-top: -150px;
   }
@@ -131,37 +148,15 @@ div {
   .partMap3 {
     margin-top: -28px;
   }
-  .memberJoin {
+  .memberJoins {
     position: absolute;
     border: 1px solid $main-purple;
+    bottom: -90px;
+    left: 130px;
+    width: 240px;
+    height: 56px;
+    color: $light-grey;
     background-color: $main-purple;
-    color: $light-grey;
-    bottom: -90px;
-    left: 130px;
-    width: 240px;
-    height: 56px;
-    font-size: 21px;
-  }
-  .activeon {
-    position: absolute;
-    border: 1px solid $main-purple;
-    background-color: $main-purple;
-    color: $light-grey;
-    bottom: -90px;
-    left: 130px;
-    width: 240px;
-    height: 56px;
-    font-size: 21px;
-  }
-  .activeoff {
-    position: absolute;
-    border: 1px solid $main-purple;
-    background-color: black;
-    color: $light-grey;
-    bottom: -90px;
-    left: 130px;
-    width: 240px;
-    height: 56px;
     font-size: 21px;
   }
 }

@@ -2,15 +2,11 @@ import React from 'react';
 import './footer.scss';
 function Footer() {
   return (
-    <footer className="wrapper">
+    <footer>
       <div className="header">
-        {' '}
-        {/* 이전 footerAlls */}
         <div className="footerLefts">
-          {' '}
-          {/* 이전 footerLefts */}
-          <h2 className="footerTitles">고객행복센터</h2>
           <div className="leftContentBox">
+            <h2 className="footerTitles">고객행복센터</h2>
             <p className="callNumber">1234-5678</p>
             <div className="leftCenter">
               <p className="csCenter">365고객센터</p>
@@ -18,13 +14,6 @@ function Footer() {
             </div>
             <div className="btns">
               <button>카카오톡 문의하기</button>
-            </div>
-            <div className=" leftCenter leftCenters">
-              <p className="csCenter">365고객센터</p>
-              <p className="openTime">오전 8시 ~ 오후 7시</p>
-            </div>
-            <div className="btns">
-              <button>1:1 문의하기</button>
             </div>
             <div className=" leftCenter leftCenters">
               <p className="csCenter">365고객센터</p>
