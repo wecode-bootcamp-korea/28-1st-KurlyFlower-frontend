@@ -20,6 +20,19 @@ function Cart() {
     }
   }
 
+  function deleteSelectedItems() {
+    let filteredCartList = cartList;
+    function run() {
+      selectedItems.forEach(selectedItem => {
+        filteredCartList = filteredCartList.filter(cartItem => {
+          return cartItem.id !== selectedItem.id;
+        });
+        setCartList(filteredCartList);
+      });
+    }
+    run();
+  }
+
   useEffect(() => {
     const loadCartData = async () => {
       const response = await fetch('/data/cart/cart.json');
@@ -38,7 +51,9 @@ function Cart() {
             <BsCheckCircle className="check" onClick={selectAllItems} />
             <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
           </span>
-          <span className="selectToDelete">선택삭제</span>
+          <span className="selectToDelete" onClick={deleteSelectedItems}>
+            선택삭제
+          </span>
         </section>
         <div className="container">
           <main className="cartList">
