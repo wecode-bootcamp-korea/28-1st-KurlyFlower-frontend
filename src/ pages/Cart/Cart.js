@@ -30,7 +30,18 @@ function Cart() {
   }
 
   function selectItems(item) {
-    setSelectedItems([...selectedItems, item]);
+    if (
+      selectedItems.some(selectedItem => {
+        return selectedItem.id === item.id;
+      })
+    ) {
+      const filteredSelectedItems = selectedItems.filter(selectedItem => {
+        return selectedItem.id !== item.id;
+      });
+      setSelectedItems(filteredSelectedItems);
+    } else {
+      setSelectedItems([...selectedItems, item]);
+    }
   }
 
   function deleteItems(item) {
@@ -112,7 +123,11 @@ function Cart() {
           </main>
 
           <aside>
-            <CartInfo />
+            <CartInfo
+              priceSum={selectedItems.reduce((acc, curr) => {
+                return acc + curr.quantity * curr.price;
+              }, 0)}
+            />
           </aside>
         </div>
         <section className="select">
