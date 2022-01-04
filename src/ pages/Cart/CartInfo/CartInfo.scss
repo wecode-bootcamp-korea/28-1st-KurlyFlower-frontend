@@ -2,23 +2,23 @@
 @import '../../Cart/Cart.scss';
 
 .cartInfo {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 20rem;
 
   .info {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
-    // padding: $double-space;
     background-color: rgb(252, 252, 252);
     border: 1px solid $light-grey;
 
     .address {
       display: flex;
       flex-direction: column;
-      // align-items: center;
       padding: $double-space;
       width: 100%;
       background-color: white;
@@ -27,7 +27,6 @@
       .title {
         display: flex;
         align-items: center;
-        // margin-bottom: 0.5rem;
         font-size: $font-size-M;
 
         .text {

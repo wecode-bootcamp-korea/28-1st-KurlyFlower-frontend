@@ -6,57 +6,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 0.5rem 0 0.5rem;
     height: 5rem;
     border-top: 1px solid black;
 
     .title {
       display: flex;
+      align-items: center;
 
       h2 {
+        padding-left: 0.5rem;
         font-size: $font-size-M;
       }
     }
-  }
 
-  .list {
-    .item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: $double-space;
-
-      .check {
-        font-size: $font-size-S;
-      }
-
-      img {
-        width: 5rem;
-      }
-
-      .name {
-        width: 15rem;
-        font-size: $font-size-S;
-      }
-
-      .quantity {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem;
-        border: 1px solid $light-grey-border;
-
-        .number {
-          margin: 0 0.7rem 0 0.7rem ;
-        }
-      }
-
-      .price {
-        font-size: $font-size-S;
-      }
-
-      .delete {
-        font-size: $font-size-M;
-        color: $light-grey-border;
-      }
+    .spread {
+      font-size: $font-size-M;
+      cursor: pointer;
     }
   }
 }

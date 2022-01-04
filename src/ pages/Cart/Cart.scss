@@ -44,49 +44,52 @@ $main-light-purple: rgb(92, 54, 109);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10rem;
 
   h1 {
     @include title;
   }
 
-  .wrap {
+  .container {
     display: flex;
 
     .cartList {
       width: 742px;
-
-      .select {
-        display: flex;
-        align-items: center;
-        margin: 1rem 0 1rem 0;
-        height: 3rem;
-
-        .selectAll {
-          display: flex;
-          align-items: center;
-
-          .check {
-            font-size: 2rem;
-          }
-
-          .text {
-          margin-left: 1rem;
-          }
-        }
-
-        .selectToDelete {
-          margin-left: 1rem;
-        }
-
-        .selectToDelete {
-
-        }
-      }
-
     }
 
     aside {
       width: 20rem;
+    }
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+    padding-left: 0.5rem;
+    height: 3rem;
+    width: 100%;
+
+
+    .selectAll {
+      display: flex;
+      align-items: center;
+
+      .check {
+        font-size: 2rem;
+      }
+
+      .text {
+      margin-left: 1rem;
+      }
+    }
+
+    .selectToDelete {
+      margin-left: 1rem;
+    }
+
+    .selectToDelete {
+
     }
   }
 }
