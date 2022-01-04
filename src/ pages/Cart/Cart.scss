@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../Main/Main.scss';
 
 $double-space: 1rem;
 $space: 0.5rem;
@@ -55,6 +56,19 @@ $main-light-purple: rgb(92, 54, 109);
 
     .cartList {
       width: 742px;
+
+      .noItems {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20rem;
+        border-top: 1px solid black;
+        border-bottom: 1px solid $light-grey-border;
+
+        p {
+          font-size: $font-size-M;
+        }
+      }
     }
 
     aside {

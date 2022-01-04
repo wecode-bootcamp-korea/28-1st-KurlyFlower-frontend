@@ -2,7 +2,9 @@ import React from 'react';
 import './CartInfo.scss';
 import { GrLocation } from 'react-icons/gr';
 
-function CartInfo({ priceSum }) {
+function CartInfo({ priceSum, noCartItem }) {
+  const shippingFee = noCartItem ? 0 : 2500;
+
   return (
     <div className="cartInfo">
       <section className="info">
@@ -25,15 +27,21 @@ function CartInfo({ priceSum }) {
 
           <div className="price">
             <span className="text">배송비</span>
-            <span className="price">2500원</span>
+            <span className="price">{shippingFee}원</span>
           </div>
         </div>
         <div className="priceSum">
           <span className="text">결제예정금액</span>
-          <span className="price">{priceSum + 2500}원</span>
+          <span className="price">{priceSum + shippingFee}원</span>
         </div>
       </section>
-      <button className="order">주문하기</button>
+      {noCartItem ? (
+        <button className="order disabled" disabled>
+          상품을 담아주세요
+        </button>
+      ) : (
+        <button className="order">주문하기</button>
+      )}
       <div className="notice">
         <p>쿠폰 적립금</p>
       </div>

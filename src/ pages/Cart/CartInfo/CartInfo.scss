@@ -81,10 +81,17 @@
 
   .order {
     width: 80%;
-    height: 2.5rem;
+    height: 3.5rem;
     margin: 1rem 0 1rem 0;
     background-color: $main-purple;
     border-radius: 0.3rem;
+    font-size: $font-size-S;
+    font-weight: 600;
     color: white;
+  }
+
+  .disabled {
+    background-color: $light-grey-border;
+    cursor: default;
   }
 }

@@ -92,7 +92,7 @@ function Cart() {
               }`}
               onClick={selectAllItems}
             />
-            <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
+            <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
           </span>
           <span className="selectToDelete" onClick={deleteSelectedItems}>
             선택삭제
@@ -101,7 +101,7 @@ function Cart() {
         <div className="container">
           <main className="cartList">
             <section className="list">
-              {categorizeItems('냉장') && (
+              {categorizeItems('냉장').length ? (
                 <Category
                   packaging="냉장"
                   selectedItems={selectedItems}
@@ -111,8 +111,10 @@ function Cart() {
                   plusQuantity={plusQuantity}
                   items={categorizeItems('냉장')}
                 />
+              ) : (
+                ''
               )}
-              {categorizeItems('냉동') && (
+              {categorizeItems('냉동').length ? (
                 <Category
                   packaging="냉동"
                   selectedItems={selectedItems}
@@ -122,8 +124,10 @@ function Cart() {
                   plusQuantity={plusQuantity}
                   items={categorizeItems('냉동')}
                 />
+              ) : (
+                ''
               )}
-              {categorizeItems('상온') && (
+              {categorizeItems('상온').length ? (
                 <Category
                   packaging="상온"
                   selectedItems={selectedItems}
@@ -133,6 +137,15 @@ function Cart() {
                   plusQuantity={plusQuantity}
                   items={categorizeItems('상온')}
                 />
+              ) : (
+                ''
+              )}
+              {!cartList.length ? (
+                <div className="noItems">
+                  <p>장바구니에 담긴 상품이 없습니다</p>
+                </div>
+              ) : (
+                ''
               )}
             </section>
           </main>
@@ -142,6 +155,7 @@ function Cart() {
               priceSum={selectedItems.reduce((acc, curr) => {
                 return acc + curr.quantity * curr.price;
               }, 0)}
+              noCartItem={!cartList.length}
             />
           </aside>
         </div>
@@ -153,7 +167,7 @@ function Cart() {
               }`}
               onClick={selectAllItems}
             />
-            <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
+            <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
           </span>
           <span className="selectToDelete" onClick={deleteSelectedItems}>
             선택삭제
