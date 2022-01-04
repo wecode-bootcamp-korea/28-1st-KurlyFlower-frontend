@@ -1,5 +1,4 @@
 import React from 'react';
-import CartBtn from '../cartBtn/CartBtn';
 import './Menu.scss';
 
 function Menu({

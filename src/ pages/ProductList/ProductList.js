@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import MenuList from './components/MenuList/MenuList';
 
 // import CartBtn from './components/cartBtn/CartBtn';
@@ -11,31 +12,17 @@ function ProductList() {
   const [clickedMainBtn, setClickedMainBtn] = useState(0);
 
   const [clickedBtn, setClickedBtn] = useState(0);
+
   useEffect(() => {
-    fetch('http://8ba7-211-216-118-174.ngrok.io/products', {
+    fetch('http://c6ec-211-106-114-186.ngrok.io/products', {
       method: 'GET',
     })
-      .then(data => data.json())
-      .then(data => setProductList(data));
+      .then(res => res.json())
+      // .then(data => console.log(data))
+      .then(data => setProductList(data.result.data)); // 원래 코드 setProductList(data)) >> 리스트 데이터는 배열로 받았는데 내가 찾는 값은 객체 안에 있어서 경로 지정 해줘야함
   }, []);
 
-  // useEffect(() => {}, [productList]);
-
-  // const lowPrice = () => {
-  //   setProductList(
-  //     [...productList].sort(function (a, b) {
-  //       //리액트는 불변성이라는 규칙 떄문에 원본 데이터는 안바뀜(복사해서 작업해야함)
-  //       return a.number - b.number;
-  //     })
-  //   );
-  // };
-  // const heightPrice = () => {
-  //   setProductList(
-  //     [...productList].sort(function (a, b) {
-  //       return b.number - a.number;
-  //     })
-  //   );
-  // };
+  useEffect(() => {}, [productList]);
 
   function onClickMainBtn(e) {
     setClickedMainBtn(e.target.dataset.key);
@@ -44,9 +31,6 @@ function ProductList() {
 
   function onClickBtn(e) {
     setClickedBtn(e.target.dataset.key);
-
-    // lowPrice();
-    // heightPrice();
   }
 
   return (
@@ -110,11 +94,7 @@ function ProductList() {
           </li>
         </ul>
       </div>
-      {/* <SortMenu
-        
-      /> */}
-
-      <MenuList productList={productList} />
+      {productList.length && <MenuList productList={productList} />}
     </>
   );
 }
