@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Category.scss';
 import { IoIosArrowDown } from 'react-icons/io';
 import { BsFillSunFill } from 'react-icons/bs';
@@ -9,6 +9,8 @@ function Category({
   deleteItems,
   selectedItems,
   selectItems,
+  minusQuantity,
+  plusQuantity,
   items,
 }) {
   return (
@@ -30,6 +32,8 @@ function Category({
             selectedItems={selectedItems}
             selectItems={selectItems}
             deleteItems={deleteItems}
+            minusQuantity={minusQuantity}
+            plusQuantity={plusQuantity}
           />
         ))}
       </ul>

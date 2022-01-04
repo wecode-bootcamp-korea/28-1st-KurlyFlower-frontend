@@ -8,10 +8,6 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
 
-  function selectItems(item) {
-    setSelectedItems([...selectedItems, item]);
-  }
-
   function selectAllItems(item) {
     if (selectedItems.length === cartList.length) {
       setSelectedItems([]);
@@ -33,11 +29,31 @@ function Cart() {
     run();
   }
 
+  function selectItems(item) {
+    setSelectedItems([...selectedItems, item]);
+  }
+
   function deleteItems(item) {
     const filteredCartList = cartList.filter(cartItem => {
       return cartItem.id !== item.id;
     });
     setCartList(filteredCartList);
+  }
+
+  function minusQuantity(item) {
+    const updatedCartList = [...cartList];
+    updatedCartList.forEach(cartItem => {
+      if (cartItem.id === item.id) cartItem.quantity--;
+    });
+    setCartList(updatedCartList);
+  }
+
+  function plusQuantity(item) {
+    const updatedCartList = [...cartList];
+    updatedCartList.forEach(cartItem => {
+      if (cartItem.id === item.id) cartItem.quantity++;
+    });
+    setCartList(updatedCartList);
   }
 
   useEffect(() => {
@@ -70,6 +86,8 @@ function Cart() {
                 selectedItems={selectedItems}
                 selectItems={selectItems}
                 deleteItems={deleteItems}
+                minusQuantity={minusQuantity}
+                plusQuantity={plusQuantity}
                 items={cartList.filter(item => item.packaging === '냉장')}
               />
               <Category
@@ -77,6 +95,8 @@ function Cart() {
                 selectedItems={selectedItems}
                 selectItems={selectItems}
                 deleteItems={deleteItems}
+                minusQuantity={minusQuantity}
+                plusQuantity={plusQuantity}
                 items={cartList.filter(item => item.packaging === '냉동')}
               />
               <Category
@@ -84,6 +104,8 @@ function Cart() {
                 selectedItems={selectedItems}
                 selectItems={selectItems}
                 deleteItems={deleteItems}
+                minusQuantity={minusQuantity}
+                plusQuantity={plusQuantity}
                 items={cartList.filter(item => item.packaging === '상온')}
               />
             </section>

@@ -4,13 +4,28 @@ import { IoMdClose } from 'react-icons/io';
 import { BsCheckCircle } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-function Item({ item, selectedItems, selectItems, deleteItems }) {
+function Item({
+  item,
+  selectedItems,
+  selectItems,
+  deleteItems,
+  minusQuantity,
+  plusQuantity,
+}) {
   function onClickCheck() {
     selectItems(item);
   }
 
   function onClickDelete() {
     deleteItems(item);
+  }
+
+  function onClickMinus() {
+    minusQuantity(item);
+  }
+
+  function onClickPlus() {
+    plusQuantity(item);
   }
 
   return (
@@ -28,11 +43,11 @@ function Item({ item, selectedItems, selectItems, deleteItems }) {
       </span>
       <p className="name">{item.name}</p>
       <span className="quantity">
-        <AiOutlineMinus />
-        <p className="number">1</p>
-        <AiOutlinePlus />
+        <AiOutlineMinus onClick={onClickMinus} />
+        <p className="number">{item.quantity}</p>
+        <AiOutlinePlus onClick={onClickPlus} />
       </span>
-      <span className="price">{item.price}원</span>
+      <span className="price">{item.price * item.quantity}원</span>
       <button>
         <IoMdClose className="delete" onClick={onClickDelete} />
       </button>
