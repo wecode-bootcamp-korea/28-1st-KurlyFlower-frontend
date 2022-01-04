@@ -6,6 +6,19 @@ import CartInfo from './CartInfo/CartInfo';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  function selectItems(item) {
+    setSelectedItems([...selectedItems, item]);
+  }
+
+  function selectAllItems(item) {
+    if (selectedItems.length === cartList.length) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(cartList);
+    }
+  }
 
   useEffect(() => {
     const loadCartData = async () => {
@@ -22,8 +35,8 @@ function Cart() {
       <div className="wrap">
         <section className="select">
           <span className="selectAll">
-            <BsCheckCircle className="check" />
-            <p className="text">전체선택(1/10)</p>
+            <BsCheckCircle className="check" onClick={selectAllItems} />
+            <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
           </span>
           <span className="selectToDelete">선택삭제</span>
         </section>
@@ -32,16 +45,22 @@ function Cart() {
             <section className="list">
               <Category
                 packaging="냉장"
+                selectedItems={selectedItems}
+                selectItems={selectItems}
                 cartList={cartList}
                 items={cartList.filter(item => item.packaging === '냉장')}
               />
               <Category
                 packaging="냉동"
+                selectedItems={selectedItems}
+                selectItems={selectItems}
                 cartList={cartList}
                 items={cartList.filter(item => item.packaging === '냉동')}
               />
               <Category
                 packaging="상온"
+                selectedItems={selectedItems}
+                selectItems={selectItems}
                 cartList={cartList}
                 items={cartList.filter(item => item.packaging === '상온')}
               />

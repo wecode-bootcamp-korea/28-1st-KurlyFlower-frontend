@@ -4,13 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { BsFillSunFill } from 'react-icons/bs';
 import Item from '../Item/Item';
 
-function Category({ packaging, cartList, items }) {
-  const [selectedItems, setSelectedItems] = useState([]);
-
-  function selectItems(item) {
-    setSelectedItems([...selectedItems, item]);
-  }
-
+function Category({ packaging, cartList, selectedItems, selectItems, items }) {
   return (
     <div className="categoryContainer">
       <div className="category">
