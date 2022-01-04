@@ -76,6 +76,10 @@ function Cart() {
     loadCartData();
   }, []);
 
+  function categorizeItems(packagingType) {
+    return cartList.filter(item => item.packaging === packagingType);
+  }
+
   return (
     <div className="cart">
       <h1>장바구니</h1>
@@ -97,33 +101,39 @@ function Cart() {
         <div className="container">
           <main className="cartList">
             <section className="list">
-              <Category
-                packaging="냉장"
-                selectedItems={selectedItems}
-                selectItems={selectItems}
-                deleteItems={deleteItems}
-                minusQuantity={minusQuantity}
-                plusQuantity={plusQuantity}
-                items={cartList.filter(item => item.packaging === '냉장')}
-              />
-              <Category
-                packaging="냉동"
-                selectedItems={selectedItems}
-                selectItems={selectItems}
-                deleteItems={deleteItems}
-                minusQuantity={minusQuantity}
-                plusQuantity={plusQuantity}
-                items={cartList.filter(item => item.packaging === '냉동')}
-              />
-              <Category
-                packaging="상온"
-                selectedItems={selectedItems}
-                selectItems={selectItems}
-                deleteItems={deleteItems}
-                minusQuantity={minusQuantity}
-                plusQuantity={plusQuantity}
-                items={cartList.filter(item => item.packaging === '상온')}
-              />
+              {categorizeItems('냉장') && (
+                <Category
+                  packaging="냉장"
+                  selectedItems={selectedItems}
+                  selectItems={selectItems}
+                  deleteItems={deleteItems}
+                  minusQuantity={minusQuantity}
+                  plusQuantity={plusQuantity}
+                  items={categorizeItems('냉장')}
+                />
+              )}
+              {categorizeItems('냉동') && (
+                <Category
+                  packaging="냉동"
+                  selectedItems={selectedItems}
+                  selectItems={selectItems}
+                  deleteItems={deleteItems}
+                  minusQuantity={minusQuantity}
+                  plusQuantity={plusQuantity}
+                  items={categorizeItems('냉동')}
+                />
+              )}
+              {categorizeItems('상온') && (
+                <Category
+                  packaging="상온"
+                  selectedItems={selectedItems}
+                  selectItems={selectItems}
+                  deleteItems={deleteItems}
+                  minusQuantity={minusQuantity}
+                  plusQuantity={plusQuantity}
+                  items={categorizeItems('상온')}
+                />
+              )}
             </section>
           </main>
 
