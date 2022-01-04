@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Category.scss';
-import { IoIosArrowDown } from 'react-icons/io';
-import { BsFillSunFill } from 'react-icons/bs';
+import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { BsFillSunFill, BsSnow } from 'react-icons/bs';
+import { MdOutlineWaterDrop } from 'react-icons/md';
 import Item from '../Item/Item';
 
 function Category({
@@ -13,30 +14,54 @@ function Category({
   plusQuantity,
   items,
 }) {
+  const [isOpened, setIsOpened] = useState(true);
+
+  function toggleListOpen() {
+    setIsOpened(!isOpened);
+  }
+
+  function categoryIcon(str) {
+    switch (str) {
+      case '냉장':
+        return <MdOutlineWaterDrop className="categoryIcon" color="green" />;
+      case '냉동':
+        return <BsSnow className="categoryIcon" color="lightblue" />;
+      case '상온':
+        return <BsFillSunFill className="categoryIcon" color="orange" />;
+    }
+  }
+
   return (
     <div className="categoryContainer">
       <div className="category">
         <span className="title">
-          <BsFillSunFill />
+          {categoryIcon(packaging)}
           <h2>{packaging} 상품</h2>
         </span>
         <button>
-          <IoIosArrowDown className="spread" />
+          {isOpened ? (
+            <IoIosArrowUp className="spread" onClick={toggleListOpen} />
+          ) : (
+            <IoIosArrowDown className="spread" onClick={toggleListOpen} />
+          )}
         </button>
       </div>
-      <ul className="list">
-        {items.map((item, idx) => (
-          <Item
-            key={idx}
-            item={item}
-            selectedItems={selectedItems}
-            selectItems={selectItems}
-            deleteItems={deleteItems}
-            minusQuantity={minusQuantity}
-            plusQuantity={plusQuantity}
-          />
-        ))}
-      </ul>
+      {isOpened && (
+        <ul className="list">
+          {items.map((item, idx) => (
+            <Item
+              className="item"
+              key={idx}
+              item={item}
+              selectedItems={selectedItems}
+              selectItems={selectItems}
+              deleteItems={deleteItems}
+              minusQuantity={minusQuantity}
+              plusQuantity={plusQuantity}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

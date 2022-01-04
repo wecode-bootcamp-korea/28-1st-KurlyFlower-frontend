@@ -32,11 +32,11 @@ function Item({
     <li className="item">
       <BsCheckCircle
         onClick={onClickCheck}
-        className={
+        className={`check ${
           selectedItems.some(selectedItem => selectedItem.id === item.id)
             ? 'clickedCheck'
             : ''
-        }
+        }`}
       />
       <span className="imgContainer">
         <img src={item.img} alt="itemImg" />

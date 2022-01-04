@@ -8,7 +8,7 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
 
-  function selectAllItems(item) {
+  function selectAllItems() {
     if (selectedItems.length === cartList.length) {
       setSelectedItems([]);
     } else {
@@ -82,7 +82,12 @@ function Cart() {
       <div className="wrap">
         <section className="select">
           <span className="selectAll">
-            <BsCheckCircle className="check" onClick={selectAllItems} />
+            <BsCheckCircle
+              className={`check ${
+                selectedItems.length === cartList.length && 'clickedCheck'
+              }`}
+              onClick={selectAllItems}
+            />
             <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
           </span>
           <span className="selectToDelete" onClick={deleteSelectedItems}>
@@ -132,10 +137,17 @@ function Cart() {
         </div>
         <section className="select">
           <span className="selectAll">
-            <BsCheckCircle />
-            <p className="text">전체선택(1/10)</p>
+            <BsCheckCircle
+              className={`check ${
+                selectedItems.length === cartList.length && 'clickedCheck'
+              }`}
+              onClick={selectAllItems}
+            />
+            <p className="text">{`전체선택(${selectedItems.length}/${cartList.length})`}</p>
           </span>
-          <span className="selectToDelete">선택삭제</span>
+          <span className="selectToDelete" onClick={deleteSelectedItems}>
+            선택삭제
+          </span>
         </section>
       </div>
     </div>

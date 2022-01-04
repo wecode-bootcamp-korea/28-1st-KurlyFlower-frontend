@@ -2,17 +2,22 @@
 @import '../Cart.scss';
 
 .categoryContainer {
+
   .category {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 0.5rem 0 0.5rem;
-    height: 5rem;
+   height: 5rem;
     border-top: 1px solid black;
 
     .title {
       display: flex;
       align-items: center;
+
+      .categoryIcon {
+        font-size: $font-size-M;
+      }
 
       h2 {
         padding-left: 0.5rem;

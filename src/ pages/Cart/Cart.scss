@@ -76,7 +76,13 @@ $main-light-purple: rgb(92, 54, 109);
       align-items: center;
 
       .check {
-        font-size: 2rem;
+        font-size: $font-size-M
+      }
+
+      .clickedCheck {
+        background-color: $main-purple;
+        color: white;
+        border-radius: 3rem;
       }
 
       .text {
@@ -86,10 +92,6 @@ $main-light-purple: rgb(92, 54, 109);
 
     .selectToDelete {
       margin-left: 1rem;
-    }
-
-    .selectToDelete {
-
     }
   }
 }
