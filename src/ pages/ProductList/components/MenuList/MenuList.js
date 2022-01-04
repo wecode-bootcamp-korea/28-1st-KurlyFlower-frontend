@@ -12,11 +12,12 @@ function MenuList({ productList }) {
         return (
           <Menu
             key={menu.id}
-            id={menu.id} //id값이 고유 값이니까 반드시 key값 적어주기
-            type={menu.type}
-            subType={menu.subType}
+            category_id={menu.category_id}
+            subcategory_id={menu.subcategory_id} //id값이 고유 값이니까 반드시 key값 적어주기
             name={menu.name}
-            number={menu.number}
+            description={menu.description}
+            price={menu.price}
+            thumbnail_url={menu.thumbnail_url}
           />
         );
       })}

@@ -7,9 +7,5 @@
   },
   "javascript.format.enable": false,
   "eslint.alwaysShowStatus": true,
-  "files.autoSave": "onFocusChange",
-  "workbench.activityBar.iconClickBehavior": "focus",
-  "workbench.editor.autoLockGroups": {
-    "default": true
-  }
+  "files.autoSave": "onFocusChange"
 }

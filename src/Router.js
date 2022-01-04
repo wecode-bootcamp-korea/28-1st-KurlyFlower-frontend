@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Cart from './ pages/Cart/Cart';
 import Login from './ pages/Login/Login';
 import Main from './ pages/Main/Main';
 import ProductList from './ pages/ProductList/ProductList';
@@ -13,6 +14,7 @@ export default function Router() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/main" element={<Main />} />
         <Route path="/productlist" element={<ProductList />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

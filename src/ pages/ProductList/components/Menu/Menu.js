@@ -2,15 +2,20 @@ import React from 'react';
 import CartBtn from '../cartBtn/CartBtn';
 import './Menu.scss';
 
-function Menu({ id, name, number, type, subType }) {
+function Menu({
+  id,
+  catecory_id,
+  subcategory_id,
+  name,
+  description,
+  price,
+  thumbnail_url,
+}) {
   return (
     <div className="menuContainer">
       <div className="imgBox">
-        <img
-          src="https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-          alt="vegetable"
-        />
-        <span>aaaaaa</span>
+        <img src={thumbnail_url} alt="vegetable" />
+
         <div className="cartBtn">
           <button>버튼</button>
         </div>
@@ -18,7 +23,7 @@ function Menu({ id, name, number, type, subType }) {
 
       <div className="menuInfo">
         <h2>{name}</h2>
-        <p>{number}</p>
+        <p>{price}</p>
       </div>
     </div>
   );

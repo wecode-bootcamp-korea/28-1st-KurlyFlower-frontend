@@ -11,33 +11,31 @@ function ProductList() {
   const [clickedMainBtn, setClickedMainBtn] = useState(0);
 
   const [clickedBtn, setClickedBtn] = useState(0);
-
   useEffect(() => {
-    fetch('http://localhost:3000/data/productData.json', {
+    fetch('http://8ba7-211-216-118-174.ngrok.io/products', {
       method: 'GET',
     })
-      .then(res => res.json())
+      .then(data => data.json())
       .then(data => setProductList(data));
   }, []);
 
-  useEffect(() => {}, [productList]);
+  // useEffect(() => {}, [productList]);
 
-  const lowPrice = () => {
-    setProductList(
-      [...productList].sort(function (a, b) {
-        //리액트는 불변성이라는 규칙 떄문에 원본 데이터는 안바뀜(복사해서 작업해야함)
-        return a.number - b.number;
-      })
-    );
-  };
-
-  const heightPrice = () => {
-    setProductList(
-      [...productList].sort(function (a, b) {
-        return b.number - a.number;
-      })
-    );
-  };
+  // const lowPrice = () => {
+  //   setProductList(
+  //     [...productList].sort(function (a, b) {
+  //       //리액트는 불변성이라는 규칙 떄문에 원본 데이터는 안바뀜(복사해서 작업해야함)
+  //       return a.number - b.number;
+  //     })
+  //   );
+  // };
+  // const heightPrice = () => {
+  //   setProductList(
+  //     [...productList].sort(function (a, b) {
+  //       return b.number - a.number;
+  //     })
+  //   );
+  // };
 
   function onClickMainBtn(e) {
     setClickedMainBtn(e.target.dataset.key);
@@ -98,7 +96,7 @@ function ProductList() {
           </li>
           <li
             className={clickedBtn === '6' ? 'isActive' : ''}
-            onClick={lowPrice.id}
+            onClick={onClickBtn}
             data-key="6"
           >
             낮은가격순

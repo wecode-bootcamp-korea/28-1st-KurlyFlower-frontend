@@ -1,0 +1,37 @@
+[{
+  "title": "프리미엄 상품 대전",
+  "subtitle": "컬리플라워가 추천하는 프리미엄 상품",
+  "products":[
+    {
+      "id": 18,
+      "img": "https://images.unsplash.com/photo-1577193120905-21e0c301d5d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1hY2tlcmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    },{
+      "id": 19,
+      "img": "https://images.unsplash.com/photo-1608502712357-b84a5084c6b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHR1bmF8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    },{
+      "id": 20,
+      "img": "https://images.unsplash.com/photo-1577193120905-21e0c301d5d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1hY2tlcmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    },{
+      "id": 21,
+      "img": "https://images.unsplash.com/photo-1619082737911-1119bc3167ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTl8fGNsYW0lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    },{
+      "id": 22,
+      "img": "https://images.unsplash.com/photo-1583085678956-bfd8d20bb7bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGNsYW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    },{
+      "id": 23,
+      "img": "https://images.unsplash.com/photo-1616627152550-5aac9b71a949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAyN3x8ZmlzaCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "name": "namename",
+      "price": 9900
+    }
+  ]
+}]
