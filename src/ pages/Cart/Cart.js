@@ -33,6 +33,13 @@ function Cart() {
     run();
   }
 
+  function deleteItems(item) {
+    const filteredCartList = cartList.filter(cartItem => {
+      return cartItem.id !== item.id;
+    });
+    setCartList(filteredCartList);
+  }
+
   useEffect(() => {
     const loadCartData = async () => {
       const response = await fetch('/data/cart/cart.json');
@@ -62,21 +69,21 @@ function Cart() {
                 packaging="냉장"
                 selectedItems={selectedItems}
                 selectItems={selectItems}
-                cartList={cartList}
+                deleteItems={deleteItems}
                 items={cartList.filter(item => item.packaging === '냉장')}
               />
               <Category
                 packaging="냉동"
                 selectedItems={selectedItems}
                 selectItems={selectItems}
-                cartList={cartList}
+                deleteItems={deleteItems}
                 items={cartList.filter(item => item.packaging === '냉동')}
               />
               <Category
                 packaging="상온"
                 selectedItems={selectedItems}
                 selectItems={selectItems}
-                cartList={cartList}
+                deleteItems={deleteItems}
                 items={cartList.filter(item => item.packaging === '상온')}
               />
             </section>

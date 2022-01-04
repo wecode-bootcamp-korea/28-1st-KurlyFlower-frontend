@@ -4,7 +4,13 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { BsFillSunFill } from 'react-icons/bs';
 import Item from '../Item/Item';
 
-function Category({ packaging, cartList, selectedItems, selectItems, items }) {
+function Category({
+  packaging,
+  deleteItems,
+  selectedItems,
+  selectItems,
+  items,
+}) {
   return (
     <div className="categoryContainer">
       <div className="category">
@@ -23,6 +29,7 @@ function Category({ packaging, cartList, selectedItems, selectItems, items }) {
             item={item}
             selectedItems={selectedItems}
             selectItems={selectItems}
+            deleteItems={deleteItems}
           />
         ))}
       </ul>
