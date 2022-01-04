@@ -1,0 +1,128 @@
+@import '../../../styles/variables.scss';
+@import '../Main.scss';
+
+.products {
+  .wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    .container {
+      position: relative;
+      width: 1050px;
+      overflow: hidden;
+
+      .list {
+        display: flex;
+        transition: all 0.5s ease-in-out;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          padding: 9px 18px 0 0;
+
+          .imgContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: $double-space;;
+            width: 249px;
+            height: 320px;
+            overflow: hidden;
+
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+              transition: all 0.2s ease-in;
+            }
+
+            img:hover {
+              transform: scale(103%);
+            }
+          }
+
+          p {
+            font-size: $font-size-M;
+          }
+
+          .name {
+            margin-bottom: $space;
+          }
+
+          .price {
+            font-weight: 700;
+          }
+
+          .cartContainer {
+            position: absolute;
+            transform: translate(11.3rem,15.7rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: $main-light-purple;
+            opacity: 0.7;
+            border-radius: 3rem;
+            cursor: pointer;
+
+            .cart {
+              color: white;
+              font-size: 1.7rem;
+            }
+            .clickedCart {
+              color: $main-purple;
+            }
+          }
+
+          .clickedContainer {
+            opacity: 1;
+            background-color: white;
+          }
+
+
+        }
+
+        .more {
+          @include center;
+          justify-content: center;
+          margin-left: 5rem;
+
+          .moreButton {
+            font-size: 6rem;
+            color: $main-purple;
+            border: 1px solid $light-grey-border;
+            border-radius: 3rem;
+          }
+
+          .moreButton:hover {
+            background-color: $light-grey-border;
+          }
+
+          .moreText {
+            margin-top: 1rem;
+            font-size: $font-size-M;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      @include buttons;
+      transform: translateY(300%);
+
+      .prev {
+        @include buttonLeft;
+      }
+
+      .next {
+        @include buttonRight;
+      }
+    }
+  }
+
+  .hide {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "title": "놓칠 수 없는 최저가",
+    "subtitle": "최저가 할인만 모음",
+    "products":[
+      {
+        "id": 0,
+        "img": " https://images.unsplash.com/photo-1637088059597-01a3314b4c6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTAzfHxmaXNoJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+        "name": "1namename",
+        "price": 9900
+      },{
+        "id": 1,
+        "img": "https://images.unsplash.com/photo-1620800196976-17f9cc35d0a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjI4fHxmaXNoJTIwZm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+        "name": "2namename",
+        "price": 9900
+      },{
+        "id": 2,
+        "img": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODR8fGZpc2glMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        "name": "3namename",
+        "price": 9900
+      },{
+        "id": 3,
+        "img": "https://images.unsplash.com/photo-1556814901-18c866c057da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZpc2glMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        "name": "4namename",
+        "price": 9900
+      },{
+        "id": 4,
+        "img": "https://images.unsplash.com/photo-1611171711912-e3f6b536f532?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmlzaCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+        "name": "5namename",
+        "price": 9900
+      },{
+        "id": 5,
+        "img": "https://images.unsplash.com/photo-1523986490752-c28064f26be3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80",
+        "name": "6namename",
+        "price": 9900
+      }
+    ]
+  }]
