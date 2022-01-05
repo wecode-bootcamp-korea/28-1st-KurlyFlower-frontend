@@ -15,6 +15,14 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
   const LAST_SLIDE_WIDTH = LIST_WIDTH - SLIDE_COUNT * SLIDE_WIDTH;
 
   useEffect(() => {
+    console.log(
+      page,
+      productsLength,
+      ITEM_WIDTH,
+      LIST_WIDTH,
+      SLIDE_WIDTH,
+      SLIDE_COUNT
+    );
     if (page < SLIDE_COUNT) {
       itemListRef.current.style.transform = `translateX(-${
         page * SLIDE_WIDTH

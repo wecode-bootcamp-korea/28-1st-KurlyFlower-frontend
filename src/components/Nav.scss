@@ -1,5 +1,6 @@
 @import '../styles/variables.scss';
 .navLocation {
+  padding-bottom: 8px;
   border-bottom: 1px solid $light-grey-border;
 
   .leftInfo {
@@ -89,10 +90,22 @@
   .imgHeart {
     transform: translate(290%, 25%);
   }
+.imgCartsWrap {
+  position: relative;
   .imgCart {
     transform: translate(340%, 19%);
-    width: 30px;
+    font-size: 30px;
   }
+
+  .cartCount {
+    width: 19px;
+    height: 19px;
+    background-color: $main-purple;
+    border-radius: 10px;
+    color: white;
+    transform: translate(630%, -160%);
+  }
+}
   .searchField {
     width: 240px;
     height: 31px;

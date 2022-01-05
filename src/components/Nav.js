@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import NavLogo from './Navlogo';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import './Nav.scss';
+import { BsCart2 } from 'react-icons/bs';
 
-const Nav = () => {
+const Nav = ({ cartCount }) => {
   const [listOpen, setlistOpen] = useState(false);
   const listToggleMenu = () => {
     setlistOpen(listOpen => !listOpen);
@@ -79,11 +80,14 @@ const Nav = () => {
           alt="btnHeart"
         />
         <button className="imgCarts">
-          <img
-            src="https://img.icons8.com/ios/50/000000/shopping-cart.png"
-            className="imgCart"
-            alt="btnCart"
-          />
+          <span className="imgCartsWrap">
+            <BsCart2 className="imgCart" />
+            {cartCount > 0 && (
+              <span className="cartCountContainer">
+                <p className="cartCount">{cartCount}</p>
+              </span>
+            )}
+          </span>
         </button>
         {purpleSmallUis === true ? (
           <div className="purpleSmallUi">

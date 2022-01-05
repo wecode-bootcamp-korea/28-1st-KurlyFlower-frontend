@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import Collection from './Collection/Collection';
 import Banner from './Banner/Banner';
-import Nav from './Nav/Nav';
+import Nav from './../../components/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
@@ -39,7 +39,6 @@ function Main() {
     <>
       <div className="main">
         <Nav cartCount={cartList.length} />
-        {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
         {isLoading && <Skeleton />}
         <Banner />
         {productsList.map((products, idx) => (
