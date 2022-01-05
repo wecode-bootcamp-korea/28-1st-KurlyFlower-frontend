@@ -3,7 +3,6 @@ import './Main.scss';
 import Collection from './Collection/Collection';
 import Banner from './Banner/Banner';
 import Nav from './../../components/Nav';
-
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
@@ -24,13 +23,16 @@ function Main() {
         setProductsList(productsList => [...productsList, ...data]);
       }
     };
+
     const loadFirstTime = async () => {
-      await setIsLoading(true);
+      await fetchTimeDelay(500);
       await fetchProductsData(page);
-      await setIsLoading(false);
     };
     loadFirstTime();
   }, [page]);
+
+  const fetchTimeDelay = time =>
+    new Promise(resolve => setTimeout(resolve, time));
 
   function addCart(product) {
     setCartList([...cartList, product.id]);
@@ -42,15 +44,19 @@ function Main() {
         <Nav cartCount={cartList.length} />
         {isLoading && <Skeleton />}
         <Banner />
-        {productsList.map((products, idx) => (
-          <Collection
-            key={idx}
-            products={products}
-            addCart={addCart}
-            cartList={cartList}
-            showMore={true}
-          />
-        ))}
+        {productsList.length ? (
+          productsList.map((products, idx) => (
+            <Collection
+              key={idx}
+              products={products}
+              addCart={addCart}
+              cartList={cartList}
+              showMore={true}
+            />
+          ))
+        ) : (
+          <Skeleton />
+        )}
       </div>
       {page === 5 && (
         <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />

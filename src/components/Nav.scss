@@ -1,6 +1,6 @@
 @import '../styles/variables.scss';
 .navLocation {
-  padding-bottom: 8px;
+  padding-bottom: 15px;
   border-bottom: 1px solid $light-grey-border;
 
   .leftInfo {
@@ -58,6 +58,7 @@
     margin-top: 80px;
     font-weight: 400;
     font-size: 21px;
+    transform: translateX(-3.5%);
   }
   #categorieAll {
     margin-left: 20px;
