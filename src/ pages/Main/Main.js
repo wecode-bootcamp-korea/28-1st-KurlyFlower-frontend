@@ -3,6 +3,7 @@ import './Main.scss';
 import Collection from './Collection/Collection';
 import Banner from './Banner/Banner';
 import Nav from './../../components/Nav';
+
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
