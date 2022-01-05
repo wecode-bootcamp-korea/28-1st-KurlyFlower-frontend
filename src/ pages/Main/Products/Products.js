@@ -15,14 +15,6 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
   const LAST_SLIDE_WIDTH = LIST_WIDTH - SLIDE_COUNT * SLIDE_WIDTH;
 
   useEffect(() => {
-    console.log(
-      page,
-      productsLength,
-      ITEM_WIDTH,
-      LIST_WIDTH,
-      SLIDE_WIDTH,
-      SLIDE_COUNT
-    );
     if (page < SLIDE_COUNT) {
       itemListRef.current.style.transform = `translateX(-${
         page * SLIDE_WIDTH
@@ -71,7 +63,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
                   }`}
                 >
                   <BsCart2
-                    className={`cart ${
+                    className={`cartBtn ${
                       cartList.includes(product.id) ? 'clickedCart' : ''
                     }`}
                     onClick={() => onClickCart(product)}
@@ -86,7 +78,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
           </div>
         </div>
         <div className="buttons">
-          <button className={page > 0 ? 'hide' : ''}>
+          <button className={page > 0 ? '' : 'hide'}>
             <MdKeyboardArrowLeft className="prev" onClick={onPrevClick} />
           </button>
 
