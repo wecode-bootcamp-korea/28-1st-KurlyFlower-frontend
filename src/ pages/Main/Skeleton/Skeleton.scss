@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+
+  .banner {
+    margin-bottom: 5rem;
+    width: 1425px;
+    height: 370px;
+    background-color: $light-grey-border;
+  }
+
+  .title {
+    margin-bottom: 2rem;
+    width: 15rem;
+    height: 2rem;
+    background-color: $light-grey-border;
+    font-size: $font-size-L;
+  }
+
+  .products {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    .product {
+      margin: 9px 18px 0 0;
+      width: 249px;
+      height: 320px;
+      background-color: $light-grey-border;
+    }
+  }
+}
