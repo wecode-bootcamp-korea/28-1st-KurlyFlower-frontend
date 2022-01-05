@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../../components/footer.js';
 import './Login.scss';
 
 function Login() {
@@ -91,6 +92,7 @@ function Login() {
           </button>
         </Link>
       </div>
+      <Footer />
     </div>
   );
 }
