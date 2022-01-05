@@ -3,10 +3,12 @@ import './Cart.scss';
 import { BsCheckCircle } from 'react-icons/bs';
 import Category from './Category/Category';
 import CartInfo from './CartInfo/CartInfo';
+import Order from './Order/Order';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isOrdered, setIsOrdered] = useState(false);
 
   function selectAllItems() {
     if (selectedItems.length === cartList.length) {
@@ -65,6 +67,10 @@ function Cart() {
       if (cartItem.id === item.id) cartItem.quantity++;
     });
     setCartList(updatedCartList);
+  }
+
+  function handleOrder() {
+    setIsOrdered(true);
   }
 
   useEffect(() => {
@@ -156,6 +162,7 @@ function Cart() {
                 return acc + curr.quantity * curr.price;
               }, 0)}
               noCartItem={!cartList.length}
+              handleOrder={handleOrder}
             />
           </aside>
         </div>
@@ -174,6 +181,7 @@ function Cart() {
           </span>
         </section>
       </div>
+      {isOrdered && <Order selectedItems={selectedItems} />}
     </div>
   );
 }
