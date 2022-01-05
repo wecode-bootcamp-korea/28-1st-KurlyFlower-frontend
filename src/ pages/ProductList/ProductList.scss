@@ -1,0 +1,63 @@
+.productTitle {
+  text-align: center;
+  width: 75vw;
+  margin: auto;
+  display: grid;
+  margin-bottom: 15px;
+
+  h2 {
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    padding: 20px 0 20px 0;
+    border: 1px solid rgb(220, 220, 220);
+    li {
+      color: #333333;
+      display: inline-block;
+      margin: 0 120px;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: #5e0080;
+      }
+    }
+  }
+  .filterBtnOn {
+    color: #5e0080;
+  }
+}
+
+.soltMenu {
+  width: 75vw;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  display: grid;
+
+  ul {
+    li {
+      margin: 0 10px;
+      float: right;
+      color: rgb(135, 135, 135);
+      font-size: 0.8rem;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .isActive {
+    color: black;
+  }
+}
+// width: 85vw;
+// margin: 0 auto;
