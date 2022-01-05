@@ -1,45 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../Main/Main.scss';
 
-$double-space: 1rem;
-$space: 0.5rem;
-$main-purple: rgb(75,0,109);
-$main-light-purple: rgb(92, 54, 109);
-
-@mixin buttons {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  width: 105%;
-}
-
-@mixin buttonLeft {
-  background-color: white;
-  font-size: 3rem;
-  border-radius: 3rem;
-  cursor: pointer;
-}
-
-@mixin buttonRight {
-  background-color: white;
-  font-size: 3rem;
-  border-radius: 3rem;
-  cursor: pointer;
-
-}
-
-@mixin center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@mixin title {
-  font-size: $font-size-L;
-  margin-bottom: $space;
-  font-weight: 600;
-}
-
 .cart {
   display: flex;
   flex-direction: column;

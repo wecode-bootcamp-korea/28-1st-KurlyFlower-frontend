@@ -63,7 +63,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
                   }`}
                 >
                   <BsCart2
-                    className={`cart ${
+                    className={`cartBtn ${
                       cartList.includes(product.id) ? 'clickedCart' : ''
                     }`}
                     onClick={() => onClickCart(product)}

@@ -3,7 +3,7 @@ import './Category.scss';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { BsFillSunFill, BsSnow } from 'react-icons/bs';
 import { MdOutlineWaterDrop } from 'react-icons/md';
-import Item from '../Item/Item';
+import CartItem from '../CartItem/CartItem';
 
 function Category({
   packaging,
@@ -49,7 +49,7 @@ function Category({
       {isOpened && (
         <ul className="list">
           {items.map((item, idx) => (
-            <Item
+            <CartItem
               className="item"
               key={idx}
               item={item}

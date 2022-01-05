@@ -1,10 +1,10 @@
 import React from 'react';
-import './Item.scss';
+import './CartItem.scss';
 import { IoMdClose } from 'react-icons/io';
 import { BsCheckCircle } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-function Item({
+function CartItem({
   item,
   selectedItems,
   selectItems,
@@ -29,7 +29,7 @@ function Item({
   }
 
   return (
-    <li className="item">
+    <li className="cartItem">
       <BsCheckCircle
         onClick={onClickCheck}
         className={`check ${
@@ -55,4 +55,4 @@ function Item({
   );
 }
 
-export default Item;
+export default CartItem;

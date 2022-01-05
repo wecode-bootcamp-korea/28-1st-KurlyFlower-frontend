@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
-@import '../../Cart/Cart.scss';
+@import '../../Main/Main.scss';
 
-.item {
+.cartItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
