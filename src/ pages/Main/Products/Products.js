@@ -59,12 +59,16 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
                 <p className="price">{product.price}원</p>
                 <div
                   className={`cartContainer ${
-                    cartList.includes(product.id) ? 'clickedContainer' : ''
+                    Object.keys(cartList).includes(String(product.id))
+                      ? 'clickedContainer'
+                      : ''
                   }`}
                 >
                   <BsCart2
                     className={`cart ${
-                      cartList.includes(product.id) ? 'clickedCart' : ''
+                      Object.keys(cartList).includes(String(product.id))
+                        ? 'clickedCart'
+                        : ''
                     }`}
                     onClick={() => onClickCart(product)}
                   />
