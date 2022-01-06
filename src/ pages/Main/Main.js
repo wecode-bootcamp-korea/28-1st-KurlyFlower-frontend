@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import Collection from './Collection/Collection';
 import Banner from './Banner/Banner';
-import Nav from './Nav/Nav';
+import Nav from './../../components/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
@@ -28,8 +28,8 @@ function Main() {
   function addCart(product) {
     setCartList([...cartList, product.id]);
 
-    async function submitAddedCartId() {
-      const response = await fetch('url', {
+    function submitAddedCartId() {
+      fetch('url', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,11 +39,10 @@ function Main() {
           quantity: 1,
         }),
       });
-      console.log(response);
+      // console.log(response);
     }
     submitAddedCartId();
   }
-
   return (
     <>
       <div className="main">
@@ -51,15 +50,19 @@ function Main() {
         {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
         {!productsList && <Skeleton />}
         <Banner />
-        {productsList.map((products, idx) => (
-          <Collection
-            key={idx}
-            products={products}
-            addCart={addCart}
-            cartList={cartList}
-            showMore={true}
-          />
-        ))}
+        {productsList.length ? (
+          productsList.map((products, idx) => (
+            <Collection
+              key={idx}
+              products={products}
+              addCart={addCart}
+              cartList={cartList}
+              showMore={true}
+            />
+          ))
+        ) : (
+          <Skeleton />
+        )}
       </div>
       {page === 5 && (
         <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />

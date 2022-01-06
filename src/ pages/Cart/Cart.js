@@ -29,12 +29,13 @@ function Cart() {
       });
     }
     run();
+    submitDeletedSelectedItems();
   }
 
-  async function submitDeletedSelectedItems() {
+  function submitDeletedSelectedItems() {
     let idArr = [];
     selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
-    const response = await fetch('url', {
+    fetch('url', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +44,6 @@ function Cart() {
         product_id: idArr,
       }),
     });
-    console.log(response);
   }
 
   function selectItems(item) {

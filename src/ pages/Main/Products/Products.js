@@ -78,7 +78,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
           </div>
         </div>
         <div className="buttons">
-          <button className={page > 0 ? 'hide' : ''}>
+          <button className={page > 0 ? '' : 'hide'}>
             <MdKeyboardArrowLeft className="prev" onClick={onPrevClick} />
           </button>
 

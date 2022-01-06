@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+.btnModal {
+  position: absolute;
+  padding-top: 1px;
+  line-height: 18px;
+  right: 350px;
+  color: $main-purple;
+  font-size: 15px;
+  font-weight: bold;
+}

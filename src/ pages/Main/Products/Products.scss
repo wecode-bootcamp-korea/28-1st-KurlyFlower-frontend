@@ -59,6 +59,7 @@
 
             .cartBtn {
               @include cart;
+
             }
             .clickedCart {
               @include clickedCart

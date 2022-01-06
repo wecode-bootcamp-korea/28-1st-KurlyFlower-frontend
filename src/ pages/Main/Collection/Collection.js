@@ -10,7 +10,7 @@ function Collection({ products, addCart, cartList, showMore }) {
       <h3 className="subtitle">{products.subtitle}</h3>
       <Products
         products={products.products}
-        productsLength={products.length}
+        productsLength={products.products.length}
         addCart={addCart}
         cartList={cartList}
         showMore={showMore}

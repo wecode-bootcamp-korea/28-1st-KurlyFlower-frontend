@@ -38,12 +38,12 @@ const Nav = ({ cartCount }) => {
           <li className="rightMenuli">로그인</li>
         </Link>
 
-        <li className="rightMenuli" onClick={() => listToggleMenu()}>
+        <li className="rightMenuli" onClick={listToggleMenu}>
           고객센터
           <ul className={listOpen ? 'show-menu' : 'hide-menu'}>
             {CSCENTERLIST.map(CSList => {
               return (
-                <li className="cscenterList" key={CSList.key}>
+                <li className="cscenterList" key={CSList.CScenterid}>
                   {CSList.content}
                 </li>
               );

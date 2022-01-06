@@ -4,6 +4,7 @@ import './Skeleton.scss';
 function Skeleton() {
   return (
     <div className="skeleton">
+      <div className="shine" />
       <div className="banner" />
       <h1 className="title" />
       <div className="products">
