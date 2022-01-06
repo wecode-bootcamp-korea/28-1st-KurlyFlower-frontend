@@ -11,7 +11,6 @@ function Main() {
   const [productsList, setProductsList] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchProductsData = async pageNum => {
@@ -23,16 +22,26 @@ function Main() {
         setProductsList(productsList => [...productsList, ...data]);
       }
     };
-    const loadFirstTime = async () => {
-      await setIsLoading(true);
-      await fetchProductsData(page);
-      await setIsLoading(false);
-    };
-    loadFirstTime();
+    fetchProductsData(page);
   }, [page]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);
+
+    async function submitAddedCartId() {
+      const response = await fetch('url', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          product_id: product.id,
+          quantity: 1,
+        }),
+      });
+      console.log(response);
+    }
+    submitAddedCartId();
   }
 
   return (
@@ -40,7 +49,7 @@ function Main() {
       <div className="main">
         <Nav cartCount={cartList.length} />
         {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
-        {isLoading && <Skeleton />}
+        {!productsList && <Skeleton />}
         <Banner />
         {productsList.map((products, idx) => (
           <Collection
@@ -55,7 +64,7 @@ function Main() {
       {page === 5 && (
         <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />
       )}
-      {!isLoading && page < 5 && <LoadMoreProducts setPage={setPage} />}
+      {productsList && page < 5 && <LoadMoreProducts setPage={setPage} />}
     </>
   );
 }

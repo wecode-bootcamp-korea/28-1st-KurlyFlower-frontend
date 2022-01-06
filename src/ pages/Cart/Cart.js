@@ -31,6 +31,21 @@ function Cart() {
     run();
   }
 
+  async function submitDeletedSelectedItems() {
+    let idArr = [];
+    selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
+    const response = await fetch('url', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        product_id: idArr,
+      }),
+    });
+    console.log(response);
+  }
+
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
