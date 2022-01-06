@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TABLETH } from './TABLETH.js';
 import { SIGNUPAGREES } from './SIGNUPAGREE';
+import Nav from '../../components/Nav';
 import BtnModal from './BtnModal.js';
 import './Signup.scss';
 
@@ -66,7 +67,8 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signUp">
+      <Nav />
       <h2>회원가입</h2>
       <p className="pageSub">
         <span className="icons">*</span>

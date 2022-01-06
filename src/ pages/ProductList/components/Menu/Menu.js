@@ -15,9 +15,7 @@ function Menu({
       <div className="imgBox">
         <img src={thumbnail_url} alt="vegetable" />
 
-        <div className="cartBtn">
-          <button>버튼</button>
-        </div>
+        <div className="cartBtn" />
       </div>
 
       <div className="menuInfo">
