@@ -4,18 +4,16 @@
   margin-bottom: 15px;
   display: grid;
 
-  ul {
-    li {
-      display: inline-block;
-      margin: 0 10px;
-      float: right;
-      color: rgb(135, 135, 135);
-      font-size: 0.8rem;
-      cursor: pointer;
+  li {
+    display: inline-block;
+    margin: 0 10px;
+    float: right;
+    color: rgb(135, 135, 135);
+    font-size: 0.8rem;
+    cursor: pointer;
 
-      &:hover {
-        color: black;
-      }
+    &:hover {
+      color: black;
     }
   }
 }

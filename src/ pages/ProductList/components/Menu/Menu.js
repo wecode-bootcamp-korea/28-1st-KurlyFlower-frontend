@@ -23,6 +23,8 @@ function Menu({
       <div className="menuInfo">
         <h2>{name}</h2>
         <p>{price}</p>
+
+        <p>{description}</p>
       </div>
     </div>
   );
