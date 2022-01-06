@@ -12,7 +12,6 @@ function Main() {
   const [cartList, setCartList] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     const fetchProductsData = async pageNum => {
       if (pageNum < 5) {
@@ -31,13 +30,9 @@ function Main() {
     loadFirstTime();
   }, [page]);
 
-  const fetchTimeDelay = time =>
-    new Promise(resolve => setTimeout(resolve, time));
-
   function addCart(product) {
     setCartList([...cartList, product.id]);
   }
-
   return (
     <>
       <div className="main">

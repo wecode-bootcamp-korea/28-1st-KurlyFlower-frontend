@@ -1,0 +1,57 @@
+.menuContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column; // css 수정하면서 지우기(지워도 세로 배열됨)
+  background-color: white;
+  cursor: pointer;
+  height: 640px;
+
+  .imgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        transform: scale(1.05, 1.05);
+        transition-duration: 0.9s;
+      }
+    }
+
+    .cartBtn {
+      button {
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        top: 63%;
+        left: 84%;
+
+        background: blueviolet;
+        border: 1px solid black;
+        z-index: 2;
+      }
+    }
+  }
+
+  // .btn1 {
+  //   width: 55px;
+  //   height: 55px;
+  //   position: absolute;
+
+  //   background: blueviolet;
+  //   border: 1px solid black;
+  //   z-index: 1;
+  // }
+
+  .menuInfo {
+    margin-top: 15px;
+    margin-bottom: 120px;
+  }
+}
