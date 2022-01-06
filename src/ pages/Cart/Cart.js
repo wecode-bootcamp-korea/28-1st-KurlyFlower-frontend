@@ -21,6 +21,7 @@ function Cart() {
 
   function deleteSelectedItems() {
     let filteredCartList = cartList;
+    setSelectedItems([]);
     function run() {
       selectedItems.forEach(selectedItem => {
         filteredCartList = filteredCartList.filter(cartItem => {
@@ -36,10 +37,12 @@ function Cart() {
   function submitDeletedSelectedItems() {
     let idArr = [];
     selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
-    fetch('url', {
-      method: 'PATCH',
+    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
       },
       body: JSON.stringify({
         product_id: idArr,
@@ -75,6 +78,7 @@ function Cart() {
       if (cartItem.id === item.id) cartItem.quantity--;
     });
     setCartList(updatedCartList);
+    submitChangeQuantity(item.id, -1);
   }
 
   function plusQuantity(item) {
@@ -83,6 +87,22 @@ function Cart() {
       if (cartItem.id === item.id) cartItem.quantity++;
     });
     setCartList(updatedCartList);
+    submitChangeQuantity(item.id, 1);
+  }
+
+  function submitChangeQuantity(productId, changeQuantity) {
+    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+      },
+      body: {
+        product_id: productId,
+        changeQuantity: changeQuantity,
+      },
+    });
   }
 
   function handleOrder() {
@@ -91,7 +111,16 @@ function Cart() {
 
   useEffect(() => {
     const loadCartData = async () => {
-      const response = await fetch('/data/cart/cart.json');
+      const response = await fetch(
+        'http://9967-211-106-114-186.ngrok.io/products/cart',
+        {
+          method: 'GET',
+          headers: {
+            Authorization:
+              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+          },
+        }
+      );
       const data = await response.json();
       setCartList(data);
     };

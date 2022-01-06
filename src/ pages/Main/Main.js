@@ -29,10 +29,12 @@ function Main() {
     setCartList([...cartList, product.id]);
 
     function submitAddedCartId() {
-      fetch('url', {
+      fetch('http://9967-211-106-114-186.ngrok.io/products/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
         },
         body: JSON.stringify({
           product_id: product.id,
