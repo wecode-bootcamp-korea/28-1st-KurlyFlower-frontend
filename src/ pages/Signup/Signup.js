@@ -67,7 +67,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signUp">
       <Nav />
       <h2>회원가입</h2>
       <p className="pageSub">

@@ -73,9 +73,7 @@ function Login() {
         </p>
 
         <div className="loginFind">
-          <span> 아이디 찾기 </span>
-          <span className="bar" />
-          <span> 비밀번호 찾기 </span>
+          <span> 아이디 찾기 </span>|<span> 비밀번호 찾기 </span>
         </div>
 
         <Link to="/main">
