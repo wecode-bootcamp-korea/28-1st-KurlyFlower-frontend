@@ -34,9 +34,9 @@ function Category({
   return (
     <div className="categoryContainer">
       <div className="category">
-        <span className="title">
+        <span className="categoryTitle">
           {categoryIcon(packaging)}
-          <h2>{packaging} 상품</h2>
+          <h2 className="categoryName">{packaging} 상품</h2>
         </span>
         <button>
           {isOpened ? (

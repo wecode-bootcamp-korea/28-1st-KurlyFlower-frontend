@@ -4,6 +4,7 @@ import { BsCheckCircle } from 'react-icons/bs';
 import Category from './Category/Category';
 import CartInfo from './CartInfo/CartInfo';
 import Order from './Order/Order';
+import Nav from '../../components/Nav';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
@@ -102,102 +103,105 @@ function Cart() {
   }
 
   return (
-    <div className="cart">
-      <h1>장바구니</h1>
-      <div className="wrap">
-        <section className="select">
-          <span className="selectAll">
-            <BsCheckCircle
-              className={`check ${
-                selectedItems.length === cartList.length && 'clickedCheck'
-              }`}
-              onClick={selectAllItems}
-            />
-            <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
-          </span>
-          <span className="selectToDelete" onClick={deleteSelectedItems}>
-            선택삭제
-          </span>
-        </section>
-        <div className="container">
-          <main className="cartList">
-            <section className="list">
-              {categorizeItems('냉장').length ? (
-                <Category
-                  packaging="냉장"
-                  selectedItems={selectedItems}
-                  selectItems={selectItems}
-                  deleteItems={deleteItems}
-                  minusQuantity={minusQuantity}
-                  plusQuantity={plusQuantity}
-                  items={categorizeItems('냉장')}
-                />
-              ) : (
-                ''
-              )}
-              {categorizeItems('냉동').length ? (
-                <Category
-                  packaging="냉동"
-                  selectedItems={selectedItems}
-                  selectItems={selectItems}
-                  deleteItems={deleteItems}
-                  minusQuantity={minusQuantity}
-                  plusQuantity={plusQuantity}
-                  items={categorizeItems('냉동')}
-                />
-              ) : (
-                ''
-              )}
-              {categorizeItems('상온').length ? (
-                <Category
-                  packaging="상온"
-                  selectedItems={selectedItems}
-                  selectItems={selectItems}
-                  deleteItems={deleteItems}
-                  minusQuantity={minusQuantity}
-                  plusQuantity={plusQuantity}
-                  items={categorizeItems('상온')}
-                />
-              ) : (
-                ''
-              )}
-              {!cartList.length ? (
-                <div className="noItems">
-                  <p>장바구니에 담긴 상품이 없습니다</p>
-                </div>
-              ) : (
-                ''
-              )}
-            </section>
-          </main>
+    <>
+      <Nav />
+      <div className="cart">
+        <h1>장바구니</h1>
+        <div className="wrap">
+          <section className="select">
+            <span className="selectAll">
+              <BsCheckCircle
+                className={`checkbox ${
+                  selectedItems.length === cartList.length && 'clickedCheck'
+                }`}
+                onClick={selectAllItems}
+              />
+              <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
+            </span>
+            <span className="selectToDelete" onClick={deleteSelectedItems}>
+              선택삭제
+            </span>
+          </section>
+          <div className="container">
+            <main className="cartList">
+              <section className="list">
+                {categorizeItems('냉장').length ? (
+                  <Category
+                    packaging="냉장"
+                    selectedItems={selectedItems}
+                    selectItems={selectItems}
+                    deleteItems={deleteItems}
+                    minusQuantity={minusQuantity}
+                    plusQuantity={plusQuantity}
+                    items={categorizeItems('냉장')}
+                  />
+                ) : (
+                  ''
+                )}
+                {categorizeItems('냉동').length ? (
+                  <Category
+                    packaging="냉동"
+                    selectedItems={selectedItems}
+                    selectItems={selectItems}
+                    deleteItems={deleteItems}
+                    minusQuantity={minusQuantity}
+                    plusQuantity={plusQuantity}
+                    items={categorizeItems('냉동')}
+                  />
+                ) : (
+                  ''
+                )}
+                {categorizeItems('상온').length ? (
+                  <Category
+                    packaging="상온"
+                    selectedItems={selectedItems}
+                    selectItems={selectItems}
+                    deleteItems={deleteItems}
+                    minusQuantity={minusQuantity}
+                    plusQuantity={plusQuantity}
+                    items={categorizeItems('상온')}
+                  />
+                ) : (
+                  ''
+                )}
+                {!cartList.length ? (
+                  <div className="noItems">
+                    <p>장바구니에 담긴 상품이 없습니다</p>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </section>
+            </main>
 
-          <aside>
-            <CartInfo
-              priceSum={selectedItems.reduce((acc, curr) => {
-                return acc + curr.quantity * curr.price;
-              }, 0)}
-              noCartItem={!cartList.length}
-              handleOrder={handleOrder}
-            />
-          </aside>
+            <aside>
+              <CartInfo
+                priceSum={selectedItems.reduce((acc, curr) => {
+                  return acc + curr.quantity * curr.price;
+                }, 0)}
+                noCartItem={!cartList.length}
+                handleOrder={handleOrder}
+              />
+            </aside>
+          </div>
+          <section className="select">
+            <span className="selectAll">
+              <BsCheckCircle
+                className={`check ${
+                  selectedItems.length === cartList.length && 'clickedCheck'
+                }`}
+                onClick={selectAllItems}
+              />
+              <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
+            </span>
+            <span className="selectToDelete" onClick={deleteSelectedItems}>
+              선택삭제
+            </span>
+          </section>
         </div>
-        <section className="select">
-          <span className="selectAll">
-            <BsCheckCircle
-              className={`check ${
-                selectedItems.length === cartList.length && 'clickedCheck'
-              }`}
-              onClick={selectAllItems}
-            />
-            <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
-          </span>
-          <span className="selectToDelete" onClick={deleteSelectedItems}>
-            선택삭제
-          </span>
-        </section>
+        {isOrdered && <Order selectedItems={selectedItems} />}
       </div>
-      {isOrdered && <Order selectedItems={selectedItems} />}
-    </div>
+    </>
   );
 }
 

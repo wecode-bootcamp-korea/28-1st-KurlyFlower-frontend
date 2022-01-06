@@ -10,7 +10,7 @@
    height: 5rem;
     border-top: 1px solid black;
 
-    .title {
+    .categoryTitle {
       display: flex;
       align-items: center;
 
@@ -18,7 +18,8 @@
         font-size: $font-size-M;
       }
 
-      h2 {
+      .categoryName {
+        margin: 0;
         padding-left: 0.5rem;
         font-size: $font-size-M;
       }

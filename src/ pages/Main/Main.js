@@ -47,7 +47,6 @@ function Main() {
     <>
       <div className="main">
         <Nav cartCount={cartList.length} />
-        {/* 테스트를 위해 임시로 만든 Nav 컴포넌트 */}
         {!productsList && <Skeleton />}
         <Banner />
         {productsList.length ? (
