@@ -1,6 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .skeleton {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,5 +33,57 @@
       height: 320px;
       background-color: $light-grey-border;
     }
+  }
+
+  @keyframes slide {
+    0% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    5% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 7%, rgba(255,255,255,0.7068965517241379) 13%, rgba(255,255,255,0.36494252873563215) 19%, rgba(255,255,255,0) 100%);
+    }
+
+    10% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 16%, rgba(255,255,255,0.7068965517241379) 22%, rgba(255,255,255,0.36494252873563215) 27%, rgba(255,255,255,0) 100%);
+    }
+
+    25% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 37%, rgba(255,255,255,0.7068965517241379) 43%, rgba(255,255,255,0.36494252873563215) 48%, rgba(255,255,255,0) 100%);
+    }
+
+    35% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 40%, rgba(255,255,255,0.7068965517241379) 46%, rgba(255,255,255,0.36494252873563215) 51%, rgba(255,255,255,0) 100%);
+
+    }
+
+    50% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 47%, rgba(255,255,255,0.7068965517241379) 53%, rgba(255,255,255,0.36494252873563215) 58%, rgba(255,255,255,0) 100%);
+
+    }
+
+    65% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 54%, rgba(255,255,255,0.7068965517241379) 59%, rgba(255,255,255,0.36494252873563215) 65%, rgba(255,255,255,0) 100%);
+    }
+
+    80% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 67%, rgba(255,255,255,0.7068965517241379) 72%, rgba(255,255,255,0.36494252873563215) 76%, rgba(255,255,255,0) 100%);
+    }
+
+    90% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6005747126436782) 78%, rgba(255,255,255,0.7068965517241379) 82%, rgba(255,255,255,0.36494252873563215) 88%, rgba(255,255,255,0) 100%);
+    }
+
+    100% {
+      background: linear-gradient(39deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+
+    }
+  }
+
+  .shine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slide 0.8s linear none infinite normal;
   }
 }
