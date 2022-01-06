@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavLogo from './Navlogo';
+import ProductList from '../ pages/ProductList/ProductList';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import './Nav.scss';
 
@@ -53,10 +54,19 @@ const Nav = () => {
           alt="categorieBtn"
         />
         <span className="categorieAll">전체 카테고리</span>
-        <span className="categorieMenuV">채소</span>
-        <span className="categorieMenuF">과일</span>
-        <span className="categorieMenuM">정육</span>
-        <span className="categorieMenuFi">수산</span>
+        <Link to="/productList?category_id=1">
+          <span className="categorieMenuV">채소</span>
+        </Link>
+        <Link to="/productList?category_id=2">
+          <span className="categorieMenuF">과일</span>
+        </Link>
+
+        <Link to="/productList?category_id=3">
+          <span className="categorieMenuM">정육</span>
+        </Link>
+        <Link to="/productList?category_id=4">
+          <span className="categorieMenuFi">수산</span>
+        </Link>
         <input
           type="text"
           placeholder="검색어를 입력해주세요"
