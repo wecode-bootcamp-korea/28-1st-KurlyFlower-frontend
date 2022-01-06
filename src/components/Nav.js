@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavLogo from './Navlogo';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import './Nav.scss';
@@ -7,6 +7,7 @@ import { BsCart2 } from 'react-icons/bs';
 
 const Nav = ({ cartCount }) => {
   const [listOpen, setlistOpen] = useState(false);
+  const navigate = useNavigate();
   const listToggleMenu = () => {
     setlistOpen(listOpen => !listOpen);
   };
@@ -16,6 +17,10 @@ const Nav = ({ cartCount }) => {
       setpurpleSmallUis(false);
     }, 20000);
   }, []);
+
+  function goToCart() {
+    navigate('/cart');
+  }
 
   return (
     <div className="navLocation">
@@ -82,7 +87,7 @@ const Nav = ({ cartCount }) => {
         />
         <button className="imgCarts">
           <span className="imgCartsWrap">
-            <BsCart2 className="imgCart" />
+            <BsCart2 className="imgCart" onClick={goToCart} />
             {cartCount > 0 && (
               <span className="cartCountContainer">
                 <p className="cartCount">{cartCount}</p>

@@ -11,7 +11,7 @@ function Main() {
   const [productsList, setProductsList] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetchProductsData = async pageNum => {
       if (pageNum < 5) {
@@ -22,22 +22,34 @@ function Main() {
         setProductsList(productsList => [...productsList, ...data]);
       }
     };
-
-    const loadFirstTime = async () => {
-      await fetchTimeDelay(500);
-      await fetchProductsData(page);
-    };
-    loadFirstTime();
+    fetchProductsData(page);
   }, [page]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);
+
+    function submitAddedCartId() {
+      fetch('http://9967-211-106-114-186.ngrok.io/products/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+        },
+        body: JSON.stringify({
+          product_id: product.id,
+          quantity: 1,
+        }),
+      });
+      // console.log(response);
+    }
+    submitAddedCartId();
   }
   return (
     <>
       <div className="main">
         <Nav cartCount={cartList.length} />
-        {isLoading && <Skeleton />}
+        {!productsList && <Skeleton />}
         <Banner />
         {productsList.length ? (
           productsList.map((products, idx) => (
@@ -56,7 +68,7 @@ function Main() {
       {page === 5 && (
         <FilterProduct addCart={addCart} cartList={cartList} showMore={false} />
       )}
-      {!isLoading && page < 5 && <LoadMoreProducts setPage={setPage} />}
+      {productsList && page < 5 && <LoadMoreProducts setPage={setPage} />}
     </>
   );
 }

@@ -55,33 +55,20 @@
           }
 
           .cartContainer {
-            position: absolute;
-            transform: translate(11.3rem,15.7rem);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 3rem;
-            height: 3rem;
-            background-color: $main-light-purple;
-            opacity: 0.7;
-            border-radius: 3rem;
-            cursor: pointer;
+            @include cartContainer;
 
             .cartBtn {
-              color: white;
-              font-size: 1.7rem;
+              @include cart;
+
             }
             .clickedCart {
-              color: $main-purple;
+              @include clickedCart
             }
           }
 
           .clickedContainer {
-            opacity: 1;
-            background-color: white;
+            @include clickedContainer
           }
-
-
         }
 
         .more {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer.js';
-import './Login.scss';
+// import './Login.scss';
 
 function Login() {
   const navigate = useNavigate();
