@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+@import '../Main/Main.scss';
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+
+  h1 {
+    @include title;
+  }
+
+  .container {
+    display: flex;
+
+    .cartList {
+      width: 742px;
+
+      .noItems {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20rem;
+        border-top: 1px solid black;
+        border-bottom: 1px solid $light-grey-border;
+
+        p {
+          font-size: $font-size-M;
+        }
+      }
+    }
+
+    aside {
+      width: 20rem;
+    }
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+    padding-left: 0.5rem;
+    height: 3rem;
+    width: 100%;
+
+
+    .selectAll {
+      display: flex;
+      align-items: center;
+
+      .checkbox {
+        font-size: $font-size-M
+      }
+
+      .clickedCheck {
+        background-color: $main-purple;
+        color: white;
+        border-radius: 3rem;
+      }
+
+      .text {
+      margin-left: 1rem;
+      }
+    }
+
+    .selectToDelete {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav.js';
-// import Footer from "../../components/"
 import './Login.scss';
+import Footer from '../../components/footer.js';
 
 function Login() {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ function Login() {
           </button>
         </Link>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

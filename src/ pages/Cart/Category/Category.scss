@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+@import '../../Main/Main.scss';
+
+.categoryContainer {
+  .category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem 0 0.5rem;
+   height: 5rem;
+    border-top: 1px solid black;
+
+    .categoryTitle {
+      display: flex;
+      align-items: center;
+
+      .categoryIcon {
+        font-size: $font-size-M;
+      }
+
+      .categoryName {
+        margin: 0;
+        padding-left: 0.5rem;
+        font-size: $font-size-M;
+      }
+    }
+
+    .spread {
+      font-size: $font-size-M;
+      cursor: pointer;
+    }
+  }
+}

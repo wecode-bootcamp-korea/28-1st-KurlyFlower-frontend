@@ -91,9 +91,9 @@ function Banner() {
   }
 
   return (
-    <div className="banner">
-      <div className="bannerWrap">
-        <div className="bannerContainer">
+    <div className="banners">
+      <div className="bannerWraps">
+        <div className="bannerContainers">
           <div className="list" ref={slideRef}>
             {banners.map((banner, idx) => (
               <article key={idx} className="item">

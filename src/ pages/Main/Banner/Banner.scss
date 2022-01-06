@@ -1,15 +1,15 @@
 @import '../Main.scss';
 
-.banner {
+.banners {
   @include center;
 
-  .bannerWrap {
+  .bannerWraps {
     position: relative;
     display: flex;
     justify-content: center;
     margin-bottom: 5rem;
 
-    .bannerContainer {
+    .bannerContainers {
       width: 1425px;
       height: 370px;
       overflow: hidden;
