@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Cart from './pages/Cart/Cart';
-import Login from './pages/Login/Login';
-import Main from './pages/Main/Main';
-import ProductDetail from './pages/ProductDetail/ProductDetail';
-import ProductList from './pages/ProductList/ProductList';
-import Signup from './pages/Signup/Signup';
+import Cart from './ pages/Cart/Cart';
+import Login from './ pages/Login/Login';
+import Main from './ pages/Main/Main';
+import ProductDetail from './ pages/ProductDetail/ProductDetail';
+import ProductList from './ pages/ProductList/ProductList';
+import Signup from './ pages/Signup/Signup';
 
 export default function Router() {
   return (
