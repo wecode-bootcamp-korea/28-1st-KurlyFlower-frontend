@@ -7,10 +7,17 @@ function FilterProduct({ addCart, cartList, showMore }) {
   const [clickedCategory, setClickedCategory] = useState('1');
 
   async function loadFilteredProducts(categoryId) {
-    const response = await fetch(`/data/main/filter${categoryId}.json`);
+    const response = await fetch(
+      `http://13.209.117.55/products?category_id=${categoryId}&offset=5&limit=5`
+    );
     const data = await response.json();
-    setProducts(data);
+    const res = await data.result.data;
+    setProducts(res);
   }
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   useEffect(() => {
     loadFilteredProducts(clickedCategory);

@@ -37,7 +37,7 @@ function Cart() {
   function submitDeletedSelectedItems() {
     let idArr = [];
     selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
-    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+    fetch('http://13.209.117.55/products/cart', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ function Cart() {
   }
 
   function submitChangeQuantity(productId, changeQuantity) {
-    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+    fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -110,19 +110,18 @@ function Cart() {
   }
 
   useEffect(() => {
-    const loadCartData = async () => {
-      const response = await fetch(
-        'http://9967-211-106-114-186.ngrok.io/products/cart',
-        {
-          method: 'GET',
-          headers: {
-            Authorization:
-              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
-          },
-        }
-      );
-      const data = await response.json();
-      setCartList(data);
+    const loadCartData = () => {
+      fetch('http://13.209.117.55/products/cart', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:
+          // "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiZ…3NzZ9.52ZpXWN_LIR4F5afnhpssoSzbjTGnEUN4ERI8JZX8Us"
+        },
+      })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .then(data => setCartList(data));
     };
     loadCartData();
   }, []);
