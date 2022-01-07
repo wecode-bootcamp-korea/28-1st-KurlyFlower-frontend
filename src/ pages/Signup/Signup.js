@@ -22,7 +22,7 @@ function Signup() {
       [name]: value,
     });
   };
-
+  console.log('테스트');
   const userNameValid = inputs.username.length > 5;
   const passwordValid = inputs.password.length > 7;
   const emailValid = inputs.email.includes('@');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../../components/footer.js';
-// import './Login.scss';
+import Nav from '../../components/Nav';
+import './Login.scss';
 
 function Login() {
   const navigate = useNavigate();
@@ -49,6 +49,7 @@ function Login() {
 
   return (
     <div>
+      <Nav />
       <div className="formContainer">
         <h3 className="loginTitle">로그인</h3>
         <p className="loginUserName">
@@ -92,7 +93,6 @@ function Login() {
           </button>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }
