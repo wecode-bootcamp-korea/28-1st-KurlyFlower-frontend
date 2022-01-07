@@ -39,6 +39,8 @@ function Login() {
           navigate('/main');
         } else {
           alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
+          console.log(result);
+          sessionStorage.setItem('access_token', result.access_token);
         }
       });
   };

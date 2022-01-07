@@ -12,6 +12,7 @@ function CartItem({
   minusQuantity,
   plusQuantity,
 }) {
+  console.log(item);
   function onClickCheck() {
     selectItems(item);
   }

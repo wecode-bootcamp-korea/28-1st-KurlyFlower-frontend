@@ -110,21 +110,27 @@ function Cart() {
   }
 
   useEffect(() => {
-    const loadCartData = () => {
-      fetch('http://13.209.117.55/products/cart', {
+    const token = sessionStorage.getItem('access_token');
+    console.log(token);
+    const loadCartData = async () => {
+      const response = await fetch('http://13.209.117.55/products/cart', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization:
-          // "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiZ…3NzZ9.52ZpXWN_LIR4F5afnhpssoSzbjTGnEUN4ERI8JZX8Us"
+          Authorization: token,
         },
-      })
-        .then(res => res.json())
-        .then(res => console.log(res))
-        .then(data => setCartList(data));
+      });
+      const data = await response.json();
+      const res = await data;
+      console.log(res);
+      // setCartList([...res]);
     };
     loadCartData();
   }, []);
+
+  useEffect(() => {
+    // console.log(cartList);
+  }, [cartList]);
 
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);

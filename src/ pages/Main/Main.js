@@ -29,21 +29,20 @@ function Main() {
     fetchProductsData(page);
   }, [page]);
 
-  // useEffect(() => {
-  //   console.log(productsList);
-  // }, [productsList]);
+  useEffect(() => {
+    console.log(productsList);
+  }, [productsList]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);
 
     function submitAddedCartId() {
-      console.log(product.id);
       fetch('http://13.209.117.55/products/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiZ…3NzZ9.52ZpXWN_LIR4F5afnhpssoSzbjTGnEUN4ERI8JZX8Us',
+
+          Authorization: sessionStorage.getItem('access_token'),
         },
         body: JSON.stringify({
           product_id: product.id,
