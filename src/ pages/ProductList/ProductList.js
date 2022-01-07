@@ -4,6 +4,8 @@ import Nav from '../../components/Nav';
 
 import MenuList from './components/MenuList/MenuList';
 
+// import CartBtn from './components/cartBtn/CartBtn';
+
 import './ProductList.scss';
 
 function ProductList() {
