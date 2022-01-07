@@ -1,0 +1,94 @@
+@import '../../../styles/variables.scss';
+@import '../../Main/Main.scss';
+
+.order {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(74, 84, 97, 0.5);
+
+  .popUp {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 25vh;
+    left: 35vw;
+    padding: $double-space;
+    width: 30rem;
+    height: 30rem;
+    background-color: white;
+    opacity: 1;
+    border-radius: 0.5rem;
+
+    .message {
+      margin-bottom: 2rem;
+      font-size: $font-size-M;
+    }
+
+    .orderedList {
+      width: 90%;
+      height: 15rem;
+      border-top: 1px solid black;
+      overflow-y: scroll;
+
+      .orderedItem {
+        display: flex;
+        align-items: center;
+        padding: $double-space;
+        border-bottom: 1px solid $light-grey-border;
+
+        .img {
+          width: 4rem;
+          height: 5rem;
+          margin-right: 2rem;
+        }
+
+        p {
+          margin-right: $space;
+        }
+
+        .name {
+          font-weight: 700;
+          margin-bottom: $space;
+        }
+      }
+    }
+
+    .priceSum {
+      width: 90%;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: $double-space;
+      padding: 0 $double-space 0 $double-space;
+
+      .text {
+        font-size: $font-size-S;
+        font-weight: 500;
+      }
+
+      .price {
+        display: flex;
+        align-items: center;
+
+        .number {
+          font-size: $font-size-M;
+        }
+      }
+    }
+
+    .keepShopping {
+      width: 9rem;
+      height: 4rem;
+      background-color: $main-purple;
+      border-radius: 0.4rem;
+      font-size: $font-size-S;
+      font-weight: 600;
+      color: white;
+    }
+  }
+}

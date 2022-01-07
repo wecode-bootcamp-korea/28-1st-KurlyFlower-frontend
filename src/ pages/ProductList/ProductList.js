@@ -4,8 +4,6 @@ import Nav from '../../components/Nav';
 
 import MenuList from './components/MenuList/MenuList';
 
-// import CartBtn from './components/cartBtn/CartBtn';
-
 import './ProductList.scss';
 
 function ProductList() {
@@ -13,13 +11,12 @@ function ProductList() {
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
   const [categoriesInfo, setCategoriesInfo] = useState([]);
-
   const qs = new URLSearchParams(location.search);
 
   const clickedCategoryId = qs.get('category_id');
 
   useEffect(() => {
-    fetch(`http://e05b-211-106-114-186.ngrok.io/products${location.search}`, {
+    fetch(`http://13.209.117.55/products${location.search}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -27,7 +24,7 @@ function ProductList() {
   }, [location.search]);
 
   useEffect(() => {
-    fetch(`http://e05b-211-106-114-186.ngrok.io/products/categories`, {
+    fetch(`http://13.209.117.55/products/categories`, {
       method: 'GET',
     })
       .then(res => res.json())

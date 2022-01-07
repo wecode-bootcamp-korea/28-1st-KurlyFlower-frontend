@@ -1,5 +1,6 @@
 @import '../styles/variables.scss';
 .navLocation {
+  padding-bottom: 15px;
   border-bottom: 1px solid $light-grey-border;
 
   .leftInfo {
@@ -57,6 +58,7 @@
     margin-top: 80px;
     font-weight: 400;
     font-size: 21px;
+    transform: translateX(-3.5%);
   }
   #categorieAll {
     margin-left: 20px;
@@ -74,7 +76,8 @@
     margin-left: 70px;
   }
   .imgCate {
-    margin-left: 40px;
+    margin: 0 10px 0 40px;
+    transform: translateY(15%);
   }
   .imgSearch {
     position: absolute;
@@ -89,10 +92,21 @@
   .imgHeart {
     transform: translate(290%, 25%);
   }
+.imgCartsWrap {
+  position: relative;
   .imgCart {
     transform: translate(340%, 19%);
-    width: 30px;
+    font-size: 30px;
   }
+  .cartCount {
+    width: 19px;
+    height: 19px;
+    background-color: $main-purple;
+    border-radius: 10px;
+    color: white;
+    transform: translate(630%, -160%);
+  }
+}
   .searchField {
     width: 240px;
     height: 31px;

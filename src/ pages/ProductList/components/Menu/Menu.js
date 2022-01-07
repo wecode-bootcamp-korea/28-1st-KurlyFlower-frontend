@@ -19,6 +19,8 @@ function Menu({
         <div className="cartBtn">
           <BsCart2 className="cartBtn" />
         </div>
+
+        <div className="cartBtn" />
       </div>
 
       <div className="menuInfo">

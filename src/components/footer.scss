@@ -1,0 +1,78 @@
+@import '../styles/variables.scss';
+
+footer {
+  .header {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .footerLefts {
+      width: 50%;
+      padding-bottom: 30px;
+
+      .leftContentBox {
+        .inquiry {
+          display: flex;
+
+          :first-child {
+            width: 160px;
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .footerTitles {
+        display: flex;
+        color: $black;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .callNumber {
+        color: $black;
+        font-weight: bold;
+        font-size: 32px;
+      }
+
+      .leftCenter {
+        color: $black;
+        font-size: 14px;
+        text-align: left;
+      }
+
+      .btns {
+        padding-top: 8px;
+        border: 1px solid $light-grey-border;
+        border-radius: 4px;
+        font-size: 14px;
+        color: $black;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+
+  .rightInfo {
+    width: 50%;
+    color: $black;
+    font-size: 13px;
+
+    .rightList {
+      padding-bottom: 29px;
+      list-style-type: none;
+      font-weight: bold;
+      overflow: hidden;
+
+      li {
+        display: inline;
+        padding-right: 17px;
+      }
+    }
+  }
+
+  .companyIntroduceTextGroup {
+    line-height: 1.2;
+    font-size: 12px;
+    color: $black;
+  }
+}
