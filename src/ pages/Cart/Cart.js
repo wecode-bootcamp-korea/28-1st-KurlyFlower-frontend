@@ -91,18 +91,20 @@ function Cart() {
   }
 
   function submitChangeQuantity(productId, changeQuantity) {
+    console.log(sessionStorage.getItem('access_token'));
     fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+        Authorization: sessionStorage.getItem('access_token'),
       },
-      body: {
+      body: JSON.stringify({
         product_id: productId,
-        changeQuantity: changeQuantity,
-      },
-    });
+        quantity: changeQuantity,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
   }
 
   function handleOrder() {
@@ -114,6 +116,7 @@ function Cart() {
     console.log(token);
     const loadCartData = async () => {
       const response = await fetch('http://13.209.117.55/products/cart', {
+        // const response = await fetch('/data/cart/cart.json', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -121,15 +124,15 @@ function Cart() {
         },
       });
       const data = await response.json();
-      const res = await data;
+      const res = await data.result;
       console.log(res);
-      // setCartList([...res]);
+      setCartList(res);
     };
     loadCartData();
   }, []);
 
   useEffect(() => {
-    // console.log(cartList);
+    console.log(cartList);
   }, [cartList]);
 
   function categorizeItems(packagingType) {

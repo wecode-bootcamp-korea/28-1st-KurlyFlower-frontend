@@ -14,7 +14,7 @@ function Category({
   plusQuantity,
   items,
 }) {
-  console.log(items);
+  // console.log(items);
   const [isOpened, setIsOpened] = useState(true);
 
   function toggleListOpen() {

@@ -12,7 +12,7 @@ function CartItem({
   minusQuantity,
   plusQuantity,
 }) {
-  console.log(item);
+  // console.log(item);
   function onClickCheck() {
     selectItems(item);
   }
@@ -40,7 +40,7 @@ function CartItem({
         }`}
       />
       <span className="imgContainer">
-        <img src={item.img} alt="itemImg" />
+        <img src={item.thumbnail_url} alt="itemImg" />
       </span>
       <p className="name">{item.name}</p>
       <span className="quantity">
