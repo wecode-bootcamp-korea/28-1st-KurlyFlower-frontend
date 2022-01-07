@@ -71,6 +71,7 @@ function Login() {
     setLoginBtnActive(inputId.includes('') && inputPw.length > 3);
   };
   console.log(123);
+  console.log(456);
   return (
     <div>
       <Nav />
