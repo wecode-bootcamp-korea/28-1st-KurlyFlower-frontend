@@ -36,9 +36,6 @@ function Login() {
   }
   const loginOk = () => {
     // const { username, password } = inputsLogin;
-
-
-
     fetch('http://13.209.117.55/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -65,7 +62,6 @@ function Login() {
       });
   };
   const activeLogin = id.length >= 7 && pw.length >= 7;
-
 
   return (
     <div>
@@ -96,15 +92,14 @@ function Login() {
         </div>
 
         <button
-          className="classSelectorTwo btnLogin"
+          className="buttons btnLogin"
           disabled={!activeLogin}
           onClick={loginOk}
         >
           로그인
         </button>
         <Link to="/signup">
-          <button className="classSelectorTwo btnSignUp">회원가입</button>
-
+          <button className="buttons btnSignUp">회원가입</button>
         </Link>
       </div>
     </div>
