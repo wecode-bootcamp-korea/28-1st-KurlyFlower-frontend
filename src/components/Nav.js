@@ -16,7 +16,7 @@ const Nav = ({ cartCount }) => {
   useEffect(() => {
     setTimeout(() => {
       setpurpleSmallUis(false);
-    }, 20000);
+    }, 10000);
   }, []);
 
   function goToCart() {
@@ -66,7 +66,6 @@ const Nav = ({ cartCount }) => {
         <Link to="/productList?category_id=2">
           <span className="categorieMenuF">과일</span>
         </Link>
-
         <Link to="/productList?category_id=3">
           <span className="categorieMenuM">정육</span>
         </Link>
