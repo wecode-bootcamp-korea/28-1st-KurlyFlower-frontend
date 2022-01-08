@@ -32,7 +32,7 @@ function Signup() {
 
   const signUpOk = () => {
     const { username, password, name, email, phone_number, address } = inputs;
-    // fetch('http://dfc1-118-32-35-58.ngrok.io/users/signup', {
+    console.log(username, password, name);
     fetch('http://13.209.117.55/users/signup', {
       method: 'POST',
       body: JSON.stringify({
@@ -45,6 +45,7 @@ function Signup() {
       }),
     })
       .then(response => response.json())
+      .then(response => console.log(response))
       .then(result => {
         if (result.message === 'CREATED') {
           navigate('/main');

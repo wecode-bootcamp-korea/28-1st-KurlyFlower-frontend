@@ -17,6 +17,7 @@ function Login() {
   });
   const { username, password } = inputsLogin;
   const handleInputs = e => {
+
     // const { name, value } = e.target;
     // console.log(e.target);
     // console.log('dd');
@@ -36,14 +37,12 @@ function Login() {
   const passwordValid = inputsLogin.password.includes('', '!', '1').length > 7;
   const LoginJoin = userNameValid && passwordValid;
 
-  useEffect(() => {
-    console.log(inputsLogin);
-  }, [inputsLogin]);
+inputsLogin]);
 
   const submitLoginForms = () => {
     console.log(inputsLogin, 'ddsdfsdf');
     const { username, password } = inputsLogin;
-    // fetch('http://dfc1-118-32-35-58.ngrok.io/users/login', {
+
     fetch('http://13.209.117.55/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -54,11 +53,12 @@ function Login() {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'CREATED') {
-          sessionStorage.setItem('access_token', result.token);
+          sessionStorage.setItem('access_token', result.access_token);
           navigate('/main');
           console.log(result);
           // console.log(result.token);
         } else {
+          sessionStorage.setItem('access_token', result.access_token);
           console.log(result);
 
           alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
@@ -70,7 +70,6 @@ function Login() {
   const btnActive = () => {
     setLoginBtnActive(inputId.includes('') && inputPw.length > 3);
   };
-  console.log(123);
   return (
     <div>
       <Nav />
