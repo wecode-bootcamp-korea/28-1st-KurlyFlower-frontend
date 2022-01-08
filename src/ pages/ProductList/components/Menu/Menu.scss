@@ -1,16 +1,13 @@
 .menuContainer {
   position: relative;
-  display: flex;
-  flex-direction: column; // css 수정하면서 지우기(지워도 세로 배열됨)
   background-color: white;
   cursor: pointer;
-  height: 640px;
 
   .imgBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 480px;
     overflow: hidden;
 
     img {
@@ -30,7 +27,7 @@
         width: 45px;
         height: 45px;
         position: absolute;
-        top: 63%;
+        top: 62%;
         left: 84%;
 
         background: blueviolet;
@@ -39,16 +36,6 @@
       }
     }
   }
-
-  // .btn1 {
-  //   width: 55px;
-  //   height: 55px;
-  //   position: absolute;
-
-  //   background: blueviolet;
-  //   border: 1px solid black;
-  //   z-index: 1;
-  // }
 
   .menuInfo {
     margin-top: 15px;

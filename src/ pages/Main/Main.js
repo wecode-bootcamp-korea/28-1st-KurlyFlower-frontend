@@ -6,6 +6,7 @@ import Nav from './../../components/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
+import ProductList from '../ProductList/ProductList';
 
 function Main() {
   const [productsList, setProductsList] = useState([]);
@@ -16,10 +17,11 @@ function Main() {
     const fetchProductsData = async pageNum => {
       if (pageNum < 5) {
         const response = await fetch(
-          `/data/main/MainProductList${pageNum}.json`
+          `http://13.209.117.55/products/collection/${pageNum}?offset=0&limit=5`
         );
         const data = await response.json();
-        setProductsList(productsList => [...productsList, ...data]);
+        const res = await data.result;
+        setProductsList(productsList => [...productsList, res]);
       }
     };
     fetchProductsData(page);
@@ -29,19 +31,17 @@ function Main() {
     setCartList([...cartList, product.id]);
 
     function submitAddedCartId() {
-      fetch('http://9967-211-106-114-186.ngrok.io/products/cart', {
+      fetch('http://13.209.117.55/products/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+          Authorization: sessionStorage.getItem('access_token'),
         },
         body: JSON.stringify({
           product_id: product.id,
           quantity: 1,
         }),
       });
-      // console.log(response);
     }
     submitAddedCartId();
   }

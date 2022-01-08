@@ -1,0 +1,159 @@
+@import '../../styles/variables.scss';
+div {
+  .memberDiscount {
+    text-align: center;
+    position: relative;
+    left: 5px;
+    top: 20px;
+  }
+  .memberad {
+    text-align: center;
+    position: relative;
+    right: -125px;
+    top: 21px;
+    color: $main-purple;
+    font-weight: bold;
+  }
+
+  .rightcontent {
+    position: relative;
+    top: -15px;
+    left: 670px;
+    width: 37%;
+    height: 4px;
+    flex-direction: column;
+    padding-top: 10px;
+    margin: 40px 0px 0px 0px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: $black;
+    border-top: 1px solid $light-grey;
+  }
+  .cartplus {
+    height: 40px;
+    width: 17%;
+    position: relative;
+    bottom: -55px;
+    left: 930px;
+    border: 1px solid $main-purple;
+    background-color: $main-purple;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .pointAd {
+    text-align: right;
+    .loginAds {
+      position: relative;
+      right: 230px;
+      bottom: -28px;
+    }
+    .point {
+      width: 70px;
+      position: relative;
+      bottom: -45px;
+      right: -840px;
+      border-radius: 10px;
+      background-color: orange;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+    }
+  }
+  .dataleft {
+    justify-content: left;
+    width: 490px;
+    margin-left: 40px;
+  }
+  .productDetailImage {
+    width: 470px;
+    height: 400px;
+    position: absolute;
+    left: 110px;
+    top: 290px;
+    z-index: 1;
+  }
+  .textData {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+    .origin {
+      position: relative;
+      top: 285px;
+      right: -325px;
+    }
+    .packaging {
+      position: relative;
+      top: 290px;
+      right: -325px;
+    }
+    .shipping {
+      position: relative;
+      right: -340px;
+      top: 135px;
+    }
+    .weights {
+      position: relative;
+      right: -330px;
+      top: 250px;
+    }
+    .units {
+      position: relative;
+      bottom: -320px;
+      right: -320px;
+    }
+    .price {
+      position: relative;
+      top: 70px;
+      left: 230px;
+      font-size: 28px;
+    }
+    .name {
+      position: relative;
+      top: 70px;
+      right: -220px;
+      font-size: 24px;
+    }
+    .description {
+      position: fixed;
+      color: $black;
+      right: -250px;
+      top: 135px;
+    }
+  }
+  .buyButtons {
+    padding: 3px 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .buyButtonMinus {
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+      right: -770px;
+      bottom: 30px;
+    }
+    .productQuantity {
+      position: relative;
+      right: -810px;
+      bottom: 30px;
+      width: 30px;
+      font-size: 14px;
+    }
+    .buyButtonPlus {
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+      right: -820px;
+      bottom: 30px;
+    }
+    .totalPrices {
+      position: relative;
+      bottom: -30px;
+      right: -830px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+}

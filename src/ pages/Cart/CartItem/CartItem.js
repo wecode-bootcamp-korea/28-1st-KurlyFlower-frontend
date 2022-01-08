@@ -12,8 +12,10 @@ function CartItem({
   minusQuantity,
   plusQuantity,
 }) {
+  // console.log(item);
   function onClickCheck() {
     selectItems(item);
+    // console.log(item);
   }
 
   function onClickDelete() {
@@ -33,13 +35,15 @@ function CartItem({
       <BsCheckCircle
         onClick={onClickCheck}
         className={`check ${
-          selectedItems.some(selectedItem => selectedItem.id === item.id)
+          selectedItems.some(
+            selectedItem => selectedItem.product_id === item.product_id
+          )
             ? 'clickedCheck'
             : ''
         }`}
       />
       <span className="imgContainer">
-        <img src={item.img} alt="itemImg" />
+        <img src={item.thumbnail_url} alt="itemImg" />
       </span>
       <p className="name">{item.name}</p>
       <span className="quantity">

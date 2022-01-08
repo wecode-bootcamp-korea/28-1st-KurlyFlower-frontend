@@ -15,14 +15,14 @@ function Menu({
       <div className="imgBox">
         <img src={thumbnail_url} alt="vegetable" />
 
-        <div className="cartBtn">
-          <button>버튼</button>
-        </div>
+        <div className="cartBtn" />
       </div>
 
       <div className="menuInfo">
         <h2>{name}</h2>
         <p>{price}</p>
+
+        <p>{description}</p>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
             {products.map((product, idx) => (
               <span key={idx} className="item" ref={itemRef}>
                 <div className="imgContainer">
-                  <img src={product.img} alt="" />
+                  <img src={product.img || product.thumbnail_url} alt="" />
                 </div>
                 <p className="name">{product.name}</p>
                 <p className="price">{product.price}원</p>
