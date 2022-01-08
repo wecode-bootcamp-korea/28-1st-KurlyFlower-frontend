@@ -110,8 +110,8 @@ function Cart() {
     });
   }
 
-  function handleOrder() {
-    setIsOrdered(true);
+  function handleOrder(boolean) {
+    setIsOrdered(boolean);
   }
 
   useEffect(() => {
@@ -145,7 +145,9 @@ function Cart() {
             <span className="selectAll">
               <BsCheckCircle
                 className={`checkbox ${
-                  selectedItems.length === cartList.length && 'clickedCheck'
+                  selectedItems.length &&
+                  selectedItems.length === cartList.length &&
+                  'clickedCheck'
                 }`}
                 onClick={selectAllItems}
               />
@@ -232,7 +234,9 @@ function Cart() {
             </span>
           </section>
         </div>
-        {isOrdered && <Order selectedItems={selectedItems} />}
+        {isOrdered && (
+          <Order selectedItems={selectedItems} handleOrder={handleOrder} />
+        )}
       </div>
     </>
   );

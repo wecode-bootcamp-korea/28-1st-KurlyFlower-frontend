@@ -6,7 +6,7 @@ function CartInfo({ priceSum, noCartItem, handleOrder }) {
   const shippingFee = noCartItem ? 0 : 2500;
 
   function onClickOrderBtn() {
-    handleOrder();
+    handleOrder(true);
   }
 
   return (

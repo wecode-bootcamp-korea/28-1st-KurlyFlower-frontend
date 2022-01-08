@@ -2,20 +2,32 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import './Order.scss';
 
-function Order({ selectedItems }) {
+function Order({ selectedItems, handleOrder }) {
   const navigate = useNavigate();
   function goToMain() {
     navigate('/main');
   }
 
+  function closePopUp() {
+    handleOrder(false);
+  }
+
   return (
     <div className="order">
       <div className="popUp">
-        <p className="message">주문이 완료되었습니다</p>
+        <p className="message">
+          {selectedItems.length
+            ? '주문이 완료되었습니다'
+            : '주문하실 상품을 선택해주세요!'}
+        </p>
         <ul className="orderedList">
           {selectedItems.map((selectedItem, idx) => (
             <li key={idx} className="orderedItem">
-              <img className="img" src={selectedItem.img} alt="ordered-item" />
+              <img
+                className="img"
+                src={selectedItem.thumbnail_url}
+                alt="ordered-item"
+              />
               <span className="text">
                 <p className="name">{selectedItem.name}</p>
                 <p>{selectedItem.price}원</p>
@@ -34,9 +46,14 @@ function Order({ selectedItems }) {
             <p>원</p>
           </p>
         </div>
-        <button className="keepShopping" onClick={goToMain}>
-          계속 쇼핑하기
-        </button>
+        <div className="buttonWrap">
+          <button className="keepShopping" onClick={goToMain}>
+            계속 쇼핑하기
+          </button>
+          <button className="close" onClick={closePopUp}>
+            닫기
+          </button>
+        </div>
       </div>
     </div>
   );
