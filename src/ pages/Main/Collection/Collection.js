@@ -9,8 +9,8 @@ function Collection({ products, addCart, cartList, showMore }) {
       <h1 className="title">{products.title}</h1>
       <h3 className="subtitle">{products.subtitle}</h3>
       <Products
-        products={products.products}
-        productsLength={products.products.length}
+        products={products.data}
+        productsLength={products.data.length}
         addCart={addCart}
         cartList={cartList}
         showMore={showMore}

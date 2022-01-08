@@ -19,13 +19,21 @@ function Cart() {
     }
   }
 
+  function deleteItems(item) {
+    const filteredCartList = cartList.filter(cartItem => {
+      return cartItem.product_id !== item.product_id;
+    });
+    setCartList(filteredCartList);
+    submitDeletedSelectedItems(item);
+  }
+
   function deleteSelectedItems() {
     let filteredCartList = cartList;
     setSelectedItems([]);
     function run() {
       selectedItems.forEach(selectedItem => {
         filteredCartList = filteredCartList.filter(cartItem => {
-          return cartItem.id !== selectedItem.id;
+          return cartItem.product_id !== selectedItem.product_id;
         });
         setCartList(filteredCartList);
       });
@@ -34,18 +42,23 @@ function Cart() {
     submitDeletedSelectedItems();
   }
 
-  function submitDeletedSelectedItems() {
+  function submitDeletedSelectedItems(item) {
     let idArr = [];
-    selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
-    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+    if (selectedItems.length) {
+      selectedItems.forEach(selectedItem =>
+        idArr.push(selectedItem.product_id)
+      );
+    } else {
+      idArr.push(item.product_id);
+    }
+    fetch('http://13.209.117.55/products/cart', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+        Authorization: sessionStorage.getItem('access_token'),
       },
       body: JSON.stringify({
-        product_id: idArr,
+        product_id_list: idArr,
       }),
     });
   }
@@ -53,11 +66,11 @@ function Cart() {
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
-        return selectedItem.id === item.id;
+        return selectedItem.product_id === item.product_id;
       })
     ) {
       const filteredSelectedItems = selectedItems.filter(selectedItem => {
-        return selectedItem.id !== item.id;
+        return selectedItem.product_id !== item.product_id;
       });
       setSelectedItems(filteredSelectedItems);
     } else {
@@ -65,43 +78,35 @@ function Cart() {
     }
   }
 
-  function deleteItems(item) {
-    const filteredCartList = cartList.filter(cartItem => {
-      return cartItem.id !== item.id;
-    });
-    setCartList(filteredCartList);
-  }
-
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
-      if (cartItem.id === item.id) cartItem.quantity--;
+      if (cartItem.product_id === item.product_id) cartItem.quantity--;
     });
     setCartList(updatedCartList);
-    submitChangeQuantity(item.id, -1);
+    submitChangeQuantity(item.product_id, -1);
   }
 
   function plusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
-      if (cartItem.id === item.id) cartItem.quantity++;
+      if (cartItem.product_id === item.product_id) cartItem.quantity++;
     });
     setCartList(updatedCartList);
-    submitChangeQuantity(item.id, 1);
+    submitChangeQuantity(item.product_id, 1);
   }
 
   function submitChangeQuantity(productId, changeQuantity) {
-    fetch('http://e05b-211-106-114-186.ngrok.io/products/cart', {
+    fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+        Authorization: sessionStorage.getItem('access_token'),
       },
-      body: {
+      body: JSON.stringify({
         product_id: productId,
-        changeQuantity: changeQuantity,
-      },
+        quantity: changeQuantity,
+      }),
     });
   }
 
@@ -110,19 +115,18 @@ function Cart() {
   }
 
   useEffect(() => {
+    const token = sessionStorage.getItem('access_token');
     const loadCartData = async () => {
-      const response = await fetch(
-        'http://9967-211-106-114-186.ngrok.io/products/cart',
-        {
-          method: 'GET',
-          headers: {
-            Authorization:
-              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
-          },
-        }
-      );
+      const response = await fetch('http://13.209.117.55/products/cart', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      });
       const data = await response.json();
-      setCartList(data);
+      const res = await data.result;
+      setCartList(res);
     };
     loadCartData();
   }, []);
