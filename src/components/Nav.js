@@ -21,6 +21,9 @@ const Nav = ({ cartCount }) => {
   function goToCart() {
     navigate('/cart');
   }
+  function goToMain() {
+    navigate('/main');
+  }
 
   return (
     <div className="navLocation">

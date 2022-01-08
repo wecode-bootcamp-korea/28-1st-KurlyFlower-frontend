@@ -23,7 +23,7 @@ function Signup() {
       [name]: value,
     });
   };
-
+  // console.log('테스트');
   const userNameValid = inputs.username.length > 5;
   const passwordValid = inputs.password.length > 7;
   const emailValid = inputs.email.includes('@');
@@ -32,7 +32,7 @@ function Signup() {
 
   const signUpOk = () => {
     const { username, password, name, email, phone_number, address } = inputs;
-    console.log(username, password, name);
+
     fetch('http://13.209.117.55/users/signup', {
       method: 'POST',
       body: JSON.stringify({
@@ -48,12 +48,13 @@ function Signup() {
       .then(response => console.log(response))
       .then(result => {
         if (result.message === 'CREATED') {
-          navigate('/main');
-          console.log(result);
+          navigate('/');
+          console.log(result.message);
+          alert('환영합니다!');
         } else {
-          console.log(result);
+          // alert('당신의 회원가입은 실패하였습니다.');
+          console.log(result.message);
 
-          alert('당신의 회원가입은 실패하였습니다.');
         }
       });
   };
