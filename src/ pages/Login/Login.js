@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav.js';
 import './Login.scss';
 import Footer from '../../components/footer.js';
+import { useEffect } from 'react/cjs/react.development';
 
 function Login() {
   const idRef = useRef();
@@ -16,8 +17,17 @@ function Login() {
   });
   const { username, password } = inputsLogin;
   const handleInputs = e => {
+
+    // const { name, value } = e.target;
+    // console.log(e.target);
+    // console.log('dd');
     const name = idRef.current.value;
     const value = pwRef.current.value;
+    // console.log(name, value);
+    // setinputsLogin({
+    //   ...inputsLogin,
+    //   [name]: value,
+    // });
     setinputsLogin({
       username: name,
       password: value,
@@ -27,8 +37,12 @@ function Login() {
   const passwordValid = inputsLogin.password.includes('', '!', '1').length > 7;
   const LoginJoin = userNameValid && passwordValid;
 
+inputsLogin]);
+
   const submitLoginForms = () => {
+    console.log(inputsLogin, 'ddsdfsdf');
     const { username, password } = inputsLogin;
+
     fetch('http://13.209.117.55/users/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -41,8 +55,11 @@ function Login() {
         if (result.message === 'CREATED') {
           sessionStorage.setItem('access_token', result.access_token);
           navigate('/main');
+          console.log(result);
+          // console.log(result.token);
         } else {
           sessionStorage.setItem('access_token', result.access_token);
+          console.log(result);
 
           alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
         }

@@ -49,22 +49,27 @@ function Signup() {
       .then(result => {
         if (result.message === 'CREATED') {
           navigate('/main');
+          console.log(result);
         } else {
+          console.log(result);
+
           alert('당신의 회원가입은 실패하였습니다.');
         }
       });
   };
 
-  const [checkBoxs, setcheckBoxs] = useState([]);
+  const [checkBoxs, setcheckBoxs] = useState([]); //체크박스와 관련한 state 설정
   const allCheckActive = event => {
+    //체크박스 전체 선택 / 전체 선택 해제
     event.target.checked
       ? setcheckBoxs([...checkBoxs, event.target.name])
       : setcheckBoxs(checkBoxs.filter(checkEvent => !checkEvent));
   };
 
-  const allCheckBox = event => {
+  const CheckBox = event => {
+    //개별 체크박스
     event.target.checked
-      ? setcheckBoxs(['Agree', 'AgeUp', 'Info'])
+      ? setcheckBoxs(['Agree', 'Age14over', 'Info']) // name속성으로 'Agree' 'Age14over 'Info'가 배열내부로 push함
       : setcheckBoxs([]);
   };
 
@@ -148,8 +153,8 @@ function Signup() {
             <div className="checkboxAll">
               <input
                 type="checkbox"
-                onChange={allCheckBox}
-                checked={checkBoxs.length === 3}
+                onChange={CheckBox}
+                checked={checkBoxs.length === 3} //배열의 길이로 전체선택의 유/무를 결정함.
               />
               전체 동의합니다.
               <p className="checkboxAllSubText">
@@ -170,7 +175,7 @@ function Signup() {
 
               <input
                 type="checkbox"
-                name="Agree"
+                name="Agree" // 각 체크박스마다 name속성으로 1개씩 받음.
                 className="partMap1"
                 onChange={allCheckActive}
                 checked={checkBoxs.includes('Agree')}
@@ -184,10 +189,10 @@ function Signup() {
               />
               <input
                 type="checkbox"
-                name="AgeUp"
+                name="Age14over"
                 className="partMap3"
                 onChange={allCheckActive}
-                checked={checkBoxs.includes('AgeUp')}
+                checked={checkBoxs.includes('Age14over')}
               />
             </div>
           </tr>
