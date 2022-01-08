@@ -5,47 +5,62 @@ import './Login.scss';
 
 function Login() {
   const navigate = useNavigate();
-  const [inputId, setInputId] = useState('');
-  const [inputPw, setInputPw] = useState('');
-  const [inputsLogin, setinputsLogin] = useState({
-    username: '',
-    password: '',
-  });
-  const { username, password } = inputsLogin;
-  const handleInputs = e => {
-    const { name, value } = e.target;
-    setinputsLogin({
-      ...inputsLogin,
-      [name]: value,
-    });
-  };
-  const userNameValid = inputsLogin.username.includes('', '1').length > 5;
-  const passwordValid = inputsLogin.password.includes('', '!', '1').length > 7;
-  const LoginJoin = userNameValid && passwordValid;
+  // const [inputId, setInputId] = useState('');
+  // const [inputPw, setInputPw] = useState('');
+
+  // const [inputsLogin, setinputsLogin] = useState({
+  //   username: '',
+  //   password: '',
+  // });
+
+  // const handleInputs = e => {
+  //   const { name, value } = e.target;
+  //   setinputsLogin({
+  //     ...inputsLogin,
+  //     [name]: value,
+  //   });
+  // };
+  // const isuserNameValid = inputsLogin.username.includes('').length > 1;
+  // const ispasswordValid = inputsLogin.password.includes('').length > 1;
+  // const isLoginJoin = isuserNameValid && ispasswordValid;
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
+
+  function handleInput(e) {
+    setId(e.target.value);
+  }
+  function handleInputPw(e) {
+    setPw(e.target.value);
+  }
   const loginOk = () => {
-    const { username, password } = inputsLogin;
-    fetch('http://dfc1-118-32-35-58.ngrok.io/users/login', {
+    // const { username, password } = inputsLogin;
+
+    fetch('http://13.209.117.55/users/login', {
       method: 'POST',
       body: JSON.stringify({
-        username,
-        password,
+        username: id,
+        password: pw,
       }),
     })
       .then(response => response.json())
+      // .then(result => {
+      //   if (result.message === 'CREATED') {
+      //     navigate('/main');
+      //     alert('환영합니다.');
+      //     localStorage.setItem('access_token', result.token);
+      //     console.log(localStorage);
+      //   } else {
+      //     alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
+      //   }
+      // });
       .then(result => {
-        if (result.message === 'CREATED') {
-          sessionStorage.setItem('access_token', result.token);
-          navigate('/main');
-        } else {
-          alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
-        }
+        sessionStorage.setItem('access_token', result.access_token);
+        navigate('/main');
+        console.log(sessionStorage);
+        alert('로그인에 성공하였습니다!');
       });
   };
-
-  const [loginBtnActive, setLoginBtnActive] = useState(false);
-  const btnActive = () => {
-    setLoginBtnActive(inputId.includes('') && inputPw.length > 3);
-  };
+  const activeLogin = id.length >= 7 && pw.length >= 7;
 
   return (
     <div>
@@ -57,8 +72,7 @@ function Login() {
             type="text"
             className="loginUser"
             placeholder="아이디를 입력해 주세요"
-            onChange={handleInputs}
-            onKeyUp={btnActive}
+            onChange={handleInput}
           />
         </p>
         <p className="loginUserPassword">
@@ -66,8 +80,7 @@ function Login() {
             type="password"
             className="loginUser"
             placeholder="비밀번호를 입력해 주세요"
-            onChange={handleInputs}
-            onKeyUp={btnActive}
+            onChange={handleInputPw}
           />
         </p>
 
@@ -77,20 +90,15 @@ function Login() {
           <span> 비밀번호 찾기 </span>
         </div>
 
-        <Link to="/main">
-          <button
-            type="submit"
-            className="classSelectorTwo btnLogin"
-            disabled={!LoginJoin}
-            onClick={loginOk}
-          >
-            로그인
-          </button>
-        </Link>
+        <button
+          className="classSelectorTwo btnLogin"
+          disabled={!activeLogin}
+          onClick={loginOk}
+        >
+          로그인
+        </button>
         <Link to="/signup">
-          <button type="submit" className="classSelectorTwo btnSignUp">
-            회원가입
-          </button>
+          <button className="classSelectorTwo btnSignUp">회원가입</button>
         </Link>
       </div>
     </div>
