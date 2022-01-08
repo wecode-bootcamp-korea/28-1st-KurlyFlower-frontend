@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsCart2 } from 'react-icons/bs';
 import './Menu.scss';
 
 function Menu({
@@ -14,6 +15,10 @@ function Menu({
     <div className="menuContainer">
       <div className="imgBox">
         <img src={thumbnail_url} alt="vegetable" />
+
+        <div className="cartBtn">
+          <BsCart2 className="cartBtn" />
+        </div>
 
         <div className="cartBtn" />
       </div>
