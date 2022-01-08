@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavLogo from './Navlogo';
+import ProductList from '../ pages/ProductList/ProductList';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import './Nav.scss';
 import { BsCart2 } from 'react-icons/bs';
@@ -73,7 +74,7 @@ const Nav = ({ cartCount }) => {
         </Link>
         <Link to="/productList?category_id=4">
           <span className="categorieMenuFi">수산</span>
-        </Link>{' '}
+        </Link>
         <input
           type="text"
           placeholder="검색어를 입력해주세요"
