@@ -4,7 +4,6 @@ import './Collection.scss';
 import Products from '../Products/Products';
 
 function Collection({ products, addCart, cartList, showMore }) {
-  console.log(products);
   return (
     <div className="collection">
       <h1 className="title">{products.title}</h1>

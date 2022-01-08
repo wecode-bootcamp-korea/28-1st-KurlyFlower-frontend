@@ -19,13 +19,21 @@ function Cart() {
     }
   }
 
+  function deleteItems(item) {
+    const filteredCartList = cartList.filter(cartItem => {
+      return cartItem.product_id !== item.product_id;
+    });
+    setCartList(filteredCartList);
+    submitDeletedSelectedItems(item);
+  }
+
   function deleteSelectedItems() {
     let filteredCartList = cartList;
     setSelectedItems([]);
     function run() {
       selectedItems.forEach(selectedItem => {
         filteredCartList = filteredCartList.filter(cartItem => {
-          return cartItem.id !== selectedItem.id;
+          return cartItem.product_id !== selectedItem.product_id;
         });
         setCartList(filteredCartList);
       });
@@ -34,18 +42,23 @@ function Cart() {
     submitDeletedSelectedItems();
   }
 
-  function submitDeletedSelectedItems() {
+  function submitDeletedSelectedItems(item) {
     let idArr = [];
-    selectedItems.forEach(selectedItem => idArr.push(selectedItem.id));
+    if (selectedItems.length) {
+      selectedItems.forEach(selectedItem =>
+        idArr.push(selectedItem.product_id)
+      );
+    } else {
+      idArr.push(item.product_id);
+    }
     fetch('http://13.209.117.55/products/cart', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjQxOTk1NTU5LCJpYXQiOjE2NDEzOTA3NTl9.k_nT46iGKBUrXYwpRFjzejN6EvQcYpuFZuvfNZBRsK0',
+        Authorization: sessionStorage.getItem('access_token'),
       },
       body: JSON.stringify({
-        product_id: idArr,
+        product_id_list: idArr,
       }),
     });
   }
@@ -53,11 +66,11 @@ function Cart() {
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
-        return selectedItem.id === item.id;
+        return selectedItem.product_id === item.product_id;
       })
     ) {
       const filteredSelectedItems = selectedItems.filter(selectedItem => {
-        return selectedItem.id !== item.id;
+        return selectedItem.product_id !== item.product_id;
       });
       setSelectedItems(filteredSelectedItems);
     } else {
@@ -65,33 +78,25 @@ function Cart() {
     }
   }
 
-  function deleteItems(item) {
-    const filteredCartList = cartList.filter(cartItem => {
-      return cartItem.id !== item.id;
-    });
-    setCartList(filteredCartList);
-  }
-
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
-      if (cartItem.id === item.id) cartItem.quantity--;
+      if (cartItem.product_id === item.product_id) cartItem.quantity--;
     });
     setCartList(updatedCartList);
-    submitChangeQuantity(item.id, -1);
+    submitChangeQuantity(item.product_id, -1);
   }
 
   function plusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
-      if (cartItem.id === item.id) cartItem.quantity++;
+      if (cartItem.product_id === item.product_id) cartItem.quantity++;
     });
     setCartList(updatedCartList);
-    submitChangeQuantity(item.id, 1);
+    submitChangeQuantity(item.product_id, 1);
   }
 
   function submitChangeQuantity(productId, changeQuantity) {
-    console.log(sessionStorage.getItem('access_token'));
     fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
       headers: {
@@ -102,9 +107,7 @@ function Cart() {
         product_id: productId,
         quantity: changeQuantity,
       }),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    });
   }
 
   function handleOrder() {
@@ -113,10 +116,8 @@ function Cart() {
 
   useEffect(() => {
     const token = sessionStorage.getItem('access_token');
-    console.log(token);
     const loadCartData = async () => {
       const response = await fetch('http://13.209.117.55/products/cart', {
-        // const response = await fetch('/data/cart/cart.json', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -125,15 +126,10 @@ function Cart() {
       });
       const data = await response.json();
       const res = await data.result;
-      console.log(res);
       setCartList(res);
     };
     loadCartData();
   }, []);
-
-  useEffect(() => {
-    console.log(cartList);
-  }, [cartList]);
 
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);

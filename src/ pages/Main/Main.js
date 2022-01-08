@@ -16,22 +16,16 @@ function Main() {
   useEffect(() => {
     const fetchProductsData = async pageNum => {
       if (pageNum < 5) {
-        console.log(pageNum);
         const response = await fetch(
           `http://13.209.117.55/products/collection/${pageNum}?offset=0&limit=5`
         );
         const data = await response.json();
         const res = await data.result;
-        console.log(res);
         setProductsList(productsList => [...productsList, res]);
       }
     };
     fetchProductsData(page);
   }, [page]);
-
-  useEffect(() => {
-    console.log(productsList);
-  }, [productsList]);
 
   function addCart(product) {
     setCartList([...cartList, product.id]);
@@ -41,16 +35,13 @@ function Main() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-
           Authorization: sessionStorage.getItem('access_token'),
         },
         body: JSON.stringify({
           product_id: product.id,
           quantity: 1,
         }),
-      })
-        .then(res => res.json())
-        .then(data => console.log(data.result));
+      });
     }
     submitAddedCartId();
   }

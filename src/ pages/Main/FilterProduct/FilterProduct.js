@@ -16,10 +16,6 @@ function FilterProduct({ addCart, cartList, showMore }) {
   }
 
   useEffect(() => {
-    console.log(products);
-  }, [products]);
-
-  useEffect(() => {
     loadFilteredProducts(clickedCategory);
   }, [clickedCategory]);
 

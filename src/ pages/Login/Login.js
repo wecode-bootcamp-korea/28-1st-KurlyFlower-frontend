@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav.js';
 import './Login.scss';
 import Footer from '../../components/footer.js';
 
 function Login() {
+  const idRef = useRef();
+  const pwRef = useRef();
   const navigate = useNavigate();
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
@@ -14,18 +16,20 @@ function Login() {
   });
   const { username, password } = inputsLogin;
   const handleInputs = e => {
-    const { name, value } = e.target;
+    const name = idRef.current.value;
+    const value = pwRef.current.value;
     setinputsLogin({
-      ...inputsLogin,
-      [name]: value,
+      username: name,
+      password: value,
     });
   };
   const userNameValid = inputsLogin.username.includes('', '1').length > 5;
   const passwordValid = inputsLogin.password.includes('', '!', '1').length > 7;
   const LoginJoin = userNameValid && passwordValid;
+
   const submitLoginForms = () => {
     const { username, password } = inputsLogin;
-    fetch('http://dfc1-118-32-35-58.ngrok.io/users/login', {
+    fetch('http://13.209.117.55/users/login', {
       method: 'POST',
       body: JSON.stringify({
         username,
@@ -35,12 +39,12 @@ function Login() {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'CREATED') {
-          sessionStorage.setItem('access_token', result.token);
+          sessionStorage.setItem('access_token', result.access_token);
           navigate('/main');
         } else {
-          alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
-          console.log(result);
           sessionStorage.setItem('access_token', result.access_token);
+
+          alert('당신의 아이디 혹은 비밀번호가 틀립니다.');
         }
       });
   };
@@ -49,7 +53,6 @@ function Login() {
   const btnActive = () => {
     setLoginBtnActive(inputId.includes('') && inputPw.length > 3);
   };
-
   return (
     <div>
       <Nav />
@@ -57,6 +60,7 @@ function Login() {
         <h3 className="loginTitle">로그인</h3>
         <p className="loginUserName">
           <input
+            ref={idRef}
             type="text"
             className="loginUser"
             placeholder="아이디를 입력해 주세요"
@@ -66,6 +70,7 @@ function Login() {
         </p>
         <p className="loginUserPassword">
           <input
+            ref={pwRef}
             type="password"
             className="loginUser"
             placeholder="비밀번호를 입력해 주세요"
@@ -80,9 +85,8 @@ function Login() {
 
         <Link to="/main">
           <button
-            type="submit"
+            type="button"
             className="buttons btnLogin"
-            // onChange={}
             // disabled={!LoginJoin}
             onClick={submitLoginForms}
           >
@@ -90,7 +94,7 @@ function Login() {
           </button>
         </Link>
         <Link to="/signup">
-          <button type="submit" className="buttons btnSignUp">
+          <button type="button" className="buttons btnSignUp">
             회원가입
           </button>
         </Link>
