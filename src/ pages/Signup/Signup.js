@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TABLETH } from './TABLETH.js';
 import { SIGNUPAGREES } from './SIGNUPAGREE';
-import Nav from '../../components/Nav';
 import BtnModal from './BtnModal.js';
 import './Signup.scss';
 
@@ -32,7 +31,6 @@ function Signup() {
 
   const signUpOk = () => {
     const { username, password, name, email, phone_number, address } = inputs;
-
     fetch('http://13.209.117.55/users/signup', {
       method: 'POST',
       body: JSON.stringify({
@@ -45,7 +43,6 @@ function Signup() {
       }),
     })
       .then(response => response.json())
-      .then(response => console.log(response))
       .then(result => {
         if (result.message === 'CREATED') {
           navigate('/');
@@ -54,29 +51,25 @@ function Signup() {
         } else {
           // alert('당신의 회원가입은 실패하였습니다.');
           console.log(result.message);
-
         }
       });
   };
 
-  const [checkBoxs, setcheckBoxs] = useState([]); //체크박스와 관련한 state 설정
+  const [checkBoxs, setcheckBoxs] = useState([]);
   const allCheckActive = event => {
-    //체크박스 전체 선택 / 전체 선택 해제
     event.target.checked
       ? setcheckBoxs([...checkBoxs, event.target.name])
       : setcheckBoxs(checkBoxs.filter(checkEvent => !checkEvent));
   };
 
-  const CheckBox = event => {
-    //개별 체크박스
+  const allCheckBox = event => {
     event.target.checked
-      ? setcheckBoxs(['Agree', 'Age14over', 'Info']) // name속성으로 'Agree' 'Age14over 'Info'가 배열내부로 push함
+      ? setcheckBoxs(['Agree', 'AgeUp', 'Info'])
       : setcheckBoxs([]);
   };
 
   return (
-    <div className="signUp">
-      <Nav />
+    <div>
       <h2>회원가입</h2>
       <p className="pageSub">
         <span className="icons">*</span>
@@ -154,8 +147,8 @@ function Signup() {
             <div className="checkboxAll">
               <input
                 type="checkbox"
-                onChange={CheckBox}
-                checked={checkBoxs.length === 3} //배열의 길이로 전체선택의 유/무를 결정함.
+                onChange={allCheckBox}
+                checked={checkBoxs.length === 3}
               />
               전체 동의합니다.
               <p className="checkboxAllSubText">
@@ -176,7 +169,7 @@ function Signup() {
 
               <input
                 type="checkbox"
-                name="Agree" // 각 체크박스마다 name속성으로 1개씩 받음.
+                name="Agree"
                 className="partMap1"
                 onChange={allCheckActive}
                 checked={checkBoxs.includes('Agree')}
@@ -190,10 +183,10 @@ function Signup() {
               />
               <input
                 type="checkbox"
-                name="Age14over"
+                name="AgeUp"
                 className="partMap3"
                 onChange={allCheckActive}
-                checked={checkBoxs.includes('Age14over')}
+                checked={checkBoxs.includes('AgeUp')}
               />
             </div>
           </tr>
