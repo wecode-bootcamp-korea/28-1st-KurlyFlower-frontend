@@ -22,7 +22,6 @@ function Signup() {
       [name]: value,
     });
   };
-  // console.log('테스트');
   const userNameValid = inputs.username.length > 5;
   const passwordValid = inputs.password.length > 7;
   const emailValid = inputs.email.includes('@');
@@ -46,10 +45,8 @@ function Signup() {
       .then(result => {
         if (result.message === 'CREATED') {
           navigate('/');
-          console.log(result.message);
           alert('환영합니다!');
         } else {
-          // alert('당신의 회원가입은 실패하였습니다.');
           console.log(result.message);
         }
       });
@@ -62,9 +59,9 @@ function Signup() {
       : setcheckBoxs(checkBoxs.filter(checkEvent => !checkEvent));
   };
 
-  const allCheckBox = event => {
+  const CheckBoxEvent = event => {
     event.target.checked
-      ? setcheckBoxs(['Agree', 'AgeUp', 'Info'])
+      ? setcheckBoxs(['Agree', 'Age14over', 'Info'])
       : setcheckBoxs([]);
   };
 
@@ -147,7 +144,7 @@ function Signup() {
             <div className="checkboxAll">
               <input
                 type="checkbox"
-                onChange={allCheckBox}
+                onChange={CheckBoxEvent}
                 checked={checkBoxs.length === 3}
               />
               전체 동의합니다.
@@ -183,10 +180,10 @@ function Signup() {
               />
               <input
                 type="checkbox"
-                name="AgeUp"
+                name="Age14over"
                 className="partMap3"
                 onChange={allCheckActive}
-                checked={checkBoxs.includes('AgeUp')}
+                checked={checkBoxs.includes('Age14over')}
               />
             </div>
           </tr>

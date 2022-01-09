@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import NavLogo from './Navlogo';
 import ProductList from '../ pages/ProductList/ProductList';
 import { CSCENTERLIST } from './CSCENTERLIST';
-import './Nav.scss';
 import { BsCart2 } from 'react-icons/bs';
+import './Nav.scss';
 
 const Nav = ({ cartCount }) => {
   const [listOpen, setlistOpen] = useState(false);

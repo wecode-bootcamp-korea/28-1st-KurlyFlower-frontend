@@ -19,7 +19,7 @@ function ProductDetail() {
   const pricetotal = count * productDetail.price;
   const token = sessionStorage.getItem('access_token');
   const cartPageGo = () => {
-    fetch(`http://e05b-211-106-114-186.ngrok.io/products/cart`, {
+    fetch(`http://13.209.117.55/products/cart`, {
       method: 'POST',
       headers: {
         Authorization: token,
@@ -36,7 +36,7 @@ function ProductDetail() {
       });
   };
   useEffect(() => {
-    fetch(`http://9967-211-106-114-186.ngrok.io/products/${params.id}`)
+    fetch(`http://13.209.117.55/products/${params.id}`)
       .then(res => res.json())
       .then(res => setProductDetail(res.product_detail));
   }, []);
