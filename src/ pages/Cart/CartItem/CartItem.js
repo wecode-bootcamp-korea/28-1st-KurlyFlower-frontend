@@ -12,10 +12,8 @@ function CartItem({
   minusQuantity,
   plusQuantity,
 }) {
-  // console.log(item);
   function onClickCheck() {
     selectItems(item);
-    // console.log(item);
   }
 
   function onClickDelete() {
@@ -30,17 +28,15 @@ function CartItem({
     plusQuantity(item);
   }
 
+  const isSelected = selectedItems.some(
+    selectedItem => selectedItem.product_id === item.product_id
+  );
+
   return (
     <li className="cartItem">
       <BsCheckCircle
         onClick={onClickCheck}
-        className={`check ${
-          selectedItems.some(
-            selectedItem => selectedItem.product_id === item.product_id
-          )
-            ? 'clickedCheck'
-            : ''
-        }`}
+        className={`check ${isSelected ? 'clickedCheck' : ''}`}
       />
       <span className="imgContainer">
         <img src={item.thumbnail_url} alt="itemImg" />

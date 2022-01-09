@@ -10,7 +10,24 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isOrdered, setIsOrdered] = useState(false);
-  // console.log(cartList[0].address);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('access_token');
+    const loadCartData = async () => {
+      const response = await fetch('http://13.209.117.55/products/cart', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      });
+      const data = await response.json();
+      const res = await data.result;
+      setCartList(res);
+    };
+    loadCartData();
+  }, []);
+
   function selectAllItems() {
     if (selectedItems.length === cartList.length) {
       setSelectedItems([]);
@@ -60,9 +77,7 @@ function Cart() {
       body: JSON.stringify({
         product_id_list: idArr,
       }),
-    })
-      .then(res => res.json())
-      .then(res => console.log(res));
+    }).then(res => res.json());
   }
 
   function selectItems(item) {
@@ -79,9 +94,6 @@ function Cart() {
       setSelectedItems([...selectedItems, item]);
     }
   }
-  useEffect(() => {
-    console.log(selectedItems);
-  }, [selectedItems]);
 
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
@@ -119,23 +131,6 @@ function Cart() {
     setIsOrdered(boolean);
   }
 
-  useEffect(() => {
-    const token = sessionStorage.getItem('access_token');
-    const loadCartData = async () => {
-      const response = await fetch('http://13.209.117.55/products/cart', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      });
-      const data = await response.json();
-      const res = await data.result;
-      setCartList(res);
-    };
-    loadCartData();
-  }, []);
-
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);
   }
@@ -167,45 +162,17 @@ function Cart() {
           <div className="container">
             <main className="cartList">
               <section className="list">
-                {categorizeItems('냉장').length ? (
+                {['냉장', '냉동', '상온'].map(category => (
                   <Category
-                    packaging="냉장"
+                    packaging={category}
                     selectedItems={selectedItems}
                     selectItems={selectItems}
                     deleteItems={deleteItems}
                     minusQuantity={minusQuantity}
                     plusQuantity={plusQuantity}
-                    items={categorizeItems('냉장')}
+                    items={categorizeItems(category)}
                   />
-                ) : (
-                  ''
-                )}
-                {categorizeItems('냉동').length ? (
-                  <Category
-                    packaging="냉동"
-                    selectedItems={selectedItems}
-                    selectItems={selectItems}
-                    deleteItems={deleteItems}
-                    minusQuantity={minusQuantity}
-                    plusQuantity={plusQuantity}
-                    items={categorizeItems('냉동')}
-                  />
-                ) : (
-                  ''
-                )}
-                {categorizeItems('상온').length ? (
-                  <Category
-                    packaging="상온"
-                    selectedItems={selectedItems}
-                    selectItems={selectItems}
-                    deleteItems={deleteItems}
-                    minusQuantity={minusQuantity}
-                    plusQuantity={plusQuantity}
-                    items={categorizeItems('상온')}
-                  />
-                ) : (
-                  ''
-                )}
+                ))}
                 {!cartList.length ? (
                   <div className="noItems">
                     <p>장바구니에 담긴 상품이 없습니다</p>
@@ -227,7 +194,6 @@ function Cart() {
                     ? cartList[0].address
                     : '배송가능한 상품이 없습니다'
                 }
-                // address={cartList[0].address || '배송정보가 없습니다'}
                 handleOrder={handleOrder}
               />
             </aside>

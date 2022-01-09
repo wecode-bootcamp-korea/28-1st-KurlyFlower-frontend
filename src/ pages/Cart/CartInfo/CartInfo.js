@@ -8,7 +8,7 @@ function CartInfo({ priceSum, noCartItem, handleOrder, address }) {
   function onClickOrderBtn() {
     handleOrder(true);
   }
-  console.log(address);
+
   return (
     <div className="cartInfo">
       <section className="info">
