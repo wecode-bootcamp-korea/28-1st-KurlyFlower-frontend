@@ -22,7 +22,7 @@ function Signup() {
       [name]: value,
     });
   };
-
+  // console.log('테스트');
   const userNameValid = inputs.username.length > 5;
   const passwordValid = inputs.password.length > 7;
   const emailValid = inputs.email.includes('@');
@@ -31,7 +31,7 @@ function Signup() {
 
   const signUpOk = () => {
     const { username, password, name, email, phone_number, address } = inputs;
-    fetch('http://dfc1-118-32-35-58.ngrok.io/users/signup', {
+    fetch('http://13.209.117.55/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username,
@@ -45,9 +45,12 @@ function Signup() {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'CREATED') {
-          navigate('/main');
+          navigate('/');
+          console.log(result.message);
+          alert('환영합니다!');
         } else {
-          alert('당신의 회원가입은 실패하였습니다.');
+          // alert('당신의 회원가입은 실패하였습니다.');
+          console.log(result.message);
         }
       });
   };
@@ -66,8 +69,8 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h2>회원가입</h2>
+    <div className="signup">
+      <h2 className="memberJoinsTitle">회원가입</h2>
       <p className="pageSub">
         <span className="icons">*</span>
         필수입력사항

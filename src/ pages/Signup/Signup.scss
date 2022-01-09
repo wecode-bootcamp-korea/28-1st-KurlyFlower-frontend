@@ -1,8 +1,8 @@
 @import '../../styles/variables.scss';
-div {
+.signup {
   font-size: 1rem;
 
-  h2 {
+  .memberJoinsTitle {
     line-height: 35px;
     letter-spacing: 1px;
     margin-top: 23px;
@@ -11,7 +11,6 @@ div {
     text-align: center;
     font-size: 28px;
   }
-
   .pageSub {
     padding-right: 420px;
     padding-top: 45px;
@@ -21,12 +20,10 @@ div {
     font-size: 12px;
     font-weight: bold;
   }
-
   .icons {
     padding-right: 2px;
     color: #ee6a7b;
   }
-
   .tableBar {
     position: absolute;
     width: 650px;
@@ -55,14 +52,12 @@ div {
     text-align: left;
     vertical-align: top;
   }
-
   td {
     margin-left: 40px;
     padding: 9px;
     border-top: 0;
     text-align: left;
   }
-
   .inputTests {
     height: 44px;
     width: 43%;
@@ -82,12 +77,10 @@ div {
     left: 490px;
     margin-top: 26px;
   }
-
   .userAgreePart {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
-
     .agreePart {
       position: absolute;
       margin-top: 35px;
@@ -95,14 +88,12 @@ div {
       text-align: left;
     }
   }
-
   input[type='checkbox'] {
     position: absolute;
     width: 20px;
     height: 20px;
     left: 4px;
   }
-
   .inputBackContent {
     display: flex;
     flex-direction: column;
@@ -115,7 +106,6 @@ div {
     border: 1px solid $light-grey-border;
     text-align: left;
   }
-
   .checkboxAll {
     margin-left: 29px;
     margin-top: 33px;
@@ -123,12 +113,10 @@ div {
     font-weight: bold;
     text-align: left;
   }
-
   .checkboxAllSubText {
     font-size: 11px;
     font-weight: 400;
   }
-
   .partMap {
     display: table;
     margin-top: 31px;
@@ -138,7 +126,6 @@ div {
     font-size: 18px;
     font-weight: bold;
   }
-
   .partMap1 {
     margin-top: -150px;
   }
