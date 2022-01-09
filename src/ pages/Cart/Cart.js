@@ -5,12 +5,11 @@ import Category from './Category/Category';
 import CartInfo from './CartInfo/CartInfo';
 import Order from './Order/Order';
 import Nav from '../../components/Nav';
-
 function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isOrdered, setIsOrdered] = useState(false);
-
+  // console.log(cartList[0].address);
   function selectAllItems() {
     if (selectedItems.length === cartList.length) {
       setSelectedItems([]);
@@ -18,7 +17,6 @@ function Cart() {
       setSelectedItems(cartList);
     }
   }
-
   function deleteItems(item) {
     const filteredCartList = cartList.filter(cartItem => {
       return cartItem.product_id !== item.product_id;
@@ -26,7 +24,6 @@ function Cart() {
     setCartList(filteredCartList);
     submitDeletedSelectedItems(item);
   }
-
   function deleteSelectedItems() {
     let filteredCartList = cartList;
     setSelectedItems([]);
@@ -41,7 +38,6 @@ function Cart() {
     run();
     submitDeletedSelectedItems();
   }
-
   function submitDeletedSelectedItems(item) {
     let idArr = [];
     if (selectedItems.length) {
@@ -60,9 +56,10 @@ function Cart() {
       body: JSON.stringify({
         product_id_list: idArr,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
   }
-
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
@@ -77,7 +74,9 @@ function Cart() {
       setSelectedItems([...selectedItems, item]);
     }
   }
-
+  useEffect(() => {
+    console.log(selectedItems);
+  }, [selectedItems]);
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
@@ -86,7 +85,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, -1);
   }
-
   function plusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
@@ -95,7 +93,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, 1);
   }
-
   function submitChangeQuantity(productId, changeQuantity) {
     fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
@@ -109,11 +106,9 @@ function Cart() {
       }),
     });
   }
-
-  function handleOrder() {
-    setIsOrdered(true);
+  function handleOrder(boolean) {
+    setIsOrdered(boolean);
   }
-
   useEffect(() => {
     const token = sessionStorage.getItem('access_token');
     const loadCartData = async () => {
@@ -130,11 +125,9 @@ function Cart() {
     };
     loadCartData();
   }, []);
-
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);
   }
-
   return (
     <>
       <Nav />
@@ -145,11 +138,15 @@ function Cart() {
             <span className="selectAll">
               <BsCheckCircle
                 className={`checkbox ${
-                  selectedItems.length === cartList.length && 'clickedCheck'
+                  selectedItems.length &&
+                  selectedItems.length === cartList.length &&
+                  'clickedCheck'
                 }`}
                 onClick={selectAllItems}
               />
-              <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
+              <p className="text">{`전체선택 (${
+                selectedItems.length && cartList.length && selectedItems.length
+              }/${cartList.length})`}</p>
             </span>
             <span className="selectToDelete" onClick={deleteSelectedItems}>
               선택삭제
@@ -206,13 +203,18 @@ function Cart() {
                 )}
               </section>
             </main>
-
             <aside>
               <CartInfo
                 priceSum={selectedItems.reduce((acc, curr) => {
                   return acc + curr.quantity * curr.price;
                 }, 0)}
                 noCartItem={!cartList.length}
+                address={
+                  cartList.length
+                    ? cartList[0].address
+                    : '배송가능한 상품이 없습니다'
+                }
+                // address={cartList[0].address || '배송정보가 없습니다'}
                 handleOrder={handleOrder}
               />
             </aside>
@@ -232,10 +234,11 @@ function Cart() {
             </span>
           </section>
         </div>
-        {isOrdered && <Order selectedItems={selectedItems} />}
+        {isOrdered && (
+          <Order selectedItems={selectedItems} handleOrder={handleOrder} />
+        )}
       </div>
     </>
   );
 }
-
 export default Cart;
