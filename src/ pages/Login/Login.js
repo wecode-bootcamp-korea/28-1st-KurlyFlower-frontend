@@ -24,6 +24,7 @@ function Login() {
       }),
     })
       .then(response => response.json())
+      // .then(res => console.log(res));
       .then(result => {
         sessionStorage.setItem('access_token', result.access_token);
         navigate('/main');

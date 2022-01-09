@@ -5,11 +5,13 @@ import Category from './Category/Category';
 import CartInfo from './CartInfo/CartInfo';
 import Order from './Order/Order';
 import Nav from '../../components/Nav';
+import { useNavigate } from 'react-router';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isOrdered, setIsOrdered] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = sessionStorage.getItem('access_token');
@@ -25,7 +27,11 @@ function Cart() {
       const res = await data.result;
       setCartList(res);
     };
-    loadCartData();
+    if (token) {
+      loadCartData();
+    } else {
+      navigate('/');
+    }
   }, []);
 
   function selectAllItems() {
@@ -151,9 +157,9 @@ function Cart() {
                 }`}
                 onClick={selectAllItems}
               />
-              <p className="text">{`전체선택 (${
-                selectedItems.length && cartList.length && selectedItems.length
-              }/${cartList.length})`}</p>
+              {cartList && (
+                <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
+              )}
             </span>
             <span className="selectToDelete" onClick={deleteSelectedItems}>
               선택삭제
@@ -162,17 +168,18 @@ function Cart() {
           <div className="container">
             <main className="cartList">
               <section className="list">
-                {['냉장', '냉동', '상온'].map(category => (
-                  <Category
-                    packaging={category}
-                    selectedItems={selectedItems}
-                    selectItems={selectItems}
-                    deleteItems={deleteItems}
-                    minusQuantity={minusQuantity}
-                    plusQuantity={plusQuantity}
-                    items={categorizeItems(category)}
-                  />
-                ))}
+                {cartList.length &&
+                  ['냉장', '냉동', '상온'].map(category => (
+                    <Category
+                      packaging={category}
+                      selectedItems={selectedItems}
+                      selectItems={selectItems}
+                      deleteItems={deleteItems}
+                      minusQuantity={minusQuantity}
+                      plusQuantity={plusQuantity}
+                      items={categorizeItems(category)}
+                    />
+                  ))}
                 {!cartList.length ? (
                   <div className="noItems">
                     <p>장바구니에 담긴 상품이 없습니다</p>

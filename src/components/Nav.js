@@ -22,9 +22,12 @@ const Nav = ({ cartCount }) => {
   function goToCart() {
     navigate('/cart');
   }
-  function goToMain() {
-    navigate('/main');
+
+  function logOut() {
+    sessionStorage.removeItem('access_token');
   }
+
+  const isLoggedIn = sessionStorage.getItem('access_token');
 
   return (
     <div className="navLocation">
@@ -38,9 +41,17 @@ const Nav = ({ cartCount }) => {
         <Link to="/signup">
           <li className="rightMenuli">회원가입</li>
         </Link>
-        <Link to="/">
-          <li className="rightMenuli">로그인</li>
-        </Link>
+        {!isLoggedIn ? (
+          <Link to="/">
+            <li className="rightMenuli">로그인</li>
+          </Link>
+        ) : (
+          <Link to="/">
+            <li className="rightMenuli" onClick={logOut}>
+              로그아웃
+            </li>
+          </Link>
+        )}
 
         <li className="rightMenuli" onClick={listToggleMenu}>
           고객센터
