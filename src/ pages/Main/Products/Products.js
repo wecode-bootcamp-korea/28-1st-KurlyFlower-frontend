@@ -24,10 +24,10 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
         page * LAST_SLIDE_WIDTH
       }px)`;
     } else {
-      if (showMore)
-        itemListRef.current.style.transform = `translateX(-${
-          page * 1.5 * ITEM_WIDTH
-        }px)`;
+      if (showMore) console.log(showMore);
+      itemListRef.current.style.transform = `translateX(-${
+        page * ITEM_WIDTH
+      }px)`;
     }
   }, [page, SLIDE_COUNT, LAST_SLIDE_WIDTH, showMore, SLIDE_WIDTH, ITEM_WIDTH]);
 

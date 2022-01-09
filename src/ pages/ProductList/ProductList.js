@@ -22,6 +22,7 @@ function ProductList() {
       method: 'GET',
     })
       .then(res => res.json())
+
       .then(data => setProductList(data.result.data)); // 원래 코드 setProductList(data)) >> 리스트 데이터는 배열로 받았는데 내가 찾는 값은 객체 안에 있어서 경로 지정 해줘야함
   }, [location.search]);
 

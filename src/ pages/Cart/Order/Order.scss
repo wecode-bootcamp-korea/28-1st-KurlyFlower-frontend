@@ -81,14 +81,31 @@
       }
     }
 
-    .keepShopping {
-      width: 9rem;
-      height: 4rem;
-      background-color: $main-purple;
-      border-radius: 0.4rem;
-      font-size: $font-size-S;
-      font-weight: 600;
-      color: white;
+    .buttonWrap {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+
+      .keepShopping {
+        width: 12rem;
+        height: 4rem;
+        background-color: $main-purple;
+        border-radius: 0.4rem;
+        font-size: $font-size-S;
+        font-weight: 600;
+        color: white;
+      }
+
+      .close {
+        width: 12rem;
+        height: 4rem;
+        background-color: white;
+        border: 1px solid $light-grey-border;
+        border-radius: 0.4rem;
+        font-size: $font-size-S;
+        font-weight: 600;
+        color: $main-purple;
+      }
     }
   }
 }

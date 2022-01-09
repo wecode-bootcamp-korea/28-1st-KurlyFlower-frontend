@@ -10,7 +10,7 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isOrdered, setIsOrdered] = useState(false);
-
+  // console.log(cartList[0].address);
   function selectAllItems() {
     if (selectedItems.length === cartList.length) {
       setSelectedItems([]);
@@ -60,7 +60,9 @@ function Cart() {
       body: JSON.stringify({
         product_id_list: idArr,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
   }
 
   function selectItems(item) {
@@ -77,6 +79,9 @@ function Cart() {
       setSelectedItems([...selectedItems, item]);
     }
   }
+  useEffect(() => {
+    console.log(selectedItems);
+  }, [selectedItems]);
 
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
@@ -110,8 +115,8 @@ function Cart() {
     });
   }
 
-  function handleOrder() {
-    setIsOrdered(true);
+  function handleOrder(boolean) {
+    setIsOrdered(boolean);
   }
 
   useEffect(() => {
@@ -145,7 +150,9 @@ function Cart() {
             <span className="selectAll">
               <BsCheckCircle
                 className={`checkbox ${
-                  selectedItems.length === cartList.length && 'clickedCheck'
+                  selectedItems.length &&
+                  selectedItems.length === cartList.length &&
+                  'clickedCheck'
                 }`}
                 onClick={selectAllItems}
               />
@@ -213,6 +220,12 @@ function Cart() {
                   return acc + curr.quantity * curr.price;
                 }, 0)}
                 noCartItem={!cartList.length}
+                address={
+                  cartList.length
+                    ? cartList[0].address
+                    : '배송가능한 상품이 없습니다'
+                }
+                // address={cartList[0].address || '배송정보가 없습니다'}
                 handleOrder={handleOrder}
               />
             </aside>
@@ -232,7 +245,9 @@ function Cart() {
             </span>
           </section>
         </div>
-        {isOrdered && <Order selectedItems={selectedItems} />}
+        {isOrdered && (
+          <Order selectedItems={selectedItems} handleOrder={handleOrder} />
+        )}
       </div>
     </>
   );
