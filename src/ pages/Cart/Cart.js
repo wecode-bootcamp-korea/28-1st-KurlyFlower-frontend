@@ -41,7 +41,6 @@ function Cart() {
       setSelectedItems(cartList);
     }
   }
-
   function deleteItems(item) {
     const filteredCartList = cartList.filter(cartItem => {
       return cartItem.product_id !== item.product_id;
@@ -49,7 +48,6 @@ function Cart() {
     setCartList(filteredCartList);
     submitDeletedSelectedItems(item);
   }
-
   function deleteSelectedItems() {
     let filteredCartList = cartList;
     setSelectedItems([]);
@@ -64,7 +62,6 @@ function Cart() {
     run();
     submitDeletedSelectedItems();
   }
-
   function submitDeletedSelectedItems(item) {
     let idArr = [];
     if (selectedItems.length) {
@@ -85,7 +82,6 @@ function Cart() {
       }),
     }).then(res => res.json());
   }
-
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
@@ -109,7 +105,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, -1);
   }
-
   function plusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
@@ -118,7 +113,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, 1);
   }
-
   function submitChangeQuantity(productId, changeQuantity) {
     fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
@@ -140,7 +134,6 @@ function Cart() {
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);
   }
-
   return (
     <>
       <Nav />
@@ -189,7 +182,6 @@ function Cart() {
                 )}
               </section>
             </main>
-
             <aside>
               <CartInfo
                 priceSum={selectedItems.reduce((acc, curr) => {
@@ -227,5 +219,4 @@ function Cart() {
     </>
   );
 }
-
 export default Cart;

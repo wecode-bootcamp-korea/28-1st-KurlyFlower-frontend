@@ -15,7 +15,6 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
   const LIST_WIDTH = ITEM_WIDTH * productsLength;
   const SLIDE_COUNT = Math.floor(LIST_WIDTH / SLIDE_WIDTH);
   const LAST_SLIDE_WIDTH = LIST_WIDTH - SLIDE_COUNT * SLIDE_WIDTH;
-
   useEffect(() => {
     if (page < SLIDE_COUNT) {
       itemListRef.current.style.transform = `translateX(-${
@@ -32,17 +31,14 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
       }px)`;
     }
   }, [page, SLIDE_COUNT, LAST_SLIDE_WIDTH, showMore, SLIDE_WIDTH, ITEM_WIDTH]);
-
   function onNextClick() {
     setPage(page => page + 1);
   }
-
   function onPrevClick() {
     if (page > 0) {
       setPage(page => page - 1);
     }
   }
-
   function onClickCart(product) {
     addCart(product);
   }
@@ -91,7 +87,6 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
           <button className={page > 0 ? '' : 'hide'}>
             <MdKeyboardArrowLeft className="prev" onClick={onPrevClick} />
           </button>
-
           <button
             className={
               (!showMore && page === SLIDE_COUNT) || page > SLIDE_COUNT
@@ -106,5 +101,4 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
     </div>
   );
 }
-
 export default Products;
