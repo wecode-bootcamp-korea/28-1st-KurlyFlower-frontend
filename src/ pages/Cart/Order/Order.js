@@ -30,7 +30,7 @@ function Order({ selectedItems, handleOrder }) {
               />
               <span className="text">
                 <p className="name">{selectedItem.name}</p>
-                <p>{selectedItem.price}원</p>
+                <p>{Math.floor(selectedItem.price)}원</p>
               </span>
             </li>
           ))}

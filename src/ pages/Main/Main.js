@@ -6,7 +6,6 @@ import Nav from './../../components/Nav';
 import LoadMoreProducts from './LoadMoreProducts/LoadMoreProducts';
 import Skeleton from './Skeleton/Skeleton';
 import FilterProduct from './FilterProduct/FilterProduct';
-import ProductList from '../ProductList/ProductList';
 
 function Main() {
   const [productsList, setProductsList] = useState([]);
