@@ -3,11 +3,13 @@ import './Products.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import { BsCart2 } from 'react-icons/bs';
+import { useNavigate } from 'react-router';
 
 function Products({ products, productsLength, addCart, cartList, showMore }) {
   const itemRef = useRef();
   const itemListRef = useRef();
   const [page, setPage] = useState(0);
+  const navigate = useNavigate();
   const ITEM_WIDTH = 267;
   const SLIDE_WIDTH = 4 * ITEM_WIDTH;
   const LIST_WIDTH = ITEM_WIDTH * productsLength;
@@ -45,6 +47,10 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
     addCart(product);
   }
 
+  function goToDetail(id) {
+    navigate(`/products/${id}`);
+  }
+
   return (
     <div className="products">
       <div className="wrap">
@@ -53,7 +59,11 @@ function Products({ products, productsLength, addCart, cartList, showMore }) {
             {products.map((product, idx) => (
               <span key={idx} className="item" ref={itemRef}>
                 <div className="imgContainer">
-                  <img src={product.img || product.thumbnail_url} alt="" />
+                  <img
+                    onClick={() => goToDetail(product.id)}
+                    src={product.img || product.thumbnail_url}
+                    alt=""
+                  />
                 </div>
                 <p className="name">{product.name}</p>
                 <p className="price">{product.price}원</p>

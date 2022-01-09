@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsCart2 } from 'react-icons/bs';
+import { useNavigate } from 'react-router';
 import './Menu.scss';
 
 function Menu({
@@ -11,10 +12,19 @@ function Menu({
   price,
   thumbnail_url,
 }) {
+  const navigate = useNavigate();
+  function goToDetail(id) {
+    navigate(`/products/${id}`);
+  }
+
   return (
     <div className="menuContainer">
       <div className="imgBox">
-        <img src={thumbnail_url} alt="vegetable" />
+        <img
+          src={thumbnail_url}
+          alt="vegetable"
+          onClick={() => goToDetail(id)}
+        />
 
         <div className="cartBtn">
           <BsCart2 className="cartBtn" />

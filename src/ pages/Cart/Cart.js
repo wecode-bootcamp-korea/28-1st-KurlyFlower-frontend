@@ -156,7 +156,9 @@ function Cart() {
                 }`}
                 onClick={selectAllItems}
               />
-              <p className="text">{`전체선택 (${selectedItems.length}/${cartList.length})`}</p>
+              <p className="text">{`전체선택 (${
+                selectedItems.length && cartList.length && selectedItems.length
+              }/${cartList.length})`}</p>
             </span>
             <span className="selectToDelete" onClick={deleteSelectedItems}>
               선택삭제
