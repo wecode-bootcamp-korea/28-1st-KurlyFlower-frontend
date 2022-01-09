@@ -2,13 +2,13 @@ import React from 'react';
 import './CartInfo.scss';
 import { GrLocation } from 'react-icons/gr';
 
-function CartInfo({ priceSum, noCartItem, handleOrder }) {
+function CartInfo({ priceSum, noCartItem, handleOrder, address }) {
   const shippingFee = noCartItem ? 0 : 2500;
 
   function onClickOrderBtn() {
-    handleOrder();
+    handleOrder(true);
   }
-
+  console.log(address);
   return (
     <div className="cartInfo">
       <section className="info">
@@ -17,9 +17,7 @@ function CartInfo({ priceSum, noCartItem, handleOrder }) {
             <GrLocation />
             <p className="text">배송지</p>
           </h3>
-          <p className="text">
-            서울 ㅇㅇㅇ구 ㅇㅇ로 10(ㅇㅇ 아파트 ㅇㅇㅇ-ㅇㅇ)
-          </p>
+          <p className="text">{address}</p>
           <p className="shipping">샛별배송</p>
           <button className="edit">주소지 변경</button>
         </div>

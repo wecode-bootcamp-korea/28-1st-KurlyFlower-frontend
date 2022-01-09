@@ -77,6 +77,7 @@ function Cart() {
   useEffect(() => {
     console.log(selectedItems);
   }, [selectedItems]);
+
   function minusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
@@ -106,6 +107,7 @@ function Cart() {
       }),
     });
   }
+
   function handleOrder(boolean) {
     setIsOrdered(boolean);
   }

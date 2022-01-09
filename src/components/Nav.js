@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NavLogo from './Navlogo';
+import ProductList from '../ pages/ProductList/ProductList';
 import { CSCENTERLIST } from './CSCENTERLIST';
 import { BsCart2 } from 'react-icons/bs';
 import './Nav.scss';
