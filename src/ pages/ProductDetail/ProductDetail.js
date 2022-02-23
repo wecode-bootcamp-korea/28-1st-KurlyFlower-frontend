@@ -6,11 +6,14 @@ import './ProductDetail.scss';
 
 function ProductDetail() {
   const [productDetail, setProductDetail] = useState({});
-  const navigate = useNavigate();
-  const params = useParams();
+  // const [quantity, setquantity] = useState(1);
   const [count, setCount] = useState(1);
   const plusCount = () => setCount(prevCount => prevCount + 1);
   const minusCount = () => setCount(prevCount => prevCount - 1);
+
+  const navigate = useNavigate();
+  const params = useParams();
+
   const valueControl = e =>
     isNaN(e.target.value)
       ? alert('숫자를 입력하시오')
@@ -18,28 +21,39 @@ function ProductDetail() {
 
   const pricetotal = count * productDetail.price;
   const token = sessionStorage.getItem('access_token');
-  const cartPageGo = () => {
+
+  const cartPageGo = async () => {
     fetch(`http://13.209.117.55/products/cart`, {
-      method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: token,
+        // Authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
       },
+      method: 'POST',
+      // body: JSON.stringify({
+      //   product_id: `${params.id}`,
+      //   quantity: `${params.quantity}`,
+      // }),
       body: JSON.stringify({
-        product_id: `${params.id}`,
-        quantity: `${params.id}`,
+        product_id: params.id,
+        quantity: count,
       }),
     })
       .then(response => response.json())
-      .then(res => {
-        alert('장바구니에 상품이 추가되었어요');
-        navigate('/cart');
-      });
+      .then(res =>
+        // alert('장바구니에 상품이 추가되었어요');
+        // navigate('/Cart');
+        window.confirm('장바구니에 상품이 추가되었어요 확인하시겠습니까?')
+          ? navigate('/cart')
+          : null
+      );
   };
   useEffect(() => {
     fetch(`http://13.209.117.55/products/${params.id}`)
       .then(res => res.json())
       .then(res => setProductDetail(res.product_detail));
   }, []);
+
   return (
     <>
       <Nav />
@@ -103,7 +117,11 @@ function ProductDetail() {
         <p className="loginAds">로그인 후, 회원할인가와 적립혜택 제공</p>
       </div>
 
-      <button className="cartplus" onClick={cartPageGo}>
+      <button
+        type="button"
+        className="cartplus"
+        onClick={count > 0 ? cartPageGo : setCount(1)}
+      >
         장바구니 담기
       </button>
     </>

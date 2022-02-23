@@ -5,7 +5,6 @@ import Category from './Category/Category';
 import CartInfo from './CartInfo/CartInfo';
 import Order from './Order/Order';
 import Nav from '../../components/Nav';
-
 function Cart() {
   const [cartList, setCartList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
@@ -18,7 +17,6 @@ function Cart() {
       setSelectedItems(cartList);
     }
   }
-
   function deleteItems(item) {
     const filteredCartList = cartList.filter(cartItem => {
       return cartItem.product_id !== item.product_id;
@@ -26,7 +24,6 @@ function Cart() {
     setCartList(filteredCartList);
     submitDeletedSelectedItems(item);
   }
-
   function deleteSelectedItems() {
     let filteredCartList = cartList;
     setSelectedItems([]);
@@ -41,7 +38,6 @@ function Cart() {
     run();
     submitDeletedSelectedItems();
   }
-
   function submitDeletedSelectedItems(item) {
     let idArr = [];
     if (selectedItems.length) {
@@ -64,7 +60,6 @@ function Cart() {
       .then(res => res.json())
       .then(res => console.log(res));
   }
-
   function selectItems(item) {
     if (
       selectedItems.some(selectedItem => {
@@ -91,7 +86,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, -1);
   }
-
   function plusQuantity(item) {
     const updatedCartList = [...cartList];
     updatedCartList.forEach(cartItem => {
@@ -100,7 +94,6 @@ function Cart() {
     setCartList(updatedCartList);
     submitChangeQuantity(item.product_id, 1);
   }
-
   function submitChangeQuantity(productId, changeQuantity) {
     fetch('http://13.209.117.55/products/cart', {
       method: 'PATCH',
@@ -118,7 +111,6 @@ function Cart() {
   function handleOrder(boolean) {
     setIsOrdered(boolean);
   }
-
   useEffect(() => {
     const token = sessionStorage.getItem('access_token');
     const loadCartData = async () => {
@@ -135,11 +127,9 @@ function Cart() {
     };
     loadCartData();
   }, []);
-
   function categorizeItems(packagingType) {
     return cartList.filter(item => item.packaging === packagingType);
   }
-
   return (
     <>
       <Nav />
@@ -215,7 +205,6 @@ function Cart() {
                 )}
               </section>
             </main>
-
             <aside>
               <CartInfo
                 priceSum={selectedItems.reduce((acc, curr) => {
@@ -254,5 +243,4 @@ function Cart() {
     </>
   );
 }
-
 export default Cart;
